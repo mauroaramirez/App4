@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 -- Base de datos: `geo`
 --
 
-CREATE DATABASE IF NOT EXISTS `geo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `geo`;
+CREATE DATABASE IF NOT EXISTS `app4` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `app4`;
 
 CREATE TABLE `status` (
   `id`  int(11)  NOT NULL AUTO_INCREMENT,
