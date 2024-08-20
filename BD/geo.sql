@@ -53,7 +53,6 @@ CREATE TABLE `users` (
   `id_role` int(11) NOT NULL,
   `created_at` date NOT NULL,
   `full_name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `id_status`  int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -66,7 +65,7 @@ CREATE TABLE `users` (
     REFERENCES `roles` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `users` (`id`, `password`, `id_role`, `created_at`, `full_name`, `address`, `email`, `id_status`) VALUES (NULL, '123', '1', '2024-08-08', 'admin', 'falsa 123', 'admin@gmail.com', '1');
+INSERT INTO `users` (`id`, `password`, `id_role`, `created_at`, `full_name`, `email`, `id_status`) VALUES (NULL, '123', '1', '2024-08-08', 'falsa 123', 'admin@gmail.com', '1');
 
 CREATE TABLE `emergency_contacts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -146,29 +145,9 @@ CREATE TABLE `notifications` (
 
 INSERT INTO `notifications` (`id`, `id_user`, `notification_text`, `timestamp`, `id_status`) VALUES (NULL, '1', 'mensaje de prueba', CURRENT_TIMESTAMP, '1');
 
-CREATE TABLE `emergency_services` (
-  `id`  int(11) NOT NULL AUTO_INCREMENT,
-  `service_name` varchar(255) NOT NULL,
-  `latitude` varchar(255) NOT NULL,
-  `longitude` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `id_status`  int(11) NOT NULL,
-  `id_locations`  int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_id_status_idx` (`id_status`),
-  KEY `fk_id_locations_idx` (`id_locations`),
-  CONSTRAINT `fk_emergency_services_id_status`
-    FOREIGN KEY (`id_status`)
-    REFERENCES `status` (`id`),
-  CONSTRAINT `fk_emergency_services_id_locations`
-    FOREIGN KEY (`id_locations`)
-    REFERENCES `locations` (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO `emergency_services` (`id`, `service_name`, `latitude`, `longitude`, `address`, `id_status`, `id_locations`) VALUES (NULL, 'test', '54545564654', '456465465', 'falsa 123', '1', '1');
-
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) NOT NULL,
   `message_text` varchar(255) NOT NULL,
   `timestamp` timestamp NOT NULL,
   `id_status` int(11) NOT NULL,
@@ -179,7 +158,7 @@ CREATE TABLE `messages` (
     REFERENCES `status` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `messages` (`id`, `message_text`, `timestamp`, `id_status`) VALUES (NULL, 'mensaje de prueba', CURRENT_TIMESTAMP, '1');
+INSERT INTO `messages` (`id`, `description` ,`message_text`, `timestamp`, `id_status`) VALUES (NULL, 'SOS', 'mensaje de prueba', CURRENT_TIMESTAMP, '1');
 
 CREATE TABLE `emergency_alerts` (
   `id`  int(11) NOT NULL AUTO_INCREMENT,
@@ -188,7 +167,6 @@ CREATE TABLE `emergency_alerts` (
   `longitude` varchar(255) NOT NULL,
   `alert_type`  int(11) NOT NULL,
   `timestamp` timestamp NOT NULL,
-  `description` varchar(255) NOT NULL,
   `id_message`  int(11) NOT NULL,
   `id_status` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -206,7 +184,7 @@ CREATE TABLE `emergency_alerts` (
     REFERENCES `status` (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `emergency_alerts` (`id`, `id_user`, `latitude`, `longitude`, `alert_type`, `timestamp`, `description`, `id_message`, `id_status`) VALUES (NULL, '1', '324324324', '423432432', '1', CURRENT_TIMESTAMP, 'test de prueba - secuestro', '1', '1');
+INSERT INTO `emergency_alerts` (`id`, `id_user`, `latitude`, `longitude`, `alert_type`, `timestamp`, `id_message`, `id_status`) VALUES (NULL, '1', '324324324', '423432432', '1', CURRENT_TIMESTAMP, '1', '1');
 
 CREATE TABLE `alert_histories` (
   `id`  int(11) NOT NULL AUTO_INCREMENT,
