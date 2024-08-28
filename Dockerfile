@@ -29,3 +29,5 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
     
 LABEL description="PHP + GD + Apache + PDO + DriverMongo + Composer"
+
+EXPOSE 4060
