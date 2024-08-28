@@ -1,18 +1,21 @@
-<?php 
+<?php
 
 namespace App\config;
 
-class Router {
+class Router
+{
 
 	private $controller;
 	private $method;
 	private $url;
 
-	public function __construct() {
+	public function __construct()
+	{
 		$this->matchRoute();
 	}
 
-	public function matchRoute() {
+	public function matchRoute()
+	{
 
 		$this->url = explode("/", URL);
 		#var_dump($this->url);
@@ -21,31 +24,29 @@ class Router {
 
 		$this->method = !empty($this->url[1]) ? $this->url[1] : 'index';
 
-		$this->controller = ucfirst($this->controller).'Controller';
+		$this->controller = ucfirst($this->controller) . 'Controller';
 
-		$controllerExists = '../Controllers/'.$this->controller.'.php';
+		$controllerExists = '../Controllers/' . $this->controller . '.php';
 
 		# se valida que exista la clase
-		if(file_exists($controllerExists)) {
+		if (file_exists($controllerExists)) {
 
-			require_once '../Controllers/'.$this->controller.'.php';
-
+			require_once '../Controllers/' . $this->controller . '.php';
 		} else {
 
 			$this->controller = 'HomeController';
 			$this->method = 'errorURL';
-			require_once '../Controllers/'.$this->controller.'.php';
-
+			require_once '../Controllers/' . $this->controller . '.php';
 		}
-		
 	}
 
-	public function run() {
+	public function run()
+	{
 
-		$namespace = 'App\Controllers\\'.$this->controller;
+		$namespace = 'App\Controllers\\' . $this->controller;
 		$controller = new $namespace;
-		$method = $this->method;		
-		
+		$method = $this->method;
+
 		# se valida que exista el metodo
 		if (method_exists($controller, $method)) {
 			/*
@@ -61,24 +62,21 @@ class Router {
 				case 3:
 					$controller->$method($this->url[2]);
 					break;
-				
+
 				default:
 					$controller->$method();
 					break;
 			}
-		# si se ingresan parametros no permitidos se informa error
+			# si se ingresan parametros no permitidos se informa error
 		} else {
 
 			$this->controller = 'HomeController';
 			$this->method = 'errorURL';
-			
-			$namespace = 'App\Controllers\\'.$this->controller;
+
+			$namespace = 'App\Controllers\\' . $this->controller;
 			$controller = new $namespace;
 			$method = $this->method;
 			$controller->$method();
-
 		}
-		
 	}
-
 }

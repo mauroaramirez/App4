@@ -1,3 +1,3 @@
 <div>
-	<h2>ACA SERIA EL LOG IN</h2>
+	<h2>LOGIN</h2>
 </div>

@@ -8,8 +8,8 @@
 <body>
 	<center>
 		<h1>404</h1>
-		<p>pagina no encontrada</p>
-		<a href="/home">volver</a>
+		<p>Página no encontrada</p>
+		<a href="/home">Volver</a>
 	</center>
 </body>
 </html>

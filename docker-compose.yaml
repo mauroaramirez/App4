@@ -1,38 +1,14 @@
 version: '3'
 services:
-  mvc-sql:
-    image: mysql:5.7
-    container_name: mvc-sql-app4
-    restart: always
-    ports:
-     - "3320:3306"
-    volumes:
-     - ./mysql:/var/lib/mysql
-     - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
-     - ./files:/var/lib/mysql-files
-    env_file: .env
-    networks:
-      - mvc
-  mvc-admin:
-    image: phpmyadmin:latest
-    container_name: mvc-admin-app4
-    restart: always
-    ports:
-     - "8071:80"
-    env_file: .env
-    links:
-     - mvc-sql:mysqldb
-    networks:
-      - mvc
-  mvc-public:
+  app4:
     build: ./
-    container_name: mvc-public-app4
+    container_name: apache-app4
     restart: always
     ports:
-     - "8070:80"
+     - ${PHP_PORT}:80
     env_file: .env
     volumes:
-     - ./:/var/www/html
+     - ./home/app4:/var/www/html
      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
     networks:
       - mvc

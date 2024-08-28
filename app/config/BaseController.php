@@ -1,25 +1,26 @@
-<?php 
+<?php
 
 namespace App\config;
 
-abstract class BaseController {
+abstract class BaseController
+{
 
-	protected function renderView($path, $params=[]) {
+	protected function renderView($path, $params = [])
+	{
 
 		include_once '../Views/base.php';
-
 	}
 
-	protected function redirectTo($route) {
-		
-		header("Location: ".SITE.$route);
+	protected function redirectTo($route)
+	{
 
+		header("Location: " . SITE . $route);
 	}
 
-	protected function addAlert($message) {
+	protected function addAlert($message)
+	{
 		echo '<script>        
-        		alert("'.$message.'");
+        		alert("' . $message . '");
         	</script>';
 	}
-
 }
