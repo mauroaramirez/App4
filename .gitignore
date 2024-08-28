@@ -1,4 +1,6 @@
 .env
+.env.local
+docker-compose-local.yaml
 !.gitkeep
 files/*.*
 !files/.gitkeep
