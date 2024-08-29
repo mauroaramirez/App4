@@ -30,4 +30,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
     
 LABEL description="PHP + GD + Apache + PDO + DriverMongo + Composer"
 
-EXPOSE 4060
+#EXPOSE 4060
