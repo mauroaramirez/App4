@@ -13,6 +13,7 @@
 	</nav>	
 	<main class="main">		
 		<div class="container">
+			
 			<?php
 			include_once '../Views/'.$path.'.php';
 			?>
