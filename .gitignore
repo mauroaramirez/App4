@@ -8,3 +8,4 @@ mysql/*.*
 mysql/ib*
 mysql/*/
 !mysql/.gitkeep
+__pycache__
