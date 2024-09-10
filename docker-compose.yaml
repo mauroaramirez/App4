@@ -5,7 +5,7 @@ services:
     container_name: apache-app4
     restart: always
     ports:
-     - ${PHP_PORT}:80
+     - 4060:80
     env_file: .env
     volumes:
      - ./home/app4:/var/www/html
