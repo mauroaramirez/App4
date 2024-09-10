@@ -9,3 +9,4 @@ mysql/ib*
 mysql/*/
 !mysql/.gitkeep
 __pycache__
+.envbu
