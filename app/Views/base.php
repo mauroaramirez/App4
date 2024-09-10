@@ -8,7 +8,7 @@
 </head>
 <body>
 	<nav class="navbar">
-		<a href="/home" class="navbar-link"><?php echo "&#x1f198;" ?></a>|
+		<a href="/home" class="navbar-link"><?php echo "&#x1f198;" ?></a>
 		<a href="/EmergencyAlerts" class="navbar-link">Mensajes de Alerta</a>
 	</nav>	
 	<main class="main">		
