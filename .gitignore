@@ -10,3 +10,4 @@ mysql/*/
 !mysql/.gitkeep
 __pycache__
 .envbu
+backup

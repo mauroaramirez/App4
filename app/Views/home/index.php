@@ -1,4 +1,4 @@
-<?php echo SITE."css/login.css" ?>">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-<div class="wrapper">
+<div class="wrapper" >
+    <form action="../Views/login" method="POST">
     <div class="container main">
         <div class="row">
             <div class="col-md-6 side-image"> 
@@ -33,7 +34,7 @@
                     <a href="#">¿Olvidaste tu contraseña?</a>
                 </div>
                 <div class="input-field">
-                        <input type="submit" class="submit" value="Ingresar">
+                        <input type="submit" class="submit" value="Ingresar" name="iniciosesion">
                 </div> 
                 <div class="registrarse">
                     <span>¿Todavía no tenés cuenta? <a href="#">Registrate</a></span>

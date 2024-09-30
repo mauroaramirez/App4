@@ -7,10 +7,12 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo SITE."css/style.css" ?>">
 </head>
 <body>
+	<!--  
 	<nav class="navbar">
 		<a href="/home" class="navbar-link"><?php echo "&#x1f198;" ?></a>
 		<a href="/EmergencyAlerts" class="navbar-link">Mensajes de Alerta</a>
-	</nav>	
+	</nav>
+	-->	
 	<main class="main">		
 		<div class="container">
 			
