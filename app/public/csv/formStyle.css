@@ -1,0 +1,11 @@
+.custom-select {
+    width: 100%;
+    /* Ancho del select al 100% del contenedor */
+    box-sizing: border-box;
+}
+
+.custom-select option {
+    width: 100%;
+    /* Ancho del option al 100% del select */
+    box-sizing: border-box;
+}
