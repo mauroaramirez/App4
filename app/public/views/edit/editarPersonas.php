@@ -6,10 +6,10 @@ use Clases\Personas;
 
 if ($_SESSION['rol_id'] == 1) :
 
-	$personas = new Personas;
+	$dispositivos = new Personas;
 
-	$personas = $personas->selectOne($_GET['id']);
-	$nombre_completo = explode(",", $personas[2]['titular']);
+	$dispositivos = $dispositivos->selectOne($_GET['id']);
+	$nombre_completo = explode(",", $dispositivos[2]['titular']);
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -35,16 +35,16 @@ if ($_SESSION['rol_id'] == 1) :
 					</tr>
 					<tr>
 						<td><label for="email">Email:</label></td>
-						<td><input type="email" name="email" value="<?php echo $personas[2]['email'] ?>"></td>
+						<td><input type="email" name="email" value="<?php echo $dispositivos[2]['email'] ?>"></td>
 					</tr>
 					<tr>
 						<td><label for="dni">DNI:</label></td>
-						<td><input type="number" name="dni" value="<?php echo $personas[2]['dni'] ?>"></td>
+						<td><input type="number" name="dni" value="<?php echo $dispositivos[2]['dni'] ?>"></td>
 					</tr>
 					<tr>
 						<td><label>Sexo:</label></td>
 						<td>
-							<?php if ($personas[2]['sexo'] == "F") : ?>
+							<?php if ($dispositivos[2]['sexo'] == "F") : ?>
 								<label for="sex">M</label>
 								<input type="radio" name="sex" value="M">
 								<label for="sex">F</label>
@@ -59,11 +59,11 @@ if ($_SESSION['rol_id'] == 1) :
 					</tr>
 					<tr>
 						<td><label for="direccion">Dirección:</label></td>
-						<td><input type="text" name="direccion" value="<?php echo $personas[2]['direccion'] ?>"></td>
+						<td><input type="text" name="direccion" value="<?php echo $dispositivos[2]['direccion'] ?>"></td>
 					</tr>
 					<tr>
 						<td><label for="pais">País:</label></td>
-						<td><input type="text" name="pais" value="<?php echo $personas[2]['pais'] ?>"></td>
+						<td><input type="text" name="pais" value="<?php echo $dispositivos[2]['pais'] ?>"></td>
 					</tr>
 					<tr>
 						<td colspan="2" style="text-align: center;">

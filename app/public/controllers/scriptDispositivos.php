@@ -7,13 +7,29 @@ use Clases\Dispositivos;
 
 $dispositivo = new Dispositivos();
 
-$dispositivo->setMarcas($_POST['marca']);
-$dispositivo->setModelo($_POST['modelo']);
-$dispositivo->setImei($_POST['imei']);
+if (isset($_POST['newDispositivo'])) {
 
-$result = $dispositivo->insert();
+    $dispositivo->setMarcas($_POST['marca']);
+    $dispositivo->setModelo($_POST['modelo']);
+    $dispositivo->setImei($_POST['imei']);
 
-validarResonseQuery($result);
+    $result = $dispositivo->insert();
 
+    validarResonseQuery($result);
+
+}
+
+if (isset($_POST['updateDispositivo'])) {
+
+    $dispositivo->setMarcas($_POST['marca']);
+    $dispositivo->setModelo($_POST['modelo']);
+    $dispositivo->setImei($_POST['imei']);
+
+    $result = $dispositivo->updateDispositivo($_POST['id']);
+
+    validarResonseQueryUpdate($result);
+}
+
+echo '<br><br><a href="/views/dataTables/dataTableDispositivos.php">Ir a Consulta de Dispositivos</a>';
 echo '<br><br><a href="../views/forms/formDispositivo.php">Ir al Registro de Dispositivos</a>';
 echo '<br><br><a href="/views/index.php">Ir a Menú Principal</a>';

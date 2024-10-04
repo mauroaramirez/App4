@@ -23,7 +23,7 @@ class Dispositivos
 
 	public function setMarcas($marca)
 	{
-		$this->marca = trim(ucwords(strtolower($marca)));
+		$this->marca = trim(strtoupper($marca));
 	}
 
 	public function getModelo()
@@ -33,7 +33,7 @@ class Dispositivos
 
 	public function setModelo($modelo)
 	{
-		$this->modelo = trim(ucwords(strtolower($modelo)));
+		$this->modelo = trim(strtoupper($modelo));
 	}
 
 	public function getImei()
@@ -74,6 +74,52 @@ class Dispositivos
 		FROM dispositivos
 		';
 		$stmt = Database::conectar()->prepare($query);
+
+		if ($stmt->execute()) {
+			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
+			return $result;
+		} else {
+			return $stmt->errorInfo();
+		}
+	}
+
+	public function selectOne($id)
+	{
+
+		$query = '
+		SELECT dispositivos.id AS "id"
+			,dispositivos.marca AS "marca"
+			,dispositivos.modelo AS "modelo"
+			,dispositivos.imei AS "imei"
+		FROM dispositivos
+		WHERE dispositivos.id = ?
+		';
+
+		$stmt = Database::conectar()->prepare($query);
+
+		$stmt->bindParam(1, $id);
+
+		if ($stmt->execute()) {
+			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetch(PDO::FETCH_ASSOC)];
+			return $result;
+		} else {
+			return $stmt->errorInfo();
+		}
+	}
+
+	public function updateDispositivo($id)
+	{
+		$update = "
+		UPDATE `dispositivos` SET `marca` = ?
+		, `modelo` = ?
+		, `imei` = ? 
+		WHERE `dispositivos`.`id` = ?";
+
+		$stmt = Database::conectar()->prepare($update);
+		$stmt->bindParam(1, $this->marca);
+		$stmt->bindParam(2, $this->modelo);
+		$stmt->bindParam(3, $this->imei);
+		$stmt->bindParam(4, $id);
 
 		if ($stmt->execute()) {
 			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];

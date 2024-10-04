@@ -25,7 +25,7 @@ if (isset($_SESSION['id'])) {
 		<br>
 		<a href="./dataTables/dataTablePersonas.php">Consulta Personas</a><br>
 		<br>
-		<a href="./dataTables/dataTableAutos.php">Consulta Dispositivos</a><br>
+		<a href="./dataTables/dataTableDispositivos.php">Consulta Dispositivos</a><br>
 		<br><br>
 		<a href="./logout.php" style="margin-right: 2px;">Cerrar sesión</a>
 	</body>

@@ -13,11 +13,11 @@ use Clases\Dispositivos;
 // rol_id = 1 es perfil root
 if ($_SESSION['rol_id'] == 1) :
 
-	$dispositivos = new Dispositivos;
+	$personas = new Dispositivos;
 	$personas = new Personas;
 
 	$selectPersonas = $personas->selectPersonas();
-	$selectDispositivos = $dispositivos->selectDispositivos();
+	$selectDispositivos = $personas->selectDispositivos();
 	//$selectTitulares = $peronas->selectPersonas();
 	//$selectTipoVehiculos = $auto->selectTipoVehiculos();
 	//$selectTipoCarroceria = $auto->selectTipoCarroceria();
