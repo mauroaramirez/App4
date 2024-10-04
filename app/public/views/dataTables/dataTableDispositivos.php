@@ -4,9 +4,9 @@ require_once '../../models/Dispositivos.php';
 
 use Clases\Dispositivos;
 
-$personas = new Dispositivos;
+$dispositivos = new Dispositivos;
 
-$dataTable = $personas->selectDispositivos();
+$dataTable = $dispositivos->selectDispositivos();
 
 ?>
 <!DOCTYPE html>

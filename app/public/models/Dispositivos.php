@@ -128,4 +128,19 @@ class Dispositivos
 			return $stmt->errorInfo();
 		}
 	}
+
+	public function deleteDispotivos($id)
+	{
+		$delete = "DELETE FROM `dispositivos` WHERE `id` = ?";
+
+		$stmt = Database::conectar()->prepare($delete);
+		$stmt->bindParam(1, $id);
+
+		if ($stmt->execute()) {
+			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
+			return $result;
+		} else {
+			return $stmt->errorInfo();
+		}
+	}
 }

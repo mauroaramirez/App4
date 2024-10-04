@@ -30,6 +30,13 @@ if (isset($_POST['updateDispositivo'])) {
     validarResonseQueryUpdate($result);
 }
 
+if (isset($_POST['deleteDispositivos'])) {
+
+    $result = $dispositivo->deleteDispotivos($_POST['id']);
+
+    validarResonseQueryDelete($result);
+}
+
 echo '<br><br><a href="/views/dataTables/dataTableDispositivos.php">Ir a Consulta de Dispositivos</a>';
 echo '<br><br><a href="../views/forms/formDispositivo.php">Ir al Registro de Dispositivos</a>';
 echo '<br><br><a href="/views/index.php">Ir a Menú Principal</a>';

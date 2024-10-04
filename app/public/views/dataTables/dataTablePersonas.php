@@ -4,9 +4,9 @@ require_once '../../models/Personas.php';
 
 use Clases\Personas;
 
-$personas = new Personas;
+$dispositivos = new Personas;
 
-$dataTable = $personas->selectAll();
+$dataTable = $dispositivos->selectAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">

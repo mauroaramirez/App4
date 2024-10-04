@@ -6,9 +6,9 @@ use Clases\Dispositivos;
 
 if ($_SESSION['rol_id'] == 1) :
 
-	$personas = new Dispositivos;
+	$dispositivos = new Dispositivos;
 
-	$personas = $personas->selectOne($_GET['id']);
+	$dispositivos = $dispositivos->selectOne($_GET['id']);
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -24,19 +24,18 @@ if ($_SESSION['rol_id'] == 1) :
 			<h3>Editar Dispositivo</h3>
 			<form action="../../controllers/scriptDispositivos.php" method="post">
 				<table>
-					<tr>
+				<tr>
 						<td><label for="marca">Marca:</label></td>
-						<td><input type="text" name="marca"></td>
+						<td><input type="text" name="marca" value="<?php echo trim($dispositivos[2]['marca']) ?>"></td>
 					</tr>
 					<tr>
 						<td><label for="modelo">Modelo:</label></td>
-						<td><input type="text" name="modelo"></td>
+						<td><input type="text" name="modelo" value="<?php echo trim($dispositivos[2]['modelo']) ?>"></td>
 					</tr>
 					<tr>
-						<td><label for="imei">IMEI:</label></td>
-						<td><input type="text" name="imei"></td>
+						<td><label for="email">IMEI:</label></td>
+						<td><input type="imei" name="imei" value="<?php echo $dispositivos[2]['imei'] ?>"></td>
 					</tr>
-					
 					<tr>
 						<td colspan="2" style="text-align: center;">
 							<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">

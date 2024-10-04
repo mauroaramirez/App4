@@ -12,11 +12,11 @@ if ($_SESSION['rol_id'] == 1) :
 
 	$asociar = new Asociar;
 	$modelo = new Modelos;
-	$personas = new Personas;
+	$dispositivos = new Personas;
 
 	$selectPersonas = $modelo->selectMarcas();
 	$selectDispositivos = $modelo->selectModelos();
-	$selectTitulares = $personas->selectPersonas();
+	$selectTitulares = $dispositivos->selectPersonas();
 	$selectTipoVehiculos = $asociar->selectTipoVehiculos();
 	$selectTipoCarroceria = $asociar->selectTipoCarroceria();
 	$selectTipoTransmision = $asociar->selectTipoTransmision();
