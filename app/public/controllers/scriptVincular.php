@@ -1,11 +1,11 @@
 <?php
 session_start();
-require_once '../models/Asociar.php';
+require_once '../models/Vincular.php';
 require_once '../utils/utils.php';
 
-use Clases\Asociar;
+use Clases\Vincular;
 
-$asociar = new Asociar();
+$asociar = new Vincular();
 
 if (isset($_POST['vincular'])) {
 
@@ -34,5 +34,5 @@ if (isset($_POST['deleteAuto'])) {
     validarResonseQueryDelete($result);
 }
 
-echo '<br><br><a href="../views/forms/formAsociar.php">Ir a Vincular dispositivos</a>';
+echo '<br><br><a href="../views/forms/formVincular.php">Ir a Vincular dispositivos</a>';
 echo '<br><br><a href="/views/index.php">Ir a Menú Principal</a>';

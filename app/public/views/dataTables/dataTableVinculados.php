@@ -1,68 +1,67 @@
 <?php
 session_start();
-require_once './Clases/Autos.php';
+require_once '../../models/Vincular.php';
 
-use Clases\Asociar;
+use Clases\Vincular;
 
-$autos = new Asociar;
+if ($_SESSION['rol_id'] == 1) :
 
-$dataTable = $autos->selectAll();
+    $vinculados = new Vincular;
+
+    //$dataTable = $vinculados->selectOne($_GET['id']);
+    $dataTable = $vinculados->selectAll();
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="es">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Consulta de Autos</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dispositivos Vinculados</title>
+        <!-- Vincular Bootstrap y el archivo CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/style.css">
+    </head>
 
-<body>
-	<center>
-		<h3>Consulta de Autos</h3>
-		<table border="1">
-			<thead>
-				<tr>
-					<th>N° Auto</th>
-					<th>Marca</th>
-					<th>Modelo</th>
-					<th>Titular</th>
-					<th>Tipo Vehiculo</th>
-					<th>Tipo Carroceria</th>
-					<th>Tipo Transmision</th>
-					<th>Tipo Motor</th>
-					<th>Peso</th>
-					<th>Rodado</th>
-					<th>Color</th>
-					<th>Acciones</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach ($dataTable[2] as $key => $value) : ?>
-					<tr>
-						<td><?php echo $value['id'] ?></td>
-						<td><?php echo $value['marca'] ?></td>
-						<td><?php echo $value['modelo'] ?></td>
-						<td><?php echo $value['titular'] ?></td>
-						<td><?php echo $value['tipo_vehiculo'] ?></td>
-						<td><?php echo $value['tipo_carroceria'] ?></td>
-						<td><?php echo $value['tipo_transmicion'] ?></td>
-						<td><?php echo $value['tipo_motor'] ?></td>
-						<td><?php echo $value['peso'] ?></td>
-						<td><?php echo $value['rodado'] ?></td>
-						<td><?php echo $value['color'] ?></td>
-						<td>
-							<a href="verAutos.php?id=<?php echo $value['id'] ?>">Ver</a>
-							<a href="editarAuto.php?id=<?php echo $value['id'] ?>">Editar</a>
-							<a href="borrarAuto.php?id=<?php echo $value['id'] ?>">Borrar</a>
-						</td>
-					</tr>
-				<?php endforeach ?>
-			</tbody>
-		</table>
-		<br>
-		<nav><?php include_once 'linkPantallas.php' ?></nav>
-	</center>
-</body>
+    <body class="form-background">
+        <div class="container mt-1">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card p-4">
+                        <h3 class="text-center">Dispositivos Vinculados</h3>
+                        <table class="table table-bordered mt-3">
+                            <thead>
+                                <tr>
+                                    <th>Titular</th>
+                                    <th>Email</th>
+                                    <th>Fecha Alta</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>IMEI</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($dataTable[2] as $key => $value) : ?>
+                                    <tr>
+                                        <td><?php echo $value['titular'] ?></td>
+                                        <td><?php echo $value['email'] ?></td>
+                                        <td><?php echo $value['fecha_alta'] ?></td>
+                                        <td><?php echo $value['marca'] ?></td>
+                                        <td><?php echo $value['modelo'] ?></td>
+                                        <td><?php echo $value['imei'] ?></td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</html>
+        <!-- Vincular Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+
+    </html>
+<?php endif ?>

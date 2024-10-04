@@ -4,9 +4,9 @@ require_once '../../models/Dispositivos.php';
 
 use Clases\Dispositivos;
 
-$personas = new Dispositivos;
+$dispositivos = new Dispositivos;
 
-$personas = $personas->selectOne($_GET['id']);
+$dispositivos = $dispositivos->selectOne($_GET['id']);
 
 ?>
 <!DOCTYPE html>
@@ -22,10 +22,10 @@ $personas = $personas->selectOne($_GET['id']);
 	<center>
 		<h3>Datos del Dispositivo</h3>
 		<div style="border: 1px solid; width: 50%;padding: 2px;">
-			<b>ID: </b><?php echo $personas[2]['id'] ?><br>
-			<b>Marca: </b><?php echo $personas[2]['marca'] ?><br>
-			<b>Modelo: </b><?php echo $personas[2]['modelo'] ?><br>
-			<b>IMEI: </b><?php echo $personas[2]['imei'] ?><br>
+			<b>ID: </b><?php echo $dispositivos[2]['id'] ?><br>
+			<b>Marca: </b><?php echo $dispositivos[2]['marca'] ?><br>
+			<b>Modelo: </b><?php echo $dispositivos[2]['modelo'] ?><br>
+			<b>IMEI: </b><?php echo $dispositivos[2]['imei'] ?><br>
 		</div>
 		<br>
 		<a href="../../views/dataTables/dataTableDispositivos.php">Ir a Consulta de Dispositivos</a>

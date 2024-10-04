@@ -9,7 +9,7 @@ use PDO;
 
 use Clases\Database;
 
-class Asociar
+class Vincular
 {
 
 	private $persona;
@@ -56,26 +56,15 @@ class Asociar
 	{
 
 		$query = '
-			SELECT autos.id AS "id"
-				,marcas.descripcion AS "marca"
-				,modelos.descripcion AS "modelo"
-				,CONCAT_WS(", ", titulares.nombre, titulares.apellido) AS "titular"
-				,tipos_vehiculos.descripcion AS "tipo_vehiculo"
-				,tipos_carrocerias.descripcion AS "tipo_carroceria"
-				,tipos_transmisiones.descripcion AS "tipo_transmicion"
-				,tipos_motores.descripcion AS "tipo_motor"
-				,autos.peso AS "peso"
-				,autos.rodado AS "rodado"
-				,autos.color AS "color"
-
-			FROM `autos` 
-				JOIN marcas ON autos.id_marca = marcas.id
-				JOIN modelos ON autos.id_modelo = modelos.id
-				JOIN titulares ON autos.id_titular = titulares.id
-				JOIN tipos_vehiculos ON autos.id_tipo_vehiculo = tipos_vehiculos.id
-				JOIN tipos_carrocerias ON autos.id_tipo_carroceria = tipos_carrocerias.id
-				JOIN tipos_transmisiones ON autos.id_tipo_transmision = tipos_transmisiones.id
-				JOIN tipos_motores ON autos.id_tipo_motor = tipos_motores.id
+			SELECT CONCAT_WS(" ", personas.nombre, personas.apellido) AS "titular"
+				,personas.email AS email
+				,personas.fecha_alta AS fecha_alta
+				,dispositivos.marca AS marca
+				,dispositivos.modelo AS modelo
+				,dispositivos.imei AS imei
+			FROM vinculados AS vinculados
+				JOIN personas ON personas.id = vinculados.id_persona
+				JOIN dispositivos ON dispositivos.id = vinculados.id_dispositivo;
 		';
 
 		$stmt = Database::conectar()->prepare($query);
@@ -160,27 +149,16 @@ class Asociar
 	{
 
 		$query = '
-			SELECT autos.id AS "id"
-				,marcas.descripcion AS "marca"
-				,modelos.descripcion AS "modelo"
-				,CONCAT_WS(", ", titulares.nombre, titulares.apellido) AS "titular"
-				,tipos_vehiculos.descripcion AS "tipo_vehiculo"
-				,tipos_carrocerias.descripcion AS "tipo_carroceria"
-				,tipos_transmisiones.descripcion AS "tipo_transmicion"
-				,tipos_motores.descripcion AS "tipo_motor"
-				,autos.peso AS "peso"
-				,autos.rodado AS "rodado"
-				,autos.color AS "color"
-
-			FROM `autos` 
-				JOIN marcas ON autos.id_marca = marcas.id
-				JOIN modelos ON autos.id_modelo = modelos.id
-				JOIN titulares ON autos.id_titular = titulares.id
-				JOIN tipos_vehiculos ON autos.id_tipo_vehiculo = tipos_vehiculos.id
-				JOIN tipos_carrocerias ON autos.id_tipo_carroceria = tipos_carrocerias.id
-				JOIN tipos_transmisiones ON autos.id_tipo_transmision = tipos_transmisiones.id
-				JOIN tipos_motores ON autos.id_tipo_motor = tipos_motores.id
-			WHERE autos.id = ?
+			SELECT CONCAT_WS(" ", personas.nombre, personas.apellido) AS "titular"
+				,personas.email AS email
+				,personas.fecha_alta AS fecha_alta
+				,dispositivos.marca AS marca
+				,dispositivos.modelo AS modelo
+				,dispositivos.imei AS imei
+			FROM vinculados AS vinculados
+				JOIN personas ON personas.id = vinculados.id_persona
+				JOIN dispositivos ON dispositivos.id = vinculados.id_dispositivo
+			WHERE personas.id = ?
 		';
 
 		$stmt = Database::conectar()->prepare($query);

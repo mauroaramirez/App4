@@ -2,9 +2,9 @@
 session_start();
 require_once './Clases/Autos.php';
 
-use Clases\Asociar;
+use Clases\Vincular;
 
-$autos = new Asociar;
+$autos = new Vincular;
 
 $autos = $autos->selectOne($_GET['id']);
 
