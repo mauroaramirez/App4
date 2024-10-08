@@ -15,7 +15,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 		<link rel="stylesheet" href="../../css/style.css">
 	</head>
 
-	<body class="form-background"> <!-- Aplicamos la clase para el fondo -->
+	<body class="form-background">
 		<div class="container mt-5">
 			<div class="row justify-content-center">
 				<div class="col-md-5">
