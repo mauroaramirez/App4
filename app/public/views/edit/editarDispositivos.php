@@ -8,7 +8,8 @@ if ($_SESSION['rol_id'] == 1) :
 
 	$dispositivos = new Dispositivos;
 
-	$dispositivos = $dispositivos->selectOne($_GET['id']);
+	$dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
+
 ?>
 	<!DOCTYPE html>
 	<html>

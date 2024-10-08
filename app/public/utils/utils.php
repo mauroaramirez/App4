@@ -7,9 +7,9 @@ require_once '../models/Database.php';
 function validarResonseQuery($result)
 {
     if ($result == "00000") {
-        echo "Se dio de alta el nuevo registro correctamente.";
+        return "Se dio de alta el nuevo registro correctamente.";
     } else {
-        echo "Hubo un error al insertar el nuevo registro: <br><br>";
+        return "Hubo un error al insertar el nuevo registro: <br><br>";
         foreach ($result as $key => $value) {
             if (is_array($value)) {
                 echo "<br>";
@@ -20,16 +20,16 @@ function validarResonseQuery($result)
                 echo "$value<br>";
             }
         }
-        echo "<br>Intente nuevamente.";
+        return "<br>Intente nuevamente.";
     }
 }
 
 function validarResonseQueryDelete($result)
 {
     if ($result[1] == 1) {
-        echo "Se elimino el registro correctamente.";
+        return "Se elimino el registro correctamente.";
     } else {
-        echo "Hubo un error al insertar eliminar el registro: <br><br>";
+        echo "Hubo un error al intentar eliminar el registro:";
         foreach ($result as $key => $value) {
             if (is_array($value)) {
                 echo "<br>";
@@ -47,9 +47,9 @@ function validarResonseQueryDelete($result)
 function validarResonseQueryUpdate($result)
 {
     if ($result[1] >= 0) {
-        echo "Se actualzó el registro correctamente.";
+        return "Se actualzó el registro correctamente.";
     } else {
-        echo "Hubo un error al insertar actualizar el registro: <br><br>";
+        return "Hubo un error al insertar actualizar el registro: <br><br>";
         foreach ($result as $key => $value) {
             if (is_array($value)) {
                 echo "<br>";
@@ -60,6 +60,6 @@ function validarResonseQueryUpdate($result)
                 echo "$value<br>";
             }
         }
-        echo "<br>Intente nuevamente.";
+        return "<br>Intente nuevamente.";
     }
 }

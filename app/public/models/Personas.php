@@ -2,12 +2,11 @@
 
 namespace Clases;
 
-//require_once 'Personas.php';
 require_once 'Database.php';
 //require_once '../utils/utils.php';
 
 use PDO;
-//use Clases\Personas;
+
 use Clases\Database;
 
 class Personas

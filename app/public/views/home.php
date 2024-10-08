@@ -37,10 +37,8 @@ if (isset($_SESSION['id'])) {
 					</div>
 				</div>
 			</div>
-
 			<div class="card p-4">
 				<h3 class="mb-4">Opciones del sistema</h3>
-
 				<div class="list-group">
 					<a href="./forms/formPersonas.php" class="list-group-item list-group-item-action">Registrar Personas</a>
 					<a href="./forms/formDispositivo.php" class="list-group-item list-group-item-action">Registrar Dispositivos</a>
@@ -52,7 +50,6 @@ if (isset($_SESSION['id'])) {
 				</div>
 			</div>
 		</div>
-
 		<!-- Vincular Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>

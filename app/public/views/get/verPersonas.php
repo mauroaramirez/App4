@@ -4,35 +4,54 @@ require_once '../../models/Personas.php';
 
 use Clases\Personas;
 
-$dispositivos = new Personas;
+$personas = new Personas;
 
-$dispositivos = $dispositivos->selectOne($_GET['id']);
+$personas = $personas->selectOne($_GET['id']);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ver Persona</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Persona</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        /* Ajustar el ancho de la tarjeta */
+        .card-custom {
+            max-width: 600px; /* Ajusta este valor según tus necesidades */
+            margin: 0 auto; /* Centra la tarjeta */
+        }
+
+        /* Reducir el espaciado entre párrafos */
+        .card-body p {
+            margin-bottom: 10px; /* Espaciado más pequeño */
+        }
+    </style>
 </head>
 
-<body>
-	<center>
-		<h3>Datos del Titular</h3>
-		<div style="border: 1px solid; width: 50%;padding: 2px;">
-			<b>Titular: </b><?php echo $dispositivos[2]['titular'] ?><br>
-			<b>DNI: </b><?php echo $dispositivos[2]['dni'] ?><br>
-			<b>Sexo: </b><?php echo $dispositivos[2]['sexo'] ?><br>
-			<b>Email: </b><?php echo $dispositivos[2]['email'] ?><br>
-			<b>Dirección: </b><?php echo $dispositivos[2]['direccion'] ?><br>
-			<b>País: </b><?php echo $dispositivos[2]['pais'] ?><br>
-		</div>
-		<br>
-		<a href="../../views/dataTables/dataTablePersonas.php">Ir a Consulta de Personas</a>
-	</center>
+<body class="form-background">
+    <div class="container">
+        <div class="card card-custom">
+            <h3 class="text-center">Datos del Titular</h3>
+            <div class="card-body text-center">
+                <p><strong>Titular: </strong><?php echo $personas[2]['titular'] ?></p>
+                <p><strong>DNI: </strong><?php echo $personas[2]['dni'] ?></p>
+                <p><strong>Sexo: </strong><?php echo $personas[2]['sexo'] ?></p>
+                <p><strong>Email: </strong><?php echo $personas[2]['email'] ?></p>
+                <p><strong>Dirección: </strong><?php echo $personas[2]['direccion'] ?></p>
+                <p><strong>País: </strong><?php echo $personas[2]['pais'] ?></p>
+				<a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-link">Ir a Consulta de Personas</a>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

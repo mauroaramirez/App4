@@ -13,4 +13,4 @@ DATABASE="mysql:host=mysql_server;dbname=app4,app4,Q2wevceEEd!"
 - Usuario Root:
 
     - DNI: 00000000
-    - PASS: zaq12wsx
+    - PASS: zaq12wsx 

@@ -7,6 +7,8 @@ require_once 'Database.php';
 
 use PDO;
 
+use Clases\Database;
+
 class Dispositivos
 {
 
@@ -83,7 +85,7 @@ class Dispositivos
 		}
 	}
 
-	public function selectOne($id)
+	public function selectOneDispositivo($id)
 	{
 
 		$query = '

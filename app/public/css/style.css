@@ -61,15 +61,7 @@ body {
 /* Imagen de fondo para la página formPersonas.php */
 .form-background {
     background-image: url('../img/mapa-ciudad.jpeg'); /* Cambia esta ruta por la imagen que desees */
-	/*
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-	*/
+	height: 100vh;
 }
 
 /* Estilos para las tarjetas */

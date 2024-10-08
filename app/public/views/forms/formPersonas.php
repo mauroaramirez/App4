@@ -66,7 +66,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 								<input type="password" name="pass" class="form-control" required>
 							</div>
 							<div class="text-center">
-								<input type="submit" name="newTitular" value="Registrar" class="btn btn-primary">
+								<input type="submit" name="insertPersona" value="Registrar" class="btn btn-primary">
 							</div>
 						</form>
 					</div>
