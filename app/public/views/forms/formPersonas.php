@@ -16,31 +16,31 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 	</head>
 
 	<body class="form-background"> <!-- Aplicamos la clase para el fondo -->
-		<div class="container mt-4">
+		<div class="container mt-5">
 			<div class="row justify-content-center">
 				<div class="col-md-5">
 					<div class="card p-3">
 						<h3 class="text-center">Registro Personas</h3>
 						<form action="../../controllers/scriptPersonas.php" method="post">
 							<div class="mb-3">
-								<label for="nombre" class="form-label">Nombre:</label>
-								<input type="text" name="nombre" class="form-control" required>
+								<label for="nombre" class="form-label">Nombre: </label>
+								<input type="text" name="nombre" class="form-control" required placeholder="Escriba los nombres">
 							</div>
 							<div class="mb-3">
 								<label for="apellido" class="form-label">Apellido:</label>
-								<input type="text" name="apellido" class="form-control" required>
+								<input type="text" name="apellido" class="form-control" required placeholder="Escriba los apellidos">
 							</div>
 							<div class="mb-3">
 								<label for="email" class="form-label">Email:</label>
-								<input type="email" name="email" class="form-control" required>
+								<input type="email" name="email" class="form-control" required placeholder="Escriba el Email">
 							</div>
 							<div class="mb-3">
 								<label for="dni" class="form-label">DNI:</label>
-								<input type="number" name="dni" class="form-control" required>
+								<input type="number" name="dni" class="form-control" required placeholder="Escriba el DNI">
 							</div>
 							<div class="mb-3">
 								<label for="telefono" class="form-label">Teléfono:</label>
-								<input type="number" name="telefono" class="form-control" required>
+								<input type="number" name="telefono" class="form-control" required placeholder="Escriba el Teléfono">
 							</div>
 							<div class="mb-3">
 								<label>Sexo:</label>
@@ -55,15 +55,15 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 							</div>
 							<div class="mb-3">
 								<label for="direccion" class="form-label">Dirección:</label>
-								<input type="text" name="direccion" class="form-control" required>
+								<input type="text" name="direccion" class="form-control" required placeholder="Escriba la dirección">
 							</div>
 							<div class="mb-3">
 								<label for="pais" class="form-label">País:</label>
-								<input type="text" name="pais" class="form-control" required>
+								<input type="text" name="pais" class="form-control" required placeholder="Escriba el País">
 							</div>
 							<div class="mb-3">
 								<label for="pass" class="form-label">Password:</label>
-								<input type="password" name="pass" class="form-control" required>
+								<input type="password" name="pass" class="form-control" required placeholder="Escriba el Password">
 							</div>
 							<div class="text-center">
 								<input type="submit" name="insertPersona" value="Registrar" class="btn btn-primary">

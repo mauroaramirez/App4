@@ -16,7 +16,7 @@ if ($_SESSION['rol_id'] == 1) :
 	</head>
 
 	<body class="form-background">
-		<div class="container mt-1"> <!-- Ajustamos el margen superior -->
+		<div class="container mt-5"> <!-- Ajustamos el margen superior -->
 			<div class="row justify-content-center">
 				<div class="col-md-5">
 					<div class="card p-4">
@@ -24,15 +24,15 @@ if ($_SESSION['rol_id'] == 1) :
 						<form action="../../controllers/scriptDispositivos.php" method="post">
 							<div class="mb-4">
 								<label for="marca" class="form-label">Marca:</label>
-								<input type="text" name="marca" class="form-control" required>
+								<input type="text" name="marca" class="form-control" required placeholder="Escriba la Marca">
 							</div>
 							<div class="mb-4">
 								<label for="modelo" class="form-label">Modelo:</label>
-								<input type="text" name="modelo" class="form-control" required>
+								<input type="text" name="modelo" class="form-control" required placeholder="Escriba el Modelo">
 							</div>
 							<div class="mb-4">
 								<label for="imei" class="form-label">IMEI:</label>
-								<input type="text" name="imei" class="form-control" required>
+								<input type="text" name="imei" class="form-control" required placeholder="Escriba el N° IMEI">
 							</div>
 							<div class="text-center">
 								<input type="submit" name="newDispositivo" value="Registrar" class="btn btn-primary">

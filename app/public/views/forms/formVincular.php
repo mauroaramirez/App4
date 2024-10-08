@@ -30,7 +30,7 @@ if ($_SESSION['rol_id'] == 1) :
     </head>
 
     <body class="form-background">
-        <div class="container mt-1">
+        <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="card p-4">

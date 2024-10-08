@@ -35,7 +35,7 @@ $personas = $personas->selectOne($_GET['id']);
 </head>
 
 <body class="form-background">
-    <div class="container">
+    <div class="container mt-5">
         <div class="card card-custom">
             <h3 class="text-center">Datos del Titular</h3>
             <div class="card-body text-center">
@@ -45,7 +45,7 @@ $personas = $personas->selectOne($_GET['id']);
                 <p><strong>Email: </strong><?php echo $personas[2]['email'] ?></p>
                 <p><strong>Dirección: </strong><?php echo $personas[2]['direccion'] ?></p>
                 <p><strong>País: </strong><?php echo $personas[2]['pais'] ?></p>
-				<a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-link">Ir a Consulta de Personas</a>
+				<a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
             </div>
         </div>
     </div>

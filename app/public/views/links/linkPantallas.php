@@ -1,3 +1,3 @@
 <center>
-	<br><a href="/views/index.php" class="btn btn-info">Ir a Menú Principal</a>
+	<br><a href="/views/index.php" class="btn btn-danger">Ir a Menú Principal</a>
 </center>

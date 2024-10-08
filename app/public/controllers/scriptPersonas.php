@@ -62,7 +62,7 @@ if (isset($_POST['deletePersonas'])) {
 </head>
 
 <body class="form-background">
-    <div class="container mt-1">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
@@ -75,8 +75,8 @@ if (isset($_POST['deletePersonas'])) {
                                 </div>
                             <?php endif; ?>
                             </p>
-                            <a href="/views/dataTables/dataTablePersonas.php" class="btn btn-secondary">Ir a Consulta de Personas</a>
-                            <br><br><a href="../views/forms/formPersonas.php" class="btn btn-secondary">Ir al Registro de Personas</a>
+                            <a href="/views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
+                            <br><br><a href="../views/forms/formPersonas.php" class="btn btn-info">Ir al Registro de Personas</a>
                             <?php include_once '../views/links/linkPantallas.php'?>
                         </div>
                     </form>

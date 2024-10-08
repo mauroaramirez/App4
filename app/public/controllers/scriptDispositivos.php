@@ -52,7 +52,7 @@ if (isset($_POST['deleteDispositivos'])) {
 </head>
 
 <body class="form-background">
-    <div class="container mt-1">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
@@ -65,8 +65,8 @@ if (isset($_POST['deleteDispositivos'])) {
                                 </div>
                             <?php endif; ?>
                             </p>
-                            <br><a href="/views/dataTables/dataTableDispositivos.php" class="btn btn-secondary">Ir a Consulta de Dispositivos</a>
-                            <br><br><a href="../views/forms/formDispositivo.php" class="btn btn-secondary">Ir al Registro de Dispositivos</a>
+                            <br><a href="/views/dataTables/dataTableDispositivos.php" class="btn btn-info">Ir a Consulta de Dispositivos</a>
+                            <br><br><a href="../views/forms/formDispositivo.php" class="btn btn-info">Ir al Registro de Dispositivos</a>
                             <?php include_once '../views/links/linkPantallas.php'?>
                         </div>
                     </form>

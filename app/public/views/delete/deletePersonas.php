@@ -14,7 +14,7 @@ if ($_SESSION['rol_id'] == 1) :
                         <form action="../../controllers/scriptPersonas.php" method="post" onsubmit="return confirmarEliminacion();">
                             <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
                             <p>Confirmar eliminación de Persona:</p>
-                            <input type="submit" name="deletePersonas" class="row justify-content-center" value="Confirmar">
+                            <input type="submit" name="deletePersonas" class="row justify-content-center btn btn-danger" value="Confirmar">
                         </form>
                     </div>
                 </div>

@@ -35,7 +35,7 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 </head>
 
 <body class="form-background">
-	<div class="container">
+	<div class="container mt-5">
 		<div class="card card-custom">
 			<h3 class="text-center">Datos del Dispositivo</h3>
 			<div class="card-body text-center">
@@ -43,7 +43,7 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 				<p><strong>Marca: </strong><?php echo $dispositivos[2]['marca'] ?></p>
 				<p><strong>Modelo: </strong><?php echo $dispositivos[2]['modelo'] ?></p>
 				<p><strong>IMEI: </strong><?php echo $dispositivos[2]['imei'] ?></p>
-				<a href="../../views/dataTables/dataTableDispositivos.php" class="btn btn-link">Ir a Consulta de Dispositivos</a>
+				<a href="../../views/dataTables/dataTableDispositivos.php" class="btn btn-info">Ir a Consulta de Dispositivos</a>
 			</div>
 		</div>
 	</div>

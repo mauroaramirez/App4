@@ -23,7 +23,7 @@ if ($_SESSION['rol_id'] == 1) :
 	</head>
 
 	<body class="form-background"> <!-- Aplicamos la clase para el fondo -->
-		<div class="container mt-4">
+		<div class="container mt-5">
 			<div class="row justify-content-center">
 				<div class="col-md-5">
 					<div class="card p-3">
@@ -64,7 +64,9 @@ if ($_SESSION['rol_id'] == 1) :
 							</div>
 							<div class="text-center">
 								<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-								<input type="submit" name="updatePersonas" value="Editar" class="btn btn-primary">
+								<input type="submit" name="updatePersonas" value="Editar" class="btn btn-warning">
+								<br><br><a href="/views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
+								<?php include_once '../links/linkPantallas.php'?>
 							</div>
 						</form>
 					</div>

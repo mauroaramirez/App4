@@ -14,39 +14,46 @@ if (isset($_SESSION['id'])) {
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 
-	<!-- Agregamos la clase 'home-background' -->
+	<style>
+		.list-group-item:hover {
+    background-color: #cce5ff; /* color celeste */
+}
+	</style>
 
 	<body class="home-background">
 		<div class="container mt-5">
-			<!-- Fila con información del usuario y botón de cerrar sesión -->
-			<div class="row mb-4">
-				<div class="col-12">
-					<div class="card p-4">
+			<div class="row mb-4 justify-content-center">
+				<div class="col-12 col-md-6">
+					<div class="card p-4 text-left">
 						<div class="row align-items-center">
 							<div class="col-md-8">
-								<p class="mb-0">
+								<p class="mb-0 fs-6">
 									<b>Usuario:</b> <?php echo $_SESSION['personas'] ?><br>
 									<b>Rol:</b> <?php echo $_SESSION['rol'] ?><br>
 									<b>Email:</b> <?php echo $_SESSION['email'] ?>
 								</p>
 							</div>
 							<div class="col-md-4 text-end">
-								<a href="./logout.php" class="btn btn-danger">Cerrar sesión</a>
+								<a href="./logout.php" class="btn btn-danger btn-md">Cerrar sesión</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="card p-4">
-				<h3 class="mb-4">Opciones del sistema</h3>
-				<div class="list-group">
-					<a href="./forms/formPersonas.php" class="list-group-item list-group-item-action">Registrar Personas</a>
-					<a href="./forms/formDispositivo.php" class="list-group-item list-group-item-action">Registrar Dispositivos</a>
-					<a href="./dataTables/dataTablePersonas.php" class="list-group-item list-group-item-action">Consulta Personas</a>
-					<a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action">Consulta Dispositivos</a>
-					<a href="./forms/formVincular.php" class="list-group-item list-group-item-action">Asociar Dispositivos</a>
-					<a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action">Consulta Dispositivos Vinculados</a>
-					<a href="./mapa.html" class="list-group-item list-group-item-action">Ver Mapa</a>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6">
+					<div class="card p-4">
+						<h3 class="mb-4 text-center">Opciones del sistema</h3>
+						<div class="list-group text-center">
+							<a href="./forms/formPersonas.php" class="list-group-item list-group-item-action fs-6">Registrar Personas</a>
+							<a href="./forms/formDispositivo.php" class="list-group-item list-group-item-action fs-6">Registrar Dispositivos</a>
+							<a href="./dataTables/dataTablePersonas.php" class="list-group-item list-group-item-action fs-6">Consulta Personas</a>
+							<a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos</a>
+							<a href="./forms/formVincular.php" class="list-group-item list-group-item-action fs-6">Asociar Dispositivos</a>
+							<a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos Vinculados</a>
+							<a href="./mapa.html" class="list-group-item list-group-item-action fs-6">Ver Mapa</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
