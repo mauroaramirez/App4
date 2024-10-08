@@ -7,56 +7,72 @@ use Clases\Dispositivos;
 if ($_SESSION['rol_id'] == 1) :
 
 	$dispositivos = new Dispositivos;
-
 	$dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
-
 ?>
 	<!DOCTYPE html>
-	<html>
+	<html lang="es">
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Editar Dispositivo</title>
+		<!-- Vincular Bootstrap y el archivo CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/style.css">
 	</head>
 
-	<body>
-		<center>
-			<h3>Editar Dispositivo</h3>
-			<form action="../../controllers/scriptDispositivos.php" method="post">
-				<table>
-				<tr>
-						<td><label for="marca">Marca:</label></td>
-						<td><input type="text" name="marca" value="<?php echo trim($dispositivos[2]['marca']) ?>"></td>
-					</tr>
-					<tr>
-						<td><label for="modelo">Modelo:</label></td>
-						<td><input type="text" name="modelo" value="<?php echo trim($dispositivos[2]['modelo']) ?>"></td>
-					</tr>
-					<tr>
-						<td><label for="email">IMEI:</label></td>
-						<td><input type="imei" name="imei" value="<?php echo $dispositivos[2]['imei'] ?>"></td>
-					</tr>
-					<tr>
-						<td colspan="2" style="text-align: center;">
-							<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
-							<br>
-							<input type="submit" name="updateDispositivo" value="Editar">
-						</td>
-					</tr>
-				</table>
-				<br>
-				<a href="../dataTables/dataTableDispositivos.php">Ir a Consulta de Dispositivos</a>
-				<nav><?php include_once '../links/linkPantallas.php' ?></nav>
-			</form>
-		</center>
-	<?php else : ?>
-		<center>
-			<nav><?php include_once '../links/linkSinPermisos.php' ?></nav>
-			<br>
-			<a href="../dataTables/dataTableDispositivos.php">Ir a Consulta de Dispositivos</a>
-		</center>
-	<?php endif ?>
+	<body class="form-background"> <!-- Aplicamos la clase para el fondo -->
+		<div class="container mt-4">
+			<div class="row justify-content-center">
+				<div class="col-md-5">
+					<div class="card p-3">
+						<h3 class="text-center">Editar Dispositivo</h3>
+						<form action="../../controllers/scriptDispositivos.php" method="post">
+							<div class="mb-3">
+								<label for="marca" class="form-label">Marca:</label>
+								<input type="text" name="marca" class="form-control" value="<?php echo trim($dispositivos[2]['marca']) ?>" required>
+							</div>
+							<div class="mb-3">
+								<label for="modelo" class="form-label">Modelo:</label>
+								<input type="text" name="modelo" class="form-control" value="<?php echo trim($dispositivos[2]['modelo']) ?>" required>
+							</div>
+							<div class="mb-3">
+								<label for="imei" class="form-label">IMEI:</label>
+								<input type="text" name="imei" class="form-control" value="<?php echo $dispositivos[2]['imei'] ?>" required>
+							</div>
+							<div class="text-center">
+								<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
+								<input type="submit" name="updateDispositivo" value="Editar" class="btn btn-primary">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Vincular Bootstrap JS -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>
 
 	</html>
+<?php else : ?>
+	<!DOCTYPE html>
+	<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sin permisos</title>
+		<!-- Vincular Bootstrap y el archivo CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../css/style.css">
+	</head>
+
+	<body class="form-background">
+		<div class="container mt-5 text-center">
+			<div class="card p-4">
+				<?php include_once '../links/linkSinPermisos.php'; ?>
+			</div>
+		</div>
+	</body>
+	</html>
+<?php endif ?>
