@@ -10,13 +10,13 @@ $message = "";
 
 if (isset($_POST['insertPersona'])) {
 
-    $personas->setNombre($_POST['nombre']);
-    $personas->setApellido($_POST['apellido']);
+    $personas->setName($_POST['nombre']);
+    $personas->setLastName($_POST['apellido']);
     $personas->setDni($_POST['dni']);
-    $personas->setSexo($_POST['sex']);
+    $personas->setGender($_POST['sex']);
     $personas->setEmail($_POST['email']);
-    $personas->setDireccion($_POST['direccion']);
-    $personas->setPais($_POST['pais']);
+    $personas->setAddresses($_POST['direccion']);
+    $personas->setCountry($_POST['pais']);
     $personas->setPass($_POST['pass']);
 
     $result = $personas->insert();
@@ -26,13 +26,13 @@ if (isset($_POST['insertPersona'])) {
 
 if (isset($_POST['updatePersonas'])) {
 
-    $personas->setNombre($_POST['nombre']);
-    $personas->setApellido($_POST['apellido']);
+    $personas->setName($_POST['nombre']);
+    $personas->setLastName($_POST['apellido']);
     $personas->setDni($_POST['dni']);
-    $personas->setSexo($_POST['sex']);
+    $personas->setGender($_POST['sex']);
     $personas->setEmail($_POST['email']);
-    $personas->setDireccion($_POST['direccion']);
-    $personas->setPais($_POST['pais']);
+    $personas->setAddresses($_POST['direccion']);
+    $personas->setCountry($_POST['pais']);
     //$personas->setPass($_POST['pass']);
 
     $result = $personas->update($_POST['id']);

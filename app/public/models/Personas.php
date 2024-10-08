@@ -11,33 +11,33 @@ use Clases\Database;
 
 class Personas
 {
-	protected $nombre;
-	protected $apellido;
+	protected $name;
+	protected $lastName;
 	protected $dni;
-	protected $sexo = "X";
+	protected $gender = "X";
 	//
 	private $email;
-	private $direccion;
-	private $pais;
+	private $addresses;
+	private $country;
 
 	private $pass;
 
-	public function getNombre()
+	public function getName()
 	{
-		return $this->nombre;
+		return $this->name;
 	}
-	public function setNombre($nombre)
+	public function setName($name)
 	{
-		$this->nombre = trim(ucwords(strtolower($nombre)));
+		$this->name = trim(ucwords(strtolower($name)));
 	}
 
-	public function getApellido()
+	public function getLastName()
 	{
-		return $this->apellido;
+		return $this->lastName;
 	}
-	public function setApellido($apellido)
+	public function setLastName($lastName)
 	{
-		$this->apellido = trim(ucwords(strtolower($apellido)));
+		$this->lastName = trim(ucwords(strtolower($lastName)));
 	}
 
 	public function getDni()
@@ -49,13 +49,13 @@ class Personas
 		$this->dni = $dni;
 	}
 
-	public function getSexo()
+	public function getGender()
 	{
-		return $this->sexo;
+		return $this->gender;
 	}
-	public function setSexo($sexo)
+	public function setGender($gender)
 	{
-		$this->sexo = $sexo;
+		$this->gender = $gender;
 	}
 	//
 	public function getEmail()
@@ -68,24 +68,24 @@ class Personas
 		$this->email = strtolower(trim($email));
 	}
 
-	public function getDireccion()
+	public function getAddresses()
 	{
-		return $this->direccion;
+		return $this->addresses;
 	}
 
-	public function setDireccion($direccion)
+	public function setAddresses($addresses)
 	{
-		$this->direccion = trim(ucwords(strtolower($direccion)));
+		$this->addresses = trim(ucwords(strtolower($addresses)));
 	}
 
-	public function getPais()
+	public function getCountry()
 	{
-		return $this->pais;
+		return $this->country;
 	}
 
-	public function setPais($pais)
+	public function setCountry($country)
 	{
-		$this->pais = trim(ucwords(strtolower($pais)));
+		$this->country = trim(ucwords(strtolower($country)));
 	}
 
 	public function getPass()
@@ -100,17 +100,17 @@ class Personas
 
 	public function insert()
 	{
-		$insert = "INSERT INTO personas (nombre,apellido,dni,sexo,email,pass,direccion,pais) VALUES (?,?,?,?,?,?,?,?)";
+		$insert = "INSERT INTO people (name,last_name,dni,gender,email,pass,addresses,country) VALUES (?,?,?,?,?,?,?,?)";
 
 		$stmt = Database::conectar()->prepare($insert);
-		$stmt->bindParam(1, $this->nombre);
-		$stmt->bindParam(2, $this->apellido);
+		$stmt->bindParam(1, $this->name);
+		$stmt->bindParam(2, $this->lastName);
 		$stmt->bindParam(3, $this->dni);
-		$stmt->bindParam(4, $this->sexo);
+		$stmt->bindParam(4, $this->gender);
 		$stmt->bindParam(5, $this->email);
 		$stmt->bindParam(6, $this->pass);
-		$stmt->bindParam(7, $this->direccion);
-		$stmt->bindParam(8, $this->pais);
+		$stmt->bindParam(7, $this->addresses);
+		$stmt->bindParam(8, $this->country);
 
 		if ($stmt->execute()) {
 			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
@@ -125,15 +125,15 @@ class Personas
 	{
 
 		$query = '
-		SELECT personas.id AS "id"
-			,CONCAT_WS(", ",personas.nombre, personas.apellido) AS "personas"
-    		,personas.dni AS "dni"
-    		,personas.sexo AS "sexo"
-    		,personas.email AS "email"
-    		,personas.direccion AS "direccion"
-    		,personas.pais AS "pais"
-		FROM personas
-		WHERE personas.rol_id != 1
+		SELECT people.id AS "id"
+			,CONCAT_WS(", ",people.name, people.last_name) AS "people"
+    		,people.dni AS "dni"
+    		,people.gender AS "gender"
+    		,people.email AS "email"
+    		,people.addresses AS "addresses"
+    		,people.country AS "country"
+		FROM people
+		WHERE people.rol_id != 1
 		';
 
 		$stmt = Database::conectar()->prepare($query);
@@ -146,14 +146,14 @@ class Personas
 		}
 	}
 
-	public function selectPersonas()
+	public function selectPeople()
 	{
 
 		$query = '
-		SELECT personas.id AS "id"
-			,CONCAT_WS(", ",personas.nombre, personas.apellido) AS "personas"
-		FROM personas
-		WHERE personas.rol_id != 1
+		SELECT people.id AS "id"
+			,CONCAT_WS(", ",people.name, people.last_name) AS "people"
+		FROM people
+		WHERE people.rol_id != 1
 		';
 
 		$stmt = Database::conectar()->prepare($query);
@@ -169,24 +169,24 @@ class Personas
 	public function update($id)
 	{
 		$update = "
-		UPDATE `personas` SET `nombre`= ?	
-    		,`apellido`= ?
+		UPDATE `people` SET `name`= ?	
+    		,`last_name`= ?
     		,`dni`= ?
-    		,`sexo`= ?
+    		,`gender`= ?
     		,`email`= ?
-    		,`direccion`= ?
-    		,`pais`= ?
+    		,`addresses`= ?
+    		,`country`= ?
 		WHERE `id` = ?
 		";
 
 		$stmt = Database::conectar()->prepare($update);
-		$stmt->bindParam(1, $this->nombre);
-		$stmt->bindParam(2, $this->apellido);
+		$stmt->bindParam(1, $this->name);
+		$stmt->bindParam(2, $this->lastName);
 		$stmt->bindParam(3, $this->dni);
-		$stmt->bindParam(4, $this->sexo);
+		$stmt->bindParam(4, $this->gender);
 		$stmt->bindParam(5, $this->email);
-		$stmt->bindParam(6, $this->direccion);
-		$stmt->bindParam(7, $this->pais);
+		$stmt->bindParam(6, $this->addresses);
+		$stmt->bindParam(7, $this->country);
 		$stmt->bindParam(8, $id);
 
 		if ($stmt->execute()) {
@@ -199,7 +199,7 @@ class Personas
 
 	public function delete($id)
 	{
-		$delete = "DELETE FROM `personas` WHERE `id` = ?";
+		$delete = "DELETE FROM `people` WHERE `id` = ?";
 
 		$stmt = Database::conectar()->prepare($delete);
 		$stmt->bindParam(1, $id);
@@ -216,14 +216,14 @@ class Personas
 	{
 
 		$query = '
-		SELECT CONCAT_WS(", ",personas.nombre, personas.apellido) AS "titular"
-    		,personas.dni AS "dni"
-    		,personas.sexo AS "sexo"
-    		,personas.email AS "email"
-    		,personas.direccion AS "direccion"
-    		,personas.pais AS "pais"
-		FROM personas
-		WHERE personas.id = ?
+		SELECT CONCAT_WS(", ",people.name, people.last_name) AS "titular"
+    		,people.dni AS "dni"
+    		,people.gender AS "gender"
+    		,people.email AS "email"
+    		,people.addresses AS "addresses"
+    		,people.country AS "country"
+		FROM people
+		WHERE people.id = ?
 		';
 
 		$stmt = Database::conectar()->prepare($query);

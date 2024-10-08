@@ -49,18 +49,18 @@ if ($_SESSION['rol_id'] == 1) :
 								<label>Sexo:</label>
 								<div>
 									<label for="sex" class="form-check-label">M</label>
-									<input type="radio" name="sex" value="M" class="form-check-input" <?php echo ($personas[2]['sexo'] == "M") ? "checked" : ""; ?>>
+									<input type="radio" name="sex" value="M" class="form-check-input" <?php echo ($personas[2]['gender'] == "M") ? "checked" : ""; ?>>
 									<label for="sex" class="form-check-label">F</label>
-									<input type="radio" name="sex" value="F" class="form-check-input" <?php echo ($personas[2]['sexo'] == "F") ? "checked" : ""; ?>>
+									<input type="radio" name="sex" value="F" class="form-check-input" <?php echo ($personas[2]['gender'] == "F") ? "checked" : ""; ?>>
 								</div>
 							</div>
 							<div class="mb-3">
 								<label for="direccion" class="form-label">Dirección:</label>
-								<input type="text" name="direccion" class="form-control" value="<?php echo $personas[2]['direccion'] ?>" required>
+								<input type="text" name="direccion" class="form-control" value="<?php echo $personas[2]['addresses'] ?>" required>
 							</div>
 							<div class="mb-3">
 								<label for="pais" class="form-label">País:</label>
-								<input type="text" name="pais" class="form-control" value="<?php echo $personas[2]['pais'] ?>" required>
+								<input type="text" name="pais" class="form-control" value="<?php echo $personas[2]['country'] ?>" required>
 							</div>
 							<div class="text-center">
 								<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">

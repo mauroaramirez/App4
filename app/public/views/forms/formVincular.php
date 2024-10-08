@@ -14,7 +14,7 @@ if ($_SESSION['rol_id'] == 1) :
     $dispositivos = new Dispositivos;
     $personas = new Personas;
 
-    $selectPersonas = $personas->selectPersonas();
+    $selectPeople = $personas->selectPeople();
     $selectDispositivos = $dispositivos->selectDispositivos();
 
 ?>
@@ -38,11 +38,11 @@ if ($_SESSION['rol_id'] == 1) :
                         <form action="../../controllers/scriptVincular.php" method="post">
                             <table class="table">
                                 <tr>
-                                    <td><label for="persona">Personas:</label></td>
+                                    <td><label for="people">Personas:</label></td>
                                     <td>
-                                        <select name="persona" id="persona" class="form-select">
-                                            <?php foreach ($selectPersonas[2] as $key => $value) : ?>
-                                                <option value="<?php echo $value['id'] ?>"><?php echo $value['personas'] ?></option>
+                                        <select name="people" id="people" class="form-select">
+                                            <?php foreach ($selectPeople[2] as $key => $value) : ?>
+                                                <option value="<?php echo $value['id'] ?>"><?php echo $value['people'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </td>

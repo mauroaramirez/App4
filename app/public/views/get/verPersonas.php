@@ -41,10 +41,10 @@ $personas = $personas->selectOne($_GET['id']);
             <div class="card-body text-center">
                 <p><strong>Titular: </strong><?php echo $personas[2]['titular'] ?></p>
                 <p><strong>DNI: </strong><?php echo $personas[2]['dni'] ?></p>
-                <p><strong>Sexo: </strong><?php echo $personas[2]['sexo'] ?></p>
+                <p><strong>Sexo: </strong><?php echo $personas[2]['gender'] ?></p>
                 <p><strong>Email: </strong><?php echo $personas[2]['email'] ?></p>
-                <p><strong>Dirección: </strong><?php echo $personas[2]['direccion'] ?></p>
-                <p><strong>País: </strong><?php echo $personas[2]['pais'] ?></p>
+                <p><strong>Dirección: </strong><?php echo $personas[2]['addresses'] ?></p>
+                <p><strong>País: </strong><?php echo $personas[2]['country'] ?></p>
 				<a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
             </div>
         </div>

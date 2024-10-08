@@ -10,28 +10,11 @@ $message = "";
 
 if (isset($_POST['vincular'])) {
 
-    $asociar->setPersona($_POST['persona']);
+    $asociar->setPeople($_POST['people']);
     $asociar->setDispositivo($_POST['dispositivo']);
 
     $result = $asociar->insert();
     $message = validarResonseQuery($result); 
-}
-
-if (isset($_POST['updateAuto'])) {
-
-    $asociar->setPersona($_POST['persona']);
-    $asociar->setDispositivo($_POST['dispositivo']);
-
-    $result = $asociar->update($_POST['id']);
-
-    $message = validarResonseQueryUpdate($result);
-}
-
-if (isset($_POST['deleteAuto'])) {
-
-    $result = $asociar->delete($_POST['id']);
-
-    $message = validarResonseQueryDelete($result);
 }
 
 ?>

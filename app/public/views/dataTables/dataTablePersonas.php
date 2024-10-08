@@ -68,12 +68,12 @@ $dataTable = $personas->selectAll();
 						<tbody>
 							<?php foreach ($dataTable[2] as $key => $value) : ?>
 								<tr>
-									<td><?php echo $value['personas'] ?></td>
+									<td><?php echo $value['people'] ?></td>
 									<td><?php echo $value['dni'] ?></td>
-									<td><?php echo $value['sexo'] ?></td>
+									<td><?php echo $value['gender'] ?></td>
 									<td><?php echo $value['email'] ?></td>
-									<td><?php echo $value['direccion'] ?></td>
-									<td><?php echo $value['pais'] ?></td>
+									<td><?php echo $value['addresses'] ?></td>
+									<td><?php echo $value['country'] ?></td>
 									<td>
 										<a href="../get/verPersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-info btn-sm">Ver</a>
 										<a href="../edit/editarPersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-warning btn-sm">Editar</a>

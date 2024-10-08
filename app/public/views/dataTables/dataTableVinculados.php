@@ -40,12 +40,10 @@ $dataTable = $vinculados->selectAll();
     table th,
     table td {
         text-align: center;
-        /* Centrar el contenido de las celdas */
     }
 
     table td:last-child {
         white-space: nowrap;
-        /* Evitar que el texto se rompa en varias líneas */
     }
 </style>
 
@@ -71,7 +69,7 @@ $dataTable = $vinculados->selectAll();
                                 <tr>
                                     <td><?php echo $value['titular'] ?></td>
                                     <td><?php echo $value['email'] ?></td>
-                                    <td><?php echo $value['fecha_alta'] ?></td>
+                                    <td><?php echo $value['created_at'] ?></td>
                                     <td><?php echo $value['marca'] ?></td>
                                     <td><?php echo $value['modelo'] ?></td>
                                     <td><?php echo $value['imei'] ?></td>
