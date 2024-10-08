@@ -6,7 +6,7 @@ require_once '../utils/utils.php';
 use Clases\Personas;
 
 $personas = new Personas();
-$message = ""; // Variable para almacenar el mensaje de respuesta
+$message = "";
 
 if (isset($_POST['insertPersona'])) {
 
@@ -75,9 +75,9 @@ if (isset($_POST['deletePersonas'])) {
                                 </div>
                             <?php endif; ?>
                             </p>
-                            <br><a href="/views/dataTables/dataTablePersonas.php" class="btn btn-secondary">Ir a Consulta de Personas</a>
+                            <a href="/views/dataTables/dataTablePersonas.php" class="btn btn-secondary">Ir a Consulta de Personas</a>
                             <br><br><a href="../views/forms/formPersonas.php" class="btn btn-secondary">Ir al Registro de Personas</a>
-                            <br><br><a href="/views/index.php" class="btn btn-info">Ir a Menú Principal</a>
+                            <?php include_once '../views/links/linkPantallas.php'?>
                         </div>
                     </form>
                 </div>

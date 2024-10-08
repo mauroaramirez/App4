@@ -24,20 +24,17 @@ $dataTable = $personas->selectAll();
 	<link rel="stylesheet" href="../../css/style.css">
 </head>
 
-<script>
-	
+<script>	
     $(document).ready(function() {
         $('table').DataTable({
-            "pageLength": 10,
-            "lengthMenu": [5, 10, 25, 50],
+            "pageLength": 5,
+            "lengthMenu": [5, 10],
             "autoWidth": true, // Habilita el ancho automático de las columnas
             "scrollX": true,   // Habilita el scroll horizontal si es necesario
             "fixedHeader": true // Fija el encabezado de la tabla al hacer scroll
         });
     });
-
 </script>
-
 
 <style>
 	table th, table td {
@@ -86,6 +83,7 @@ $dataTable = $personas->selectAll();
 							<?php endforeach ?>
 						</tbody>
 					</table>
+					<?php include_once '../links/linkPantallas.php'?>
 				</div>
 			</div>
 		</div>

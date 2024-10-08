@@ -38,6 +38,7 @@ if ($_SESSION['rol_id'] == 1) :
 								<input type="submit" name="newDispositivo" value="Registrar" class="btn btn-primary">
 							</div>
 						</form>
+						<?php include_once '../links/linkPantallas.php'?>
 					</div>
 				</div>
 			</div>

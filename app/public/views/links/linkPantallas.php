@@ -1,4 +1,3 @@
-<br>
-<a href="../home.php">Ir a Menú Principal</a>
-<br><br>
-<a href="./logout.php">Cerrar sesión</a>
+<center>
+	<br><a href="/views/index.php" class="btn btn-info">Ir a Menú Principal</a>
+</center>

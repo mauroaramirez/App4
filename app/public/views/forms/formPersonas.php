@@ -69,6 +69,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 								<input type="submit" name="insertPersona" value="Registrar" class="btn btn-primary">
 							</div>
 						</form>
+						<?php include_once '../links/linkPantallas.php'?>
 					</div>
 				</div>
 			</div>

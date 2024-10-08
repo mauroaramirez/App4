@@ -67,7 +67,7 @@ if (isset($_POST['deleteDispositivos'])) {
                             </p>
                             <br><a href="/views/dataTables/dataTableDispositivos.php" class="btn btn-secondary">Ir a Consulta de Dispositivos</a>
                             <br><br><a href="../views/forms/formDispositivo.php" class="btn btn-secondary">Ir al Registro de Dispositivos</a>
-                            <br><br><a href="/views/index.php" class="btn btn-info">Ir a Menú Principal</a>
+                            <?php include_once '../views/links/linkPantallas.php'?>
                         </div>
                     </form>
                 </div>

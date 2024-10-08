@@ -32,7 +32,7 @@ if ($_SESSION['rol_id'] == 1) :
     <body class="form-background">
         <div class="container mt-1">
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-md-5">
                     <div class="card p-4">
                         <h3 class="text-center">Vincular Dispositivos</h3>
                         <form action="../../controllers/scriptVincular.php" method="post">
@@ -47,7 +47,6 @@ if ($_SESSION['rol_id'] == 1) :
                                         </select>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td><label for="dispositivo">Dispositivo:</label></td>
                                     <td>
@@ -58,14 +57,13 @@ if ($_SESSION['rol_id'] == 1) :
                                         </select>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td colspan="2" style="text-align: center;padding: 5px;">
-                                        <br>
                                         <input type="submit" name="vincular" class="btn btn-primary" value="Vincular">
                                     </td>
                                 </tr>
                             </table>
+                            <?php include_once '../links/linkPantallas.php'?>
                         </form>
                     </div>
                 </div>
