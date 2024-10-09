@@ -26,9 +26,9 @@ if ($result[1] != 0) {
 		header('Location:../views/home.php');
 	} else {
 		echo "Clave incorrecta. Intente nuevamente";
-		echo '<br><br><a href="../views/login.php">Log In</a>';
+		echo '<br><br><a href="../views/login.php">Ir a Log In</a>';
 	}
 } else {
 	echo "Usuario no registrado. Registre su usuario";
-	echo '<br><br><a href="./login.php">Log In</a>';
+	echo '<br><br><a href="../views/login.php">Ir a Log In</a>';
 }

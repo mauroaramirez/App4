@@ -37,7 +37,7 @@ class Vincular
 
 	public function insert()
 	{
-		$insert = "INSERT INTO vinculados (id_persona,id_dispositivo) VALUES (?,?)";
+		$insert = "INSERT INTO linked (id_people,id_device) VALUES (?,?)";
 
 		$stmt = Database::conectar()->prepare($insert);
 		$stmt->bindParam(1, $this->people);
@@ -64,9 +64,9 @@ class Vincular
 				,devices.imei AS imei
                 ,brands.description as marca
                 ,models.description as modelo
-			FROM vinculados AS vinculados
-				JOIN people ON people.id = vinculados.id_persona
-				JOIN devices ON devices.id = vinculados.id_dispositivo
+			FROM linked AS vinculados
+				JOIN people ON people.id = vinculados.id_people
+				JOIN devices ON devices.id = vinculados.id_device
                 JOIN brands on brands.id = devices.id_brand
                 JOIN models on models.id = devices.id_model
 		';
@@ -91,9 +91,9 @@ class Vincular
 				,dispositivos.marca AS marca
 				,dispositivos.modelo AS modelo
 				,dispositivos.imei AS imei
-			FROM vinculados AS vinculados
-				JOIN people ON people.id = vinculados.id_persona
-				JOIN dispositivos ON dispositivos.id = vinculados.id_dispositivo
+			FROM linked AS vinculados
+				JOIN people ON people.id = linked.id_people
+				JOIN dispositivos ON dispositivos.id = linked.id_dispositivo
 			WHERE people.id = ?
 		';
 
