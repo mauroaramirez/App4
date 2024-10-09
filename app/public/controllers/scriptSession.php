@@ -18,8 +18,8 @@ if ($result[1] != 0) {
 		$_SESSION['personas'] = $result[2][0]['personas'];
 		$_SESSION['id'] = $result[2][0]['id'];
 		$_SESSION['email'] = $result[2][0]['email'];
-		$_SESSION['pais'] = $result[2][0]['pais'];
-		$_SESSION['estado'] = $result[2][0]['estado'];
+		$_SESSION['country'] = $result[2][0]['country'];
+		$_SESSION['id_status'] = $result[2][0]['id_status'];
 		$_SESSION['rol_id'] = $result[2][0]['rol_id'];
 		$_SESSION['rol'] = $result[2][0]['rol'];
 

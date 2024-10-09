@@ -1,7 +1,19 @@
 <?php
 session_start();
 
+require_once '../../models/Dispositivos.php';
+
+use Clases\Dispositivos;
+
 if ($_SESSION['rol_id'] == 1) :
+
+	$dispositivos = new Dispositivos;
+
+	$selectDispositivos = $dispositivos->selectDispositivos();
+
+	$selectMarcas = $dispositivos->selectBrand();
+	$selectModelos = $dispositivos->selectModels();
+	
 ?>
 	<!DOCTYPE html>
 	<html lang="es">
@@ -23,12 +35,28 @@ if ($_SESSION['rol_id'] == 1) :
 						<h3 class="text-center">Registro de Dispositivos</h3>
 						<form action="../../controllers/scriptDispositivos.php" method="post">
 							<div class="mb-4">
-								<label for="marca" class="form-label">Marca:</label>
-								<input type="text" name="marca" class="form-control" required placeholder="Escriba la Marca">
+							<tr>
+								<td><label for="marca">Marca:</label></td>
+								<td>
+									<select name="marca" id="marca" class="form-select">
+										<?php foreach ($selectMarcas[2] as $key => $value) : ?>
+											<option value="<?php echo $value['id'] ?>"><?php echo $value['descripcion'] ?></option>
+										<?php endforeach ?>
+									</select>
+								</td>
+							</tr>
 							</div>
 							<div class="mb-4">
-								<label for="modelo" class="form-label">Modelo:</label>
-								<input type="text" name="modelo" class="form-control" required placeholder="Escriba el Modelo">
+							<tr>
+								<td><label for="modelo">Modelo:</label></td>
+								<td>
+									<select name="modelo" id="modelo" class="form-select">
+										<?php foreach ($selectModelos[2] as $key => $value) : ?>
+											<option value="<?php echo $value['id'] ?>"><?php echo $value['descripcion'] ?></option>
+										<?php endforeach ?>
+									</select>
+								</td>
+							</tr>
 							</div>
 							<div class="mb-4">
 								<label for="imei" class="form-label">IMEI:</label>

@@ -50,7 +50,7 @@ class Dispositivos
 
 	public function insert()
 	{
-		$insert = "INSERT INTO dispositivos (marca,modelo,imei) VALUES (?,?,?)";
+		$insert = "INSERT INTO devices (id_brand,id_model,imei) VALUES (?,?,?)";
 
 		$stmt = Database::conectar()->prepare($insert);
 		$stmt->bindParam(1, $this->marca);
@@ -69,11 +69,13 @@ class Dispositivos
 	public function selectDispositivos()
 	{
 		$query = '
-		SELECT dispositivos.id AS "id"
-			,dispositivos.marca AS "marca"
-			,dispositivos.modelo AS "modelo"
-			,dispositivos.imei AS "imei"
-		FROM dispositivos
+		SELECT devices.id as id
+			,brands.description as marca
+			,models.description as modelo
+			,devices.imei as imei
+		FROM `devices` as devices
+			JOIN brands ON brands.id = devices.id_brand
+			JOIN models ON models.id = devices.id_model
 		';
 		$stmt = Database::conectar()->prepare($query);
 
@@ -87,14 +89,15 @@ class Dispositivos
 
 	public function selectOneDispositivo($id)
 	{
-
 		$query = '
-		SELECT dispositivos.id AS "id"
-			,dispositivos.marca AS "marca"
-			,dispositivos.modelo AS "modelo"
-			,dispositivos.imei AS "imei"
-		FROM dispositivos
-		WHERE dispositivos.id = ?
+		SELECT devices.id as id
+			,brands.description as marca
+			,models.description as modelo
+			,devices.imei as imei
+		FROM `devices` as devices
+			JOIN brands ON brands.id = devices.id_brand
+			JOIN models ON models.id = devices.id_model
+		WHERE devices.id = ?
 		';
 
 		$stmt = Database::conectar()->prepare($query);
@@ -109,13 +112,47 @@ class Dispositivos
 		}
 	}
 
+	public function selectBrand()
+	{
+		$query = '
+			SELECT brands.id as id
+				,brands.description as "descripcion"
+			FROM brands
+		';
+		$stmt = Database::conectar()->prepare($query);
+
+		if ($stmt->execute()) {
+			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
+			return $result;
+		} else {
+			return $stmt->errorInfo();
+		}
+	}
+
+	public function selectModels()
+	{
+		$query = '
+			SELECT models.id as id
+				,models.description as "descripcion"
+			FROM models
+		';
+		$stmt = Database::conectar()->prepare($query);
+
+		if ($stmt->execute()) {
+			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
+			return $result;
+		} else {
+			return $stmt->errorInfo();
+		}
+	}
+
 	public function updateDispositivo($id)
 	{
 		$update = "
-		UPDATE `dispositivos` SET `marca` = ?
+		UPDATE `devices` SET `marca` = ?
 		, `modelo` = ?
 		, `imei` = ? 
-		WHERE `dispositivos`.`id` = ?";
+		WHERE `devices`.`id` = ?";
 
 		$stmt = Database::conectar()->prepare($update);
 		$stmt->bindParam(1, $this->marca);
@@ -133,7 +170,7 @@ class Dispositivos
 
 	public function deleteDispotivos($id)
 	{
-		$delete = "DELETE FROM `dispositivos` WHERE `id` = ?";
+		$delete = "DELETE FROM `devices` WHERE `id` = ?";
 
 		$stmt = Database::conectar()->prepare($delete);
 		$stmt->bindParam(1, $id);

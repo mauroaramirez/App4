@@ -17,17 +17,17 @@ class Session
 	public function login()
 	{
 		$query = '
-		SELECT CONCAT_WS(", ", personas.nombre,personas.apellido) AS "personas"
-			,personas.id AS "id"
-			,personas.email AS "email"
-			,personas.pais AS "pais"
-			,personas.estado AS "estado"
-			,personas.pass AS "pass"
+		SELECT CONCAT_WS(", ", people.name,people.last_name) AS "personas"
+			,people.id AS "id"
+			,people.email AS "email"
+			,people.country AS "country"
+			,people.id_status AS "id_status"
+			,people.pass AS "pass"
 			,roles.id AS "rol_id"
 			,roles.role AS "rol"
-		FROM personas
-			JOIN roles ON personas.rol_id = roles.id
-		WHERE personas.dni = ?
+		FROM people
+			JOIN roles ON people.rol_id = roles.id
+		WHERE people.dni = ?
 		';
 		$stmt = Database::conectar()->prepare($query);
 
