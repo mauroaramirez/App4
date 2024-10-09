@@ -27,6 +27,9 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `brands`
 --
 
+CREATE DATABASE IF NOT EXISTS `app4` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `app4`;
+
 CREATE TABLE `brands` (
   `id` int(11) NOT NULL,
   `description` varchar(255) NOT NULL
