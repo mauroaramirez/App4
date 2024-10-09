@@ -29,23 +29,22 @@ $dataTable = $personas->selectAll();
         $('table').DataTable({
             "pageLength": 5,
             "lengthMenu": [5, 10],
-            "autoWidth": true, // Habilita el ancho automático de las columnas
-            "scrollX": true,   // Habilita el scroll horizontal si es necesario
-            "fixedHeader": true // Fija el encabezado de la tabla al hacer scroll
+            "autoWidth": true, 
+            "scrollX": true,   
+            "fixedHeader": true 
         });
     });
 </script>
 
 <style>
 	table th, table td {
-    	text-align: center; /* Centrar el contenido de las celdas */
+    	text-align: center;
 	}
 
 	table td:last-child {
-    	white-space: nowrap; /* Evitar que el texto se rompa en varias líneas */
+    	white-space: nowrap; 
 	}
 </style>
-
 
 <body class="form-background">
 	<div class="container mt-5">

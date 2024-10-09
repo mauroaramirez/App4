@@ -59,12 +59,16 @@ class Vincular
 			SELECT CONCAT_WS(" ", people.name, people.last_name) AS "titular"
 				,people.email AS email
 				,people.created_at AS created_at
-				,dispositivos.marca AS marca
-				,dispositivos.modelo AS modelo
-				,dispositivos.imei AS imei
+				,devices.id_brand AS id_brand
+				,devices.id_model AS id_model
+				,devices.imei AS imei
+                ,brands.description as marca
+                ,models.description as modelo
 			FROM vinculados AS vinculados
 				JOIN people ON people.id = vinculados.id_persona
-				JOIN dispositivos ON dispositivos.id = vinculados.id_dispositivo;
+				JOIN devices ON devices.id = vinculados.id_dispositivo
+                JOIN brands on brands.id = devices.id_brand
+                JOIN models on models.id = devices.id_model
 		';
 
 		$stmt = Database::conectar()->prepare($query);

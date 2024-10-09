@@ -22,8 +22,8 @@ if (isset($_POST['newDispositivo'])) {
 
 if (isset($_POST['updateDispositivo'])) {
 
-    $dispositivo->setMarcas($_POST['marca']);
-    $dispositivo->setModelo($_POST['modelo']);
+    $dispositivo->setMarcas($_POST['id_brand']);
+    $dispositivo->setModelo($_POST['id_model']);
     $dispositivo->setImei($_POST['imei']);
 
     $result = $dispositivo->updateDispositivo($_POST['id']);
@@ -74,7 +74,6 @@ if (isset($_POST['deleteDispositivos'])) {
             </div>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -38,11 +38,11 @@ $dataTable = $dispositivos->selectDispositivos();
 
 <style>
 	table th, table td {
-    	text-align: center; /* Centrar el contenido de las celdas */
+    	text-align: center;
 	}
 
 	table td:last-child {
-    	white-space: nowrap; /* Evitar que el texto se rompa en varias líneas */
+    	white-space: nowrap;
 	}
 </style>
 

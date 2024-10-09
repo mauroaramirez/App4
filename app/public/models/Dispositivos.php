@@ -94,6 +94,8 @@ class Dispositivos
 			,brands.description as marca
 			,models.description as modelo
 			,devices.imei as imei
+            ,devices.id_brand as id_brand
+            ,devices.id_model as id_model
 		FROM `devices` as devices
 			JOIN brands ON brands.id = devices.id_brand
 			JOIN models ON models.id = devices.id_model
@@ -149,10 +151,11 @@ class Dispositivos
 	public function updateDispositivo($id)
 	{
 		$update = "
-		UPDATE `devices` SET `marca` = ?
-		, `modelo` = ?
-		, `imei` = ? 
-		WHERE `devices`.`id` = ?";
+			UPDATE `devices` 
+			SET `id_brand` = ?
+				, `id_model` = ?
+				, `imei` = ? 
+			WHERE `devices`.`id` = ?";
 
 		$stmt = Database::conectar()->prepare($update);
 		$stmt->bindParam(1, $this->marca);
