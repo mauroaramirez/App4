@@ -16,7 +16,6 @@ $dataTable = $vinculados->selectAll();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dispositivos Vinculados</title>
-    <!-- Vincular Bootstrap y el archivo CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -29,9 +28,9 @@ $dataTable = $vinculados->selectAll();
         $('table').DataTable({
             "pageLength": 5,
             "lengthMenu": [5, 10],
-            "autoWidth": true, // Habilita el ancho automático de las columnas
-            "scrollX": true, // Habilita el scroll horizontal si es necesario
-            "fixedHeader": true // Fija el encabezado de la tabla al hacer scroll
+            "autoWidth": true,
+            "scrollX": true,
+            "fixedHeader": true
         });
     });
 </script>
@@ -82,8 +81,6 @@ $dataTable = $vinculados->selectAll();
             </div>
         </div>
     </div>
-
-    <!-- Vincular Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -16,20 +16,17 @@ $personas = $personas->selectOne($_GET['id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Persona</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/style.css">
+
     <style>
-        /* Ajustar el ancho de la tarjeta */
         .card-custom {
-            max-width: 600px; /* Ajusta este valor según tus necesidades */
-            margin: 0 auto; /* Centra la tarjeta */
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Reducir el espaciado entre párrafos */
         .card-body p {
-            margin-bottom: 10px; /* Espaciado más pequeño */
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -45,12 +42,10 @@ $personas = $personas->selectOne($_GET['id']);
                 <p><strong>Email: </strong><?php echo $personas[2]['email'] ?></p>
                 <p><strong>Dirección: </strong><?php echo $personas[2]['addresses'] ?></p>
                 <p><strong>País: </strong><?php echo $personas[2]['country'] ?></p>
-				<a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
+                <a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
             </div>
         </div>
     </div>
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

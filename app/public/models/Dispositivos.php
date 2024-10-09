@@ -3,7 +3,6 @@
 namespace Clases;
 
 require_once 'Database.php';
-//require_once '../utils/utils.php';
 
 use PDO;
 

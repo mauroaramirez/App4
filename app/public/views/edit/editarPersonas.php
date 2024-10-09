@@ -13,16 +13,16 @@ if ($_SESSION['rol_id'] == 1) :
 ?>
 	<!DOCTYPE html>
 	<html lang="es">
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Editar Personas</title>
-		<!-- Vincular Bootstrap y el archivo CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="../../css/style.css">
 	</head>
 
-	<body class="form-background"> <!-- Aplicamos la clase para el fondo -->
+	<body class="form-background">
 		<div class="container mt-5">
 			<div class="row justify-content-center">
 				<div class="col-md-5">
@@ -66,21 +66,21 @@ if ($_SESSION['rol_id'] == 1) :
 								<input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
 								<input type="submit" name="updatePersonas" value="Editar" class="btn btn-warning">
 								<br><br><a href="/views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>
-								<?php include_once '../links/linkPantallas.php'?>
+								<?php include_once '../links/linkPantallas.php' ?>
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- Vincular Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>
+
 	</html>
 <?php else : ?>
 	<!DOCTYPE html>
 	<html lang="es">
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,6 +88,7 @@ if ($_SESSION['rol_id'] == 1) :
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="../../css/style.css">
 	</head>
+
 	<body class="form-background">
 		<div class="container mt-5 text-center">
 			<div class="card p-4">
@@ -96,5 +97,6 @@ if ($_SESSION['rol_id'] == 1) :
 			</div>
 		</div>
 	</body>
+
 	</html>
 <?php endif ?>

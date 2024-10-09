@@ -16,18 +16,14 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Ver Dispositivo</title>
-	<!-- Bootstrap CSS -->
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Custom CSS -->
 	<link rel="stylesheet" href="../../css/style.css">
 	<style>
-		/* Ajustar el ancho de la tarjeta */
 		.card-custom {
 			max-width: 600px;
 			margin: 0 auto;
 		}
 
-		/* Reducir el espaciado entre párrafos */
 		.card-body p {
 			margin-bottom: 10px;
 		}
@@ -47,8 +43,6 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 			</div>
 		</div>
 	</div>
-
-	<!-- Bootstrap JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -9,15 +9,15 @@ if (isset($_SESSION['id'])) {
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Geolocalización</title>
-		<!-- Vincular Bootstrap y el archivo CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 
 	<style>
 		.list-group-item:hover {
-    background-color: #cce5ff; /* color celeste */
-}
+			background-color: #cce5ff;
+			/* color celeste */
+		}
 	</style>
 
 	<body class="home-background">
@@ -57,7 +57,6 @@ if (isset($_SESSION['id'])) {
 				</div>
 			</div>
 		</div>
-		<!-- Vincular Bootstrap JS -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>
 

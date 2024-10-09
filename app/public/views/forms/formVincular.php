@@ -63,7 +63,7 @@ if ($_SESSION['rol_id'] == 1) :
                                     </td>
                                 </tr>
                             </table>
-                            <?php include_once '../links/linkPantallas.php'?>
+                            <?php include_once '../links/linkPantallas.php' ?>
                         </form>
                     </div>
                 </div>
@@ -73,23 +73,27 @@ if ($_SESSION['rol_id'] == 1) :
     </body>
 
     </html>
-	</html>
+
+    </html>
 <?php else : ?>
-	<!DOCTYPE html>
-	<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Sin permisos</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="../style.css">
-	</head>
-	<body class="form-background">
-		<div class="container mt-5 text-center">
-			<div class="card p-4">
-				<?php include_once '../links/linkSinPermisos.php'; ?>
-			</div>
-		</div>
-	</body>
-	</html>
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sin permisos</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../style.css">
+    </head>
+
+    <body class="form-background">
+        <div class="container mt-5 text-center">
+            <div class="card p-4">
+                <?php include_once '../links/linkSinPermisos.php'; ?>
+            </div>
+        </div>
+    </body>
+
+    </html>
 <?php endif ?>

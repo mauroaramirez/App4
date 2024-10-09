@@ -11,7 +11,6 @@ $session->setPass($_POST['pass']);
 $result = $session->login();
 $pass = $session->getPass();
 
-// Aquí realizamos la verificación antes de cualquier salida
 if ($result[1] != 0) {
 	if (password_verify($pass, $result[2][0]['pass'])) {
 		$_SESSION['personas'] = $result[2][0]['personas'];
@@ -24,7 +23,7 @@ if ($result[1] != 0) {
 
 		// Redirigir antes de enviar cualquier salida
 		header('Location: ../views/home.php');
-		exit(); // Asegúrate de usar exit después de header
+		exit();
 	} else {
 		$error_message = "Clave incorrecta. Intente nuevamente.";
 	}
@@ -36,18 +35,18 @@ if ($result[1] != 0) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autenticación</title>
-    <link href="../css/style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Autenticación</title>
+	<link href="../css/style.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="card p-4">
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-5">
+				<div class="card p-4">
 					<?php
 					if (isset($error_message)) {
 						echo "<h4>$error_message</h4>";
@@ -55,8 +54,9 @@ if ($result[1] != 0) {
 					}
 					?>
 				</div>
-			</div>	
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </body>
+
 </html>

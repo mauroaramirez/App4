@@ -3,7 +3,6 @@
 namespace Clases;
 
 require_once 'Database.php';
-//require_once '../utils/utils.php';
 
 use PDO;
 
@@ -57,7 +56,7 @@ class Personas
 	{
 		$this->gender = $gender;
 	}
-	//
+
 	public function getEmail()
 	{
 		return $this->email;
@@ -123,7 +122,6 @@ class Personas
 
 	public function selectAll()
 	{
-
 		$query = '
 		SELECT people.id AS "id"
 			,CONCAT_WS(", ",people.name, people.last_name) AS "people"
@@ -148,7 +146,6 @@ class Personas
 
 	public function selectPeople()
 	{
-
 		$query = '
 		SELECT people.id AS "id"
 			,CONCAT_WS(", ",people.name, people.last_name) AS "people"
@@ -214,7 +211,6 @@ class Personas
 
 	public function selectOne($id)
 	{
-
 		$query = '
 		SELECT CONCAT_WS(", ",people.name, people.last_name) AS "titular"
     		,people.dni AS "dni"

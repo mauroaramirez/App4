@@ -1,14 +1,14 @@
 body {
-	background-image: url('../img/mapa.webp'); /* Ruta de la imagen de fondo */
-	background-size: cover; /* La imagen cubrirá todo el fondo */
-	background-position: center; /* Centrar la imagen */
-	background-repeat: no-repeat; /* Evitar que la imagen se repita */
+	background-image: url('../img/mapa.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 	height: 100vh;
 	margin: 0;
 }
 
 .container {
-	margin-top: 100px; /* Ajusta el margen superior para colocar el contenedor más arriba */
+	margin-top: 100px;
 }
 
 .form-control {
@@ -34,44 +34,41 @@ body {
 .card {
 	padding: 20px;
 	border-radius: 0.5rem;
-	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-	background-color: white; /* Fondo blanco de la tarjeta */
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: white;
 }
 
-/* Imagen de fondo solo para la página home.php */
 .home-background {
-    background-image: url('../img/mapa-ciudad.jpeg'); /* Cambia esta ruta por la imagen que desees */
-    background-size: cover; /* La imagen cubre toda la pantalla */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
+	background-image: url('../img/mapa-ciudad.jpeg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	min-height: 100vh;
 }
 
 /* Estilos comunes */
 .card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-    padding-top: 50px; /* Ajusta la altura para que no quede en el centro */
+	padding-top: 50px;
 }
 
-/* Imagen de fondo para la página formPersonas.php */
 .form-background {
-    background-image: url('../img/mapa-ciudad.jpeg'); /* Cambia esta ruta por la imagen que desees */
+	background-image: url('../img/mapa-ciudad.jpeg');
 	height: 100vh;
 }
 
-/* Estilos para las tarjetas */
 .card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-    padding-top: 30px; /* Reducimos el margen superior */
-    padding-bottom: 30px; /* Ajustamos el margen inferior */
+	padding-top: 30px;
+	padding-bottom: 30px;
 }

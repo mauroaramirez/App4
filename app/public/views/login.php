@@ -12,12 +12,14 @@ if (!isset($_SESSION['rol'])) :
 		<link rel="stylesheet" href="../css/style.css">
 		<title>Login</title>
 	</head>
-	
+
+	<!-- Prueba video de fondo 
 	<video autoplay muted loop id="bg-video">
   		<source src="../video/video-1.mp4"video/mp4">
 	</video>
-	<!-- Prueba video de fondo -->
+	
 	<style>
+
 	#bg-video {
 		position: fixed;
 		right: 0;
@@ -36,10 +38,12 @@ if (!isset($_SESSION['rol'])) :
 		align-items: center;
 		font-family: Arial, sans-serif;
 	}
+
 	</style>
+	-->
 
 	<body>
-		<div class="container">
+		<div class="container mt-5">
 			<div class="row justify-content-center">
 				<div class="col-md-5">
 					<div class="card p-5">
@@ -70,14 +74,14 @@ if (!isset($_SESSION['rol'])) :
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/style.css">
 	<div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-5">
-                <div class="card p-4">
+		<div class="row justify-content-center">
+			<div class="col-md-5">
+				<div class="card p-4">
 					<h1>Ya estás logeado, no se puede acceder al Login.</h1>
 					<a href="../views/home.php" class="btn btn-info mt-3">Home</a>
 					<a href="./logout.php" class="btn btn-danger mt-3">Cerrar Sesión</a>
 				</div>
-			</div>	
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 <?php endif ?>

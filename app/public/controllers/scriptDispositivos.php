@@ -15,9 +15,7 @@ if (isset($_POST['newDispositivo'])) {
     $dispositivo->setImei($_POST['imei']);
 
     $result = $dispositivo->insert();
-
-    $message = validarResonseQuery($result); 
-
+    $message = validarResonseQuery($result);
 }
 
 if (isset($_POST['updateDispositivo'])) {
@@ -27,14 +25,12 @@ if (isset($_POST['updateDispositivo'])) {
     $dispositivo->setImei($_POST['imei']);
 
     $result = $dispositivo->updateDispositivo($_POST['id']);
-
     $message = validarResonseQueryUpdate($result);
 }
 
 if (isset($_POST['deleteDispositivos'])) {
 
     $result = $dispositivo->deleteDispotivos($_POST['id']);
-
     $message = validarResonseQueryDelete($result);
 }
 
@@ -59,15 +55,15 @@ if (isset($_POST['deleteDispositivos'])) {
                     <form action="../../controllers/scriptSession.php" method="post">
                         <div class="text-center">
                             <p>
-                            <?php if (!empty($message)): ?>
-                                <div class="alert alert-info text-center">
-                                    <?php echo $message; ?>
-                                </div>
-                            <?php endif; ?>
-                            </p>
-                            <br><a href="/views/dataTables/dataTableDispositivos.php" class="btn btn-info">Ir a Consulta de Dispositivos</a>
-                            <br><br><a href="../views/forms/formDispositivo.php" class="btn btn-info">Ir al Registro de Dispositivos</a>
-                            <?php include_once '../views/links/linkPantallas.php'?>
+                                <?php if (!empty($message)): ?>
+                            <div class="alert alert-info text-center">
+                                <?php echo $message; ?>
+                            </div>
+                        <?php endif; ?>
+                        </p>
+                        <br><a href="/views/dataTables/dataTableDispositivos.php" class="btn btn-info">Ir a Consulta de Dispositivos</a>
+                        <br><br><a href="../views/forms/formDispositivo.php" class="btn btn-info">Ir al Registro de Dispositivos</a>
+                        <?php include_once '../views/links/linkPantallas.php' ?>
                         </div>
                     </form>
                 </div>

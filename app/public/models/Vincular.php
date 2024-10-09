@@ -3,7 +3,6 @@
 namespace Clases;
 
 require_once 'Database.php';
-//require_once '../utils/utils.php';
 
 use PDO;
 
@@ -54,7 +53,6 @@ class Vincular
 
 	public function selectAll()
 	{
-
 		$query = '
 			SELECT CONCAT_WS(" ", people.name, people.last_name) AS "titular"
 				,people.email AS email
@@ -83,7 +81,6 @@ class Vincular
 
 	public function selectOne($id)
 	{
-
 		$query = '
 			SELECT CONCAT_WS(" ", people.name, people.last_name) AS "titular"
 				,people.email AS email
