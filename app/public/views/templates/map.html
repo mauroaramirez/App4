@@ -8,24 +8,81 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 <body>
-    <div id="map" style="height: 800px; width: 100%;"></div>
+    <div id="map" style="height: 1000px; width: 100%;"></div>
 
     <script type="text/javascript">
         // gps_data desde Flask como un objeto JSON válido
         const gpsData = JSON.parse('{{ gps_data | tojson | safe }}');
 
         // Inicializar el mapa con la latitud y longitud del dispositivo
-        const map = L.map('map').setView([gpsData.latitude, gpsData.longitude], 13);
+        const map = L.map('map').setView([gpsData.latitude, gpsData.longitude], 17);//Zoom
 
         // Capa base al mapa
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Marcador en la ubicación del dispositivo
-        L.marker([gpsData.latitude, gpsData.longitude]).addTo(map)
-            .bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b>`)
-            .openPopup();
+        // Función para calcular la diferencia de días entre dos fechas
+        function getDaysDifference(date1, date2) {
+            const oneDay = 24 * 60 * 60 * 1000; // Un día en milisegundos
+            const diffDays = Math.round(Math.abs((date1 - date2) / oneDay)); // Diferencia en días
+            return diffDays;
+        }
+
+        // Función para determinar el color del marcador según la fecha
+        function getMarkerColor(timestamp) {
+            const currentDate = new Date(); // Fecha actual
+            const gpsDate = new Date(timestamp); // Fecha del gps
+
+            const diffDays = getDaysDifference(currentDate, gpsDate);
+
+            if (diffDays <= 1) {
+                return "green"; // Verde si es un día o menos
+            } else if (diffDays > 1 && diffDays <= 5) {
+                return "yellow"; // Amarillo si tiene entre 2 y 5 días
+            } else if (diffDays > 5 && diffDays <= 10) {
+                return "orange"; // Naranja si tiene entre 6 y 10 días
+            } else {
+                return "red"; // Rojo si tiene más de 10 días
+            }
+        }
+
+        const marker = L.marker([gpsData.latitude, gpsData.longitude]).addTo(map);
+
+        // Cambiar el color del marcador según la fecha del timestamp
+        const color = getMarkerColor(gpsData.timestamp);
+        
+        marker.setIcon(L.divIcon({
+            className: `marker-${color}`, // Le asignamos una clase según el color
+            iconSize: [32, 32],
+            html: `<div style="width: 32px; height: 32px; background-color: ${color}; border-radius: 50%;"></div>`
+        }));
+
+        // Mostrar el popup con la información según el color
+
+        switch (color) {
+
+            case 'green':
+                marker.bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b><br><b>Un día o menos sin actividad</b>`)
+                .openPopup();
+                break;
+
+            case 'yellow':
+                marker.bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b><br><b>Entre 2 y 5 días sin actividad</b>`)
+                .openPopup();
+                break;
+
+            case 'orange':
+                marker.bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b><br><b>Entre 6 y 10 días sin actividad</b>`)
+                .openPopup();
+                break;
+            
+            case 'red':
+                marker.bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b><br><b>Más de 10 días sin actividad</b>`)
+                .openPopup();
+            break;    
+        }
+
     </script>
 </body>
-</html>
+</html>s
