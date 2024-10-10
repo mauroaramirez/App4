@@ -43,6 +43,7 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 			</div>
 		</div>
 	</div>
+	<?php include_once '../../views/footer/footer.php'?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
