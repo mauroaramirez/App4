@@ -52,6 +52,8 @@ if ($_SESSION['rol_id'] == 1) :
 									<input type="radio" name="sex" value="M" class="form-check-input" <?php echo ($personas[2]['gender'] == "M") ? "checked" : ""; ?>>
 									<label for="sex" class="form-check-label">F</label>
 									<input type="radio" name="sex" value="F" class="form-check-input" <?php echo ($personas[2]['gender'] == "F") ? "checked" : ""; ?>>
+									<label for="sex" class="form-check-label">X</label>
+									<input type="radio" name="sex" value="X" class="form-check-input" <?php echo ($personas[2]['gender'] == "X") ? "checked" : ""; ?>>
 								</div>
 							</div>
 							<div class="mb-3">

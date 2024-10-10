@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Persona</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <style>
+        .form-background {
+            /*Creo la carpeta static ya que es la ruta que utiliza Flask para obtener img*/
+            background-image: url('../static/img/mapa-ciudad.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-custom {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card-body p {
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="form-background">
+    <div class="container mt-5">
+        <div class="card card-custom">
+            <div class="card-body text-center">
+                <h3 class="text-center">No se encontro el IMEI</h3>
+                <div class="card-body text-center">
+                    <h3>Intente nuevamente</h3><br>
+                    <button class="btn btn-danger" onclick="goBack()">Ir a Consulta de IMEI</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function goBack() {
+                window.history.back(); // Vuelve a la página anterior
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
