@@ -1,4 +1,4 @@
-## Proyecto Geolocalización 2024 - ISFT-177 - Grupo APP4
+# Proyecto Geolocalización 2024 - ISFT-177 - Grupo APP4
 
 ## Descripción
 
@@ -16,6 +16,7 @@
 
 ## Estructura de carpetas del proyecto
 
+```
 app
 └ public/
 | └ controllers/
@@ -89,6 +90,7 @@ app
 └ Dockerfile.python
 └ mysqld.cnf
 └ README.md 
+```
 
 ## Red del proyecto
 
@@ -97,13 +99,13 @@ El proyecto en esta configuración cuenta con su propia red, antes de levantar l
 ## Variables de entorno
 
 PROD: Crear el archivo .env e ingresar las siguientes variables.
-
+```
 TZ=America/Argentina/Buenos_Aires
 MYSQL_ROOT_PASSWORD=Q2wevceEEd!
 PMA_HOST=localhost
 DATABASE="mysql:host=mysql_server;dbname=app4,app4,Q2wevceEEd!"
 #PHP_PORT=4060
-
+```
 ## Levantar los contenedores
 
 Levantar contenedor local:
