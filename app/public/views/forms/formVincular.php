@@ -48,7 +48,7 @@ if ($_SESSION['rol_id'] == 1) :
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><label for="dispositivo">Dispositivo:</label></td>
+                                    <td><label for="dispositivo">IMEI - Dispositivo:</label></td>
                                     <td>
                                         <select name="dispositivo" id="dispositivo" class="form-select">
                                             <?php foreach ($selectDispositivos[2] as $key => $value) : ?>

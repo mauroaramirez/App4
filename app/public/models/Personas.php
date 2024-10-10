@@ -148,7 +148,7 @@ class Personas
 	{
 		$query = '
 		SELECT people.id AS "id"
-			,CONCAT_WS(", ",people.name, people.last_name) AS "people"
+			,CONCAT_WS(" ",people.last_name, people.name) AS "people"
 		FROM people
 		WHERE people.rol_id != 1
 		';
