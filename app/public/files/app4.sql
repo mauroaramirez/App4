@@ -150,7 +150,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `role`) VALUES
-(1, 'admin');
+(1, 'admin'),
+(2, 'socio');
 
 --
 -- Índices para tablas volcadas

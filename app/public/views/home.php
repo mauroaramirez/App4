@@ -51,8 +51,7 @@ if (isset($_SESSION['id'])) {
 							<a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos</a>
 							<a href="./forms/formVincular.php" class="list-group-item list-group-item-action fs-6">Asociar Dispositivos</a>
 							<a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos Vinculados</a>
-							<a href="http://127.0.0.1:5000/gpsnow" class="list-group-item list-group-item-action fs-6">Ver Mapa Único</a>
-							<a href="http://127.0.0.1:5000/gpsbyall" class="list-group-item list-group-item-action fs-6">Ver Mapa Múltiple</a>
+							<a href="./get/verIMEI.php" class="list-group-item list-group-item-action fs-6">Ver Ubicación por IMEI</a>
 						</div>
 					</div>
 				</div>
