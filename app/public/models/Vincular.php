@@ -67,6 +67,7 @@ class Vincular
 				JOIN devices ON devices.id = vinculados.id_device
                 JOIN brands on brands.id = devices.id_brand
                 JOIN models on models.id = devices.id_model
+			WHERE vinculados.id_status = 1
 		';
 
 		$stmt = Database::conectar()->prepare($query);

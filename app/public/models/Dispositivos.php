@@ -75,6 +75,7 @@ class Dispositivos
 		FROM `devices` as devices
 			JOIN brands ON brands.id = devices.id_brand
 			JOIN models ON models.id = devices.id_model
+		WHERE devices.id_status = 1
 		';
 		$stmt = Database::conectar()->prepare($query);
 
@@ -172,7 +173,7 @@ class Dispositivos
 
 	public function deleteDispotivos($id)
 	{
-		$delete = "DELETE FROM `devices` WHERE `id` = ?";
+		$delete = "UPDATE `devices` SET `id_status` = '2' WHERE `devices`.`id` = ?";
 
 		$stmt = Database::conectar()->prepare($delete);
 		$stmt->bindParam(1, $id);
