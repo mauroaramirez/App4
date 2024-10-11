@@ -131,7 +131,7 @@ class Personas
     		,people.addresses AS "addresses"
     		,people.country AS "country"
 		FROM people
-		WHERE people.rol_id != 1
+		WHERE people.rol_id != 1 and id_status = 1
 		';
 
 		$stmt = Database::conectar()->prepare($query);
@@ -196,8 +196,8 @@ class Personas
 
 	public function delete($id)
 	{
-		$delete = "DELETE FROM `people` WHERE `id` = ?";
-
+		$delete = "UPDATE `people` SET `id_status` = '2' WHERE `people`.`id` = ?";
+				   
 		$stmt = Database::conectar()->prepare($delete);
 		$stmt->bindParam(1, $id);
 

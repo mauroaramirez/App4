@@ -8,8 +8,14 @@ use PDO;
 
 use Clases\Database;
 
+$conectar = new Database;
+
+$conectar = $conectar->conectar();
+
 class Session
 {
+
+
 
 	private $dni;
 	private $pass;
