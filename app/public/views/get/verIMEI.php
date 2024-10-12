@@ -42,10 +42,10 @@ if ($_SESSION['rol_id'] == 1) :
     </style>
 
     <body class="form-background">
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="card p-4">
+    <div class="container-fluid mt-5">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card p-4 text-left">
                         <h1 class="text-center mb-4">Consulta Ubicación</h1>
                         <form id="imeiForm">
                             <div class="mb-3">

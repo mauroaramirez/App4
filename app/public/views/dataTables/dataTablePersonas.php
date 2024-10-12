@@ -47,10 +47,10 @@ $dataTable = $personas->selectAll();
 </style>
 
 <body class="form-background">
-	<div class="container mt-5">
-		<div class="row justify-content-center">
-			<div class="col-md-10">
-				<div class="card p-4">
+	<div class="container-fluid mt-5">
+		<div class="row mb-4 justify-content-center">
+			<div class="col-12 col-md-4 col-lg-7">
+				<div class="card p-5 text-left">
 					<h3 class="text-center">Consulta de Personas</h3>
 					<table class="table table-bordered mt-3">
 						<thead>
@@ -87,7 +87,7 @@ $dataTable = $personas->selectAll();
 			</div>
 		</div>
 	</div>
-	<?php include_once '../../views/footer/footer.php'?>
+	<?php include_once '../../views/footer/footer.php' ?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

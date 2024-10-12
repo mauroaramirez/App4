@@ -1,18 +1,31 @@
-version: '3'
+#version: '3'
 services:
-  app4:
+  public-app4-r:
     build: ./
-    container_name: apache-app4
+    container_name: public-app4-r
     restart: always
     ports:
-     - 4060:80
+     - ${PHP_PORT}:80
     env_file: .env
     volumes:
-     - ./home/app4:/var/www/html
+     - ./:/var/www/html
      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
     networks:
-      - mvc
+      - sql_default
+
+  flask-app4-r:
+    build:
+      context: .
+      dockerfile: Dockerfile.python
+    container_name: flask-app4-r
+    restart: always
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./:/app
+    networks:
+      - sql_default
 networks:
-  mvc:
+  sql_default:
     external: true
-    name: mvc
+    name: sql_default

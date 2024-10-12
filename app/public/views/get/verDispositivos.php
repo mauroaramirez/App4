@@ -31,7 +31,7 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 </head>
 
 <body class="form-background">
-	<div class="container mt-5">
+	<div class="container-fluid mt-5">
 		<div class="card card-custom">
 			<h3 class="text-center">Datos del Dispositivo</h3>
 			<div class="card-body text-center">
@@ -43,7 +43,6 @@ $dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
 			</div>
 		</div>
 	</div>
-	<?php include_once '../../views/footer/footer.php'?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
