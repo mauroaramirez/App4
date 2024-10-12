@@ -47,10 +47,10 @@ $dataTable = $vinculados->selectAll();
 </style>
 
 <body class="form-background">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
-                <div class="card p-4">
+<div class="container-fluid mt-5">
+		<div class="row mb-4 justify-content-center">
+			<div class="col-12 col-md-4 col-lg-5">
+				<div class="card p-4 text-left">
                     <h3 class="text-center">Dispositivos Vinculados</h3>
                     <table class="table table-bordered mt-3">
                         <thead>
