@@ -32,7 +32,7 @@ if ($_SESSION['rol_id'] == 1) :
 
     <style>
         .form-background {
-            background-image: url('../static/img/mapa-ciudad.jpeg');
+            background-image: url('./static/img/mapa-ciudad.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
