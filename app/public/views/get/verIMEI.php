@@ -5,7 +5,6 @@ require_once '../../models/Dispositivos.php';
 require_once '../../models/Vincular.php';
 
 use Clases\Vincular;
-
 use Clases\Dispositivos;
 
 // rol_id = 1 es perfil root
@@ -16,6 +15,9 @@ if ($_SESSION['rol_id'] == 1) :
 
     $vinculados = new Vincular;
     $sectVinculados = $vinculados->selectAll();
+
+    // Obtener la URL del servicio Flask desde la variable de entorno
+    $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
 
 ?>
 
@@ -42,7 +44,7 @@ if ($_SESSION['rol_id'] == 1) :
     </style>
 
     <body class="form-background">
-    <div class="container-fluid mt-5">
+        <div class="container-fluid mt-5">
             <div class="row mb-4 justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card p-4 text-left">
@@ -74,11 +76,14 @@ if ($_SESSION['rol_id'] == 1) :
             // Capturar IMEI
             const imeiSelect = document.getElementById('imei');
 
+            // Obtener la URL de la API desde PHP
+            const geoApiBaseUrl = "<?= $GEO_API_BASE_URL ?>";
+
             // Botón para consultar gpsnow
             document.getElementById('gpsNowBtn').addEventListener('click', function() {
                 const imei = imeiSelect.value;
                 if (imei) {
-                    window.location.href = `http://127.0.0.1:5000/gpsnow/${imei}`;
+                    window.location.href = `${geoApiBaseUrl}/gpsnow/${imei}`; // Usar la URL de la variable de entorno
                 } else {
                     alert('Por favor, selecciona un IMEI.');
                 }
@@ -88,13 +93,13 @@ if ($_SESSION['rol_id'] == 1) :
             document.getElementById('gpsByAllBtn').addEventListener('click', function() {
                 const imei = imeiSelect.value;
                 if (imei) {
-                    window.location.href = `http://127.0.0.1:5000/gpsbyall/${imei}`;
+                    window.location.href = `${geoApiBaseUrl}/gpsbyall/${imei}`; // Usar la URL de la variable de entorno
                 } else {
                     alert('Por favor, selecciona un IMEI.');
                 }
             });
         </script>
-        <?php include_once '../../views/footer/footer.php'?>
+        <?php include_once '../../views/footer/footer.php' ?>
     </body>
 
     </html>
