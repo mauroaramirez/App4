@@ -4,7 +4,7 @@ FROM python:3.8.5-alpine
 RUN apk add --no-cache gcc musl-dev python3-dev libffi-dev openssl-dev
 
 # Establecer el directorio de trabajo y copiar archivos
-WORKDIR /app
+WORKDIR /app/
 COPY . /app
 
 # Actualizar pip

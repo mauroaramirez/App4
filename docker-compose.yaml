@@ -13,18 +13,19 @@ services:
     networks:
       - sql_default
   flask-app4-r:
-    build:
-      context: .
-      dockerfile: Dockerfile.python
+    build: ./app
+#    context: .
+    volumes:
+      - ./app:/app
+#    dockerfile: Dockerfile.python
     container_name: flask-app4-r
     restart: always
     ports:
       - "5001:5000"
-    volumes:
-      - ./:/app
     networks:
       - sql_default
 networks:
   sql_default:
     external: true
     name: sql_default
+
