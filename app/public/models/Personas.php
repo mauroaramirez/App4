@@ -150,7 +150,7 @@ class Personas
 		SELECT people.id AS "id"
 			,CONCAT_WS(" ",people.last_name, people.name) AS "people"
 		FROM people
-		WHERE people.rol_id != 1
+		WHERE people.rol_id != 1 and people.id_status = 1
 		';
 
 		$stmt = Database::conectar()->prepare($query);

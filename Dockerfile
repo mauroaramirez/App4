@@ -13,7 +13,7 @@ WORKDIR /var/www/html
 RUN apt-get update && apt-get install --yes --no-install-recommends \
     zlib1g-dev \
     libzip-dev \
-    unzip \    
+    unzip \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
@@ -26,8 +26,4 @@ RUN apt-get update && apt-get install --yes --no-install-recommends \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
-    
-LABEL description="PHP + GD + Apache + PDO + DriverMongo + Composer"
-
-#EXPOSE 4060
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
