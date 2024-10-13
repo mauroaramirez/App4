@@ -10,10 +10,8 @@ class Database
     {
         $databaseString = getenv('DATABASE') ?: $_ENV['DATABASE'];
 
-        // Remover las comillas dobles (si están presentes)
         $databaseString = trim($databaseString, '"');
 
-        // Extraer los valores
         preg_match('/mysql:host=([^;]+);dbname=([^,]+),([^,]+),(.+)/', $databaseString, $matches);
 
         // Validar si se obtuvieron los valores correctamente
