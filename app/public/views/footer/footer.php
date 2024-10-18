@@ -51,7 +51,7 @@
 </style>
 
 <footer>
-	<h5>&copy; 2024 - Geolocalización - Practicas Profesionalizantes II</h5>
+	<h5>&copy; 2024 - Geolocalización - Prácticas Profesionalizantes II</h5>
 	<a href="../../views/home.php">
 		<img src="../../img/logo.png" alt="Logo de la empresa">
 	</a>

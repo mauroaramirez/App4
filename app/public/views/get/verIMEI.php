@@ -62,8 +62,10 @@ if ($_SESSION['rol_id'] == 1) :
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="button" id="gpsNowBtn" class="btn btn-info">Consultar Última</button><br>
-                                <button type="button" id="gpsByAllBtn" class="btn btn-info">Consultar Historial</button>
+                                <button type="button" id="gpsNowBtn" class="btn btn-info">Consultar Última Ubicación</button><br>
+                                <button type="button" id="gpsByAllBtn" class="btn btn-info">Consultar Historial de Ubicaciones</button><br>
+                                <button type="button" id="gpsNowBtn2" class="btn btn-info">PRUEBA Última Ubicación</button><br>
+                                <button type="button" id="gpsByAllBtn2" class="btn btn-info">PRUEBA Historial de Ubicaciones</button>
                                 <?php include_once '../links/linkPantallas.php' ?>
                             </div>
                         </form>
@@ -83,7 +85,8 @@ if ($_SESSION['rol_id'] == 1) :
             document.getElementById('gpsNowBtn').addEventListener('click', function() {
                 const imei = imeiSelect.value;
                 if (imei) {
-                    window.location.href = `${geoApiBaseUrl}/gpsnow/${imei}`; // Usar la URL de la variable de entorno
+                    window.location.href = `${geoApiBaseUrl}/gpsnow/${imei}`;
+
                 } else {
                     alert('Por favor, selecciona un IMEI.');
                 }
@@ -93,7 +96,29 @@ if ($_SESSION['rol_id'] == 1) :
             document.getElementById('gpsByAllBtn').addEventListener('click', function() {
                 const imei = imeiSelect.value;
                 if (imei) {
-                    window.location.href = `${geoApiBaseUrl}/gpsbyall/${imei}`; // Usar la URL de la variable de entorno
+                    window.location.href = `${geoApiBaseUrl}/gpsbyall/${imei}`;
+                } else {
+                    alert('Por favor, selecciona un IMEI.');
+                }
+            });
+
+            // PRUEBA Botón para consultar gpsnow
+            document.getElementById('gpsNowBtn2').addEventListener('click', function() {
+                const imei = imeiSelect.value;
+                if (imei) {
+                    // Redirigir a gps_request.php con IMEI y acción
+                    window.location.href = `../../gps_request.php?imei=${imei}&action=gpsnow2`;
+                } else {
+                    alert('Por favor, selecciona un IMEI.');
+                }
+            });
+
+            // PRUEBA Botón para consultar gpsbyall
+            document.getElementById('gpsByAllBtn2').addEventListener('click', function() {
+                const imei = imeiSelect.value;
+                if (imei) {
+                    // Redirigir a gps_request.php con IMEI y acción
+                    window.location.href = `../../gps_request.php?imei=${imei}&action=gpsbyall2`;
                 } else {
                     alert('Por favor, selecciona un IMEI.');
                 }

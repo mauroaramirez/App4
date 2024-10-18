@@ -104,7 +104,11 @@ TZ=America/Argentina/Buenos_Aires
 MYSQL_ROOT_PASSWORD=Q2wevceEEd!
 PMA_HOST=localhost
 DATABASE="mysql:host=mysql_server;dbname=app4,app4,Q2wevceEEd!"
-#PHP_PORT=4060
+PHP_PORT=4060
+GPS_API_URL=http://149.50.133.15:5000
+USERNAME_TOKEN=admin
+PASSWORD_TOKEN=password
+GEO_API_BASE_URL=http://127.0.0.1:5000
 ```
 ## Levantar los contenedores
 
