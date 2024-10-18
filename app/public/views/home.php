@@ -54,12 +54,12 @@ if (isset($_SESSION['id'])) {
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card p-4">
-                        <h3 class="mb-4 text-center">Opciones del sistema</h3>
+                        <h3 class="mb-4 text-center">Menú</h3>
                         <div class="list-group text-center">
                             <a href="./forms/formPersonas.php" class="list-group-item list-group-item-action fs-6">Registrar Personas</a>
                             <a href="./forms/formDispositivo.php" class="list-group-item list-group-item-action fs-6">Registrar Dispositivos</a>
-                            <a href="./dataTables/dataTablePersonas.php" class="list-group-item list-group-item-action fs-6">Consulta Personas</a>
-                            <a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos</a>
+                            <a href="./dataTables/dataTablePersonas.php" class="list-group-item list-group-item-action fs-6">Consultar Personas</a>
+                            <a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action fs-6">Consultar Dispositivos</a>
                             <a href="./forms/formVincular.php" class="list-group-item list-group-item-action fs-6">Asociar Dispositivos</a>
                             <a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos Vinculados</a>
                             <a href="./get/verIMEI.php" class="list-group-item list-group-item-action fs-6">Consulta Ubicación</a>
