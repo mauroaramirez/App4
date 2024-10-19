@@ -13,6 +13,7 @@ class Personas
 	protected $name;
 	protected $lastName;
 	protected $dni;
+	protected $phone_number;
 	protected $gender = "X";
 	//
 	private $email;
@@ -46,6 +47,15 @@ class Personas
 	public function setDni($dni)
 	{
 		$this->dni = $dni;
+	}
+
+	public function getPhoneNumber()
+	{
+		return $this->phone_number;
+	}
+	public function setPhoneNumber($phone_number)
+	{
+		$this->phone_number = $phone_number;
 	}
 
 	public function getGender()
@@ -99,17 +109,18 @@ class Personas
 
 	public function insert()
 	{
-		$insert = "INSERT INTO people (name,last_name,dni,gender,email,pass,addresses,country) VALUES (?,?,?,?,?,?,?,?)";
+		$insert = "INSERT INTO people (name,last_name,dni,phone_number,gender,email,pass,addresses,country) VALUES (?,?,?,?,?	,?,?,?,?)";
 
 		$stmt = Database::conectar()->prepare($insert);
 		$stmt->bindParam(1, $this->name);
 		$stmt->bindParam(2, $this->lastName);
 		$stmt->bindParam(3, $this->dni);
-		$stmt->bindParam(4, $this->gender);
-		$stmt->bindParam(5, $this->email);
-		$stmt->bindParam(6, $this->pass);
-		$stmt->bindParam(7, $this->addresses);
-		$stmt->bindParam(8, $this->country);
+		$stmt->bindParam(4, $this->phone_number);
+		$stmt->bindParam(5, $this->gender);
+		$stmt->bindParam(6, $this->email);
+		$stmt->bindParam(7, $this->pass);
+		$stmt->bindParam(8, $this->addresses);
+		$stmt->bindParam(9, $this->country);
 
 		if ($stmt->execute()) {
 			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
@@ -124,8 +135,9 @@ class Personas
 	{
 		$query = '
 		SELECT people.id AS "id"
-			,CONCAT_WS(", ",people.name, people.last_name) AS "people"
+			,CONCAT_WS(" ",people.name, people.last_name) AS "people"
     		,people.dni AS "dni"
+			,people.phone_number AS phone
     		,people.gender AS "gender"
     		,people.email AS "email"
     		,people.addresses AS "addresses"
@@ -169,6 +181,7 @@ class Personas
 		UPDATE `people` SET `name`= ?	
     		,`last_name`= ?
     		,`dni`= ?
+			,`phone_number`= ?
     		,`gender`= ?
     		,`email`= ?
     		,`addresses`= ?
@@ -180,11 +193,12 @@ class Personas
 		$stmt->bindParam(1, $this->name);
 		$stmt->bindParam(2, $this->lastName);
 		$stmt->bindParam(3, $this->dni);
-		$stmt->bindParam(4, $this->gender);
-		$stmt->bindParam(5, $this->email);
-		$stmt->bindParam(6, $this->addresses);
-		$stmt->bindParam(7, $this->country);
-		$stmt->bindParam(8, $id);
+		$stmt->bindParam(4, $this->phone_number);
+		$stmt->bindParam(5, $this->gender);
+		$stmt->bindParam(6, $this->email);
+		$stmt->bindParam(7, $this->addresses);
+		$stmt->bindParam(8, $this->country);
+		$stmt->bindParam(9, $id);
 
 		if ($stmt->execute()) {
 			$result = ["Query Ok:", $stmt->rowCount(), $stmt->fetchAll(PDO::FETCH_ASSOC)];
@@ -214,6 +228,7 @@ class Personas
 		$query = '
 		SELECT CONCAT_WS(", ",people.name, people.last_name) AS "titular"
     		,people.dni AS "dni"
+			,people.phone_number AS phone
     		,people.gender AS "gender"
     		,people.email AS "email"
     		,people.addresses AS "addresses"

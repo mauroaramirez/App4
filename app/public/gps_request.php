@@ -2,8 +2,12 @@
 session_start();
 
 // Datos de autenticación
-$username = 'admin';
-$password = 'password';
+$username = getenv('USERNAME_TOKEN') ?: $_ENV['USERNAME_TOKEN'];
+$password = getenv('PASSWORD_TOKEN') ?: $_ENV['PASSWORD_TOKEN'];
+$gps_api_url = getenv('GPS_API_URL') ?: $_ENV['GPS_API_URL'];
+
+//$username = 'admin';
+//$password = 'password';
 
 // Obtener el IMEI del formulario
 $imei = $_GET['imei'] ?? null;
@@ -13,7 +17,7 @@ if (isset($_GET['action'])) {
 
     // URL del servicio según la acción
     if ($action === 'gpsnow2') {
-        $url = "http://149.50.133.15:5000/gpsnow/$imei";
+        $url = "$gps_api_url/gpsnow/$imei";
     } elseif ($action === 'gpsbyall2') {
         // Redirigir a map_multiple.php
         header("Location: map_multiple.php?imei=$imei");

@@ -48,15 +48,15 @@ if ($_SESSION['rol_id'] == 1) :
             <div class="row mb-4 justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card p-4 text-left">
-                        <h1 class="text-center mb-4">Consulta Ubicación</h1>
+                        <h1 class="text-center mb-4">Consultar Ubicación</h1>
                         <form id="imeiForm">
                             <div class="mb-3">
-                                <label for="imei" class="form-label">Selecciona el Dispositivo:</label>
-                                <select id="imei" name="imei" class="form-select" required>
-                                    <option value="">-- Selecciona un Dispositivo --</option>
+                                <label for="imei" class="form-label">Seleccionar el Dispositivo:</label>
+                                <select id="imei" name="imei" class="form-select text-center" required>
+                                    <option value="">-- Seleccionar un Dispositivo --</option>
                                     <?php foreach ($sectVinculados[2] as $dispositivo) : ?>
                                         <option value="<?= $dispositivo['imei']; ?>">
-                                            <?= $dispositivo['titular'] . ' - IMEI: ' . $dispositivo['imei'] . ' - Marca: ' . $dispositivo['marca'] . ' - Modelo: ' . $dispositivo['modelo']; ?>
+                                            <?= $dispositivo['titular'] . ' - IMEI: ' . $dispositivo['imei']; ?>
                                         </option>
                                     <?php endforeach; ?>
                                 </select>

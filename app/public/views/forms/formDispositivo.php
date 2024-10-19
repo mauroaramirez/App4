@@ -31,7 +31,7 @@ if ($_SESSION['rol_id'] == 1) :
 			<div class="row mb-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card p-4 text-left">
-						<h3 class="text-center">Registro de Dispositivos</h3>
+						<h3 class="text-center">Registrar de Dispositivo</h3>
 						<form action="../../controllers/scriptDispositivos.php" method="post">
 							<div class="mb-4">
 								<tr>
@@ -59,7 +59,7 @@ if ($_SESSION['rol_id'] == 1) :
 							</div>
 							<div class="mb-4">
 								<label for="imei" class="form-label">IMEI:</label>
-								<input type="text" name="imei" class="form-control" required placeholder="Escriba el N° IMEI">
+								<input type="text" name="imei" class="form-control" required placeholder="Ingresar el N° IMEI">
 							</div>
 							<div class="text-center">
 								<input type="submit" name="newDispositivo" value="Registrar" class="btn btn-primary">

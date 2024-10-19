@@ -46,6 +46,10 @@ if ($_SESSION['rol_id'] == 1) :
 								<input type="number" name="dni" class="form-control" value="<?php echo $personas[2]['dni'] ?>" required>
 							</div>
 							<div class="mb-3">
+								<label for="telefono" class="form-label">Teléfono:</label>
+								<input type="text" name="telefono" class="form-control"  value="<?php echo $personas[2]['phone'] ?>" required>
+							</div>
+							<div class="mb-3">
 								<label>Sexo:</label>
 								<div>
 									<label for="sex" class="form-check-label">M</label>

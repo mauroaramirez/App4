@@ -51,7 +51,7 @@ $dataTable = $personas->selectAll();
 		<div class="row mb-4 justify-content-center">
 			<div class="col-12 col-md-4 col-lg-7">
 				<div class="card p-5 text-left">
-					<h3 class="text-center">Consulta de Personas</h3>
+					<h3 class="text-center">Listado de Personas</h3>
 					<table class="table table-bordered mt-3">
 						<thead>
 							<tr>

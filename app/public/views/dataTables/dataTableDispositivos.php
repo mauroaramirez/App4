@@ -62,7 +62,7 @@ $dataTable = $dispositivos->selectDispositivos();
         <div class="row mb-4 justify-content-center">
             <div class="col-12 col-md-8 col-lg-5">
                 <div class="card p-4 text-left">
-                    <h3 class="text-center">Consulta de Dispositivos</h3>
+                    <h3 class="text-center">Listado de Dispositivos</h3>
                     <div class="table-responsive"> <!-- Añadido para hacer la tabla responsive -->
                         <table class="table table-bordered mt-2">
                             <thead>

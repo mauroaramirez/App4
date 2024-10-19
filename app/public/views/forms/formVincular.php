@@ -34,11 +34,11 @@ if ($_SESSION['rol_id'] == 1) :
 			<div class="row mb-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card p-4 text-left">
-                        <h3 class="text-center">Vincular Dispositivos</h3>
+                        <h3 class="text-center">Vincular Dispositivo</h3>
                         <form action="../../controllers/scriptVincular.php" method="post">
                             <table class="table">
                                 <tr>
-                                    <td><label for="people">Personas:</label></td>
+                                    <td><label for="people">Persona:</label></td>
                                     <td>
                                         <select name="people" id="people" class="form-select">
                                             <?php foreach ($selectPeople[2] as $key => $value) : ?>

@@ -38,6 +38,7 @@ $personas = $personas->selectOne($_GET['id']);
             <div class="card-body text-center">
                 <p><strong>Titular: </strong><?php echo $personas[2]['titular'] ?></p>
                 <p><strong>DNI: </strong><?php echo $personas[2]['dni'] ?></p>
+                <p><strong>Teléfono: </strong><?php echo $personas[2]['phone'] ?></p>
                 <p><strong>Sexo: </strong><?php echo $personas[2]['gender'] ?></p>
                 <p><strong>Email: </strong><?php echo $personas[2]['email'] ?></p>
                 <p><strong>Dirección: </strong><?php echo $personas[2]['addresses'] ?></p>

@@ -19,27 +19,27 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 			<div class="row mb-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card p-4 text-left">
-						<h3 class="text-center">Registro Personas</h3>
+						<h3 class="text-center">Registrar Persona</h3>
 						<form action="../../controllers/scriptPersonas.php" method="post">
 							<div class="mb-3">
 								<label for="nombre" class="form-label">Nombre: </label>
-								<input type="text" name="nombre" class="form-control" required placeholder="Escriba los nombres">
+								<input type="text" name="nombre" class="form-control" required placeholder="Ingresar nombre">
 							</div>
 							<div class="mb-3">
 								<label for="apellido" class="form-label">Apellido:</label>
-								<input type="text" name="apellido" class="form-control" required placeholder="Escriba los apellidos">
+								<input type="text" name="apellido" class="form-control" required placeholder="Ingresar apellido">
 							</div>
 							<div class="mb-3">
 								<label for="email" class="form-label">Email:</label>
-								<input type="email" name="email" class="form-control" required placeholder="Escriba el Email">
+								<input type="email" name="email" class="form-control" required placeholder="Ingresar Email">
 							</div>
 							<div class="mb-3">
 								<label for="dni" class="form-label">DNI:</label>
-								<input type="number" name="dni" class="form-control" required placeholder="Escriba el DNI">
+								<input type="number" name="dni" class="form-control" required placeholder="Ingresar DNI">
 							</div>
 							<div class="mb-3">
 								<label for="telefono" class="form-label">Teléfono:</label>
-								<input type="number" name="telefono" class="form-control" required placeholder="Escriba el Teléfono">
+								<input type="number" name="telefono" class="form-control" required placeholder="Ingresar Teléfono">
 							</div>
 							<div class="mb-3">
 								<label>Sexo:</label>
@@ -54,15 +54,15 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 							</div>
 							<div class="mb-3">
 								<label for="direccion" class="form-label">Dirección:</label>
-								<input type="text" name="direccion" class="form-control" required placeholder="Escriba la dirección">
+								<input type="text" name="direccion" class="form-control" required placeholder="Ingresar dirección">
 							</div>
 							<div class="mb-3">
 								<label for="pais" class="form-label">País:</label>
-								<input type="text" name="pais" class="form-control" required placeholder="Escriba el País">
+								<input type="text" name="pais" class="form-control" required placeholder="Ingresar País">
 							</div>
 							<div class="mb-3">
 								<label for="pass" class="form-label">Password:</label>
-								<input type="password" name="pass" class="form-control" required placeholder="Escriba el Password">
+								<input type="password" name="pass" class="form-control" required placeholder="Ingresar Password">
 							</div>
 							<div class="text-center">
 								<input type="submit" name="insertPersona" value="Registrar" class="btn btn-primary">

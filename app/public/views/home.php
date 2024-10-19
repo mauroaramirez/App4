@@ -60,9 +60,9 @@ if (isset($_SESSION['id'])) {
                             <a href="./forms/formDispositivo.php" class="list-group-item list-group-item-action fs-6">Registrar Dispositivos</a>
                             <a href="./dataTables/dataTablePersonas.php" class="list-group-item list-group-item-action fs-6">Consultar Personas</a>
                             <a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action fs-6">Consultar Dispositivos</a>
-                            <a href="./forms/formVincular.php" class="list-group-item list-group-item-action fs-6">Asociar Dispositivos</a>
-                            <a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action fs-6">Consulta Dispositivos Vinculados</a>
-                            <a href="./get/verIMEI.php" class="list-group-item list-group-item-action fs-6">Consulta Ubicación</a>
+                            <a href="./forms/formVincular.php" class="list-group-item list-group-item-action fs-6">Vincular Dispositivos</a>
+                            <a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action fs-6">Consultar Dispositivos Vinculados</a>
+                            <a href="./get/verIMEI.php" class="list-group-item list-group-item-action fs-6">Consultar Ubicación</a>
                         </div>
                     </div>
                 </div>
