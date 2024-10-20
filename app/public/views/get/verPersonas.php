@@ -34,13 +34,13 @@ $personas = $personas->selectOne($_GET['id']);
 <body class="form-background">
     <div class="container-fluid mt-5">
         <div class="card card-custom">
-            <h3 class="text-center">Datos del Titular</h3>
+            <h3 class="text-center">Datos de la Persona</h3>
             <div class="card-body text-center">
                 <p><strong>Titular: </strong><?php echo $personas[2]['titular'] ?></p>
                 <p><strong>DNI: </strong><?php echo $personas[2]['dni'] ?></p>
                 <p><strong>Teléfono: </strong><?php echo $personas[2]['phone'] ?></p>
-                <p><strong>Sexo: </strong><?php echo $personas[2]['gender'] ?></p>
-                <p><strong>Email: </strong><?php echo $personas[2]['email'] ?></p>
+                <p><strong>Género: </strong><?php echo $personas[2]['gender'] ?></p>
+                <p><strong>Correo electrónico: </strong><?php echo $personas[2]['email'] ?></p>
                 <p><strong>Dirección: </strong><?php echo $personas[2]['addresses'] ?></p>
                 <p><strong>País: </strong><?php echo $personas[2]['country'] ?></p>
                 <a href="../../views/dataTables/dataTablePersonas.php" class="btn btn-info">Ir a Consulta de Personas</a>

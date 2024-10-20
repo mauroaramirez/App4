@@ -30,24 +30,24 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 								<input type="text" name="apellido" class="form-control" required placeholder="Ingresar apellido">
 							</div>
 							<div class="mb-3">
-								<label for="email" class="form-label">Email:</label>
-								<input type="email" name="email" class="form-control" required placeholder="Ingresar Email">
+								<label for="email" class="form-label">Correo electrónico:</label>
+								<input type="email" name="email" class="form-control" required placeholder="Ingresar Correo electrónico">
 							</div>
 							<div class="mb-3">
-								<label for="dni" class="form-label">DNI:</label>
-								<input type="number" name="dni" class="form-control" required placeholder="Ingresar DNI">
+								<label for="dni" class="form-label">Número de DNI:</label>
+								<input type="number" name="dni" class="form-control" required placeholder="Ingresar número de DNI">
 							</div>
 							<div class="mb-3">
 								<label for="telefono" class="form-label">Teléfono:</label>
 								<input type="number" name="telefono" class="form-control" required placeholder="Ingresar Teléfono">
 							</div>
 							<div class="mb-3">
-								<label>Sexo:</label>
+								<label>Género:</label>
 								<div>
-									<label for="sex" class="form-check-label">M</label>
-									<input type="radio" name="sex" value="M" class="form-check-input" required>
-									<label for="sex" class="form-check-label">F</label>
-									<input type="radio" name="sex" value="F" class="form-check-input" required>
+									<label for="sex" class="form-check-label">Masculino</label>
+									<input type="radio" name="sex" value="M" class="form-check-input" required style="margin-right: 20px;">
+									<label for="sex" class="form-check-label">Femenino</label>
+									<input type="radio" name="sex" value="F" class="form-check-input" required style="margin-right: 20px;">
 									<label for="sex" class="form-check-label">X</label>
 									<input type="radio" name="sex" value="X" class="form-check-input" required>
 								</div>
@@ -61,19 +61,19 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 								<input type="text" name="pais" class="form-control" required placeholder="Ingresar País">
 							</div>
 							<div class="mb-3">
-								<label for="pass" class="form-label">Password:</label>
-								<input type="password" name="pass" class="form-control" required placeholder="Ingresar Password">
+								<label for="pass" class="form-label">Contraseña:</label>
+								<input type="password" name="pass" class="form-control" required placeholder="Ingresar Contraseña">
 							</div>
 							<div class="text-center">
 								<input type="submit" name="insertPersona" value="Registrar" class="btn btn-primary">
 							</div>
 						</form>
-						<?php include_once '../links/linkPantallas.php'?>
+						<?php include_once '../links/linkPantallas.php' ?>
 					</div>
 				</div>
 			</div>
 		</div>
-		<?php include_once '../../views/footer/footer.php'?>
+		<?php include_once '../../views/footer/footer.php' ?>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>
 
@@ -81,6 +81,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 <?php else : ?>
 	<!DOCTYPE html>
 	<html lang="es">
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,6 +89,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="../style.css">
 	</head>
+
 	<body class="form-background">
 		<div class="container mt-5 text-center">
 			<div class="card p-4">
@@ -95,5 +97,6 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == null) :
 			</div>
 		</div>
 	</body>
+
 	</html>
 <?php endif ?>

@@ -31,7 +31,7 @@ if ($_SESSION['rol_id'] == 1) :
 			<div class="row mb-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card p-4 text-left">
-						<h3 class="text-center">Registrar de Dispositivo</h3>
+						<h3 class="text-center">Registrar Dispositivo</h3>
 						<form action="../../controllers/scriptDispositivos.php" method="post">
 							<div class="mb-4">
 								<tr>

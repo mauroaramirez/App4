@@ -6,9 +6,6 @@ $username = getenv('USERNAME_TOKEN') ?: $_ENV['USERNAME_TOKEN'];
 $password = getenv('PASSWORD_TOKEN') ?: $_ENV['PASSWORD_TOKEN'];
 $gps_api_url = getenv('GPS_API_URL') ?: $_ENV['GPS_API_URL'];
 
-//$username = 'admin';
-//$password = 'password';
-
 // Obtener el IMEI del formulario
 $imei = $_GET['imei'] ?? null;
 
@@ -45,13 +42,12 @@ if (isset($_GET['action'])) {
 
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($httpCode == 200) {
-        $gps_data = json_decode($response, true)[0]; // Tomar el primer registro
+        $gps_data = json_decode($response, true)[0];
         // Almacenar los datos en variables
         $latitude = $gps_data['latitude'];
         $longitude = $gps_data['longitude'];
         $timestamp = $gps_data['timestamp'];
 
-        // Redirigir a la página del mapa para gpsnow
         header("Location: map.php?lat=$latitude&lon=$longitude&desc=$timestamp");
         exit();
     } elseif ($httpCode == 404) {

@@ -54,7 +54,7 @@ if (isset($_SESSION['id'])) {
             <div class="row justify-content-center">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card p-4">
-                        <h3 class="mb-4 text-center">Menú</h3>
+                        <h3 class="mb-4 text-center">Menú Principal</h3>
                         <div class="list-group text-center">
                             <a href="./forms/formPersonas.php" class="list-group-item list-group-item-action fs-6">Registrar Personas</a>
                             <a href="./forms/formDispositivo.php" class="list-group-item list-group-item-action fs-6">Registrar Dispositivos</a>

@@ -27,17 +27,32 @@ $dataTable = $dispositivos->selectDispositivos();
         $('table').DataTable({
             "pageLength": 5,
             "lengthMenu": [5, 10],
-            "autoWidth": false,  // Deshabilita el ancho automático para controlar mejor el tamaño
-            "scrollX": true,     // Habilita el scroll horizontal si es necesario
-            "fixedHeader": true  // Fija el encabezado de la tabla al hacer scroll
+            "autoWidth": false, 
+            "scrollX": true,     
+            "fixedHeader": true,
+            "language": {
+                "search": "Buscar:", // Personaliza el texto del campo de búsqueda
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
         });
     });
 </script>
 
 <style>
-    table th, table td {
+
+    .table th, 
+    .table td {
         text-align: center;
         vertical-align: middle;
+    }
+
+    .table th {
+        text-align: center !important; /* Usar !important para forzar el centrado */
     }
 
     table td:last-child {
@@ -48,6 +63,12 @@ $dataTable = $dispositivos->selectDispositivos();
         padding: 0.25rem 0.5rem;
         font-size: 0.8rem;
     }
+
+    table.dataTable {
+		border-top: 1px solid #dee2e6;
+		margin-top: 10px;
+	}
+    
 
     @media (max-width: 768px) {
         .btn-sm {
@@ -63,7 +84,7 @@ $dataTable = $dispositivos->selectDispositivos();
             <div class="col-12 col-md-8 col-lg-5">
                 <div class="card p-4 text-left">
                     <h3 class="text-center">Listado de Dispositivos</h3>
-                    <div class="table-responsive"> <!-- Añadido para hacer la tabla responsive -->
+                    <div class="table-responsive"> 
                         <table class="table table-bordered mt-2">
                             <thead>
                                 <tr>
