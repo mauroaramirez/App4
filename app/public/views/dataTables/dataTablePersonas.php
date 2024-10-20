@@ -7,7 +7,6 @@ use Clases\Personas;
 $personas = new Personas;
 
 $dataTable = $personas->selectAll();
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,59 +28,105 @@ $dataTable = $personas->selectAll();
 			"pageLength": 5,
 			"lengthMenu": [5, 10],
 			"autoWidth": true,
-			"scrollX": true,
-			"fixedHeader": true
+			"fixedHeader": true,
+			"language": {
+                "search": "Buscar:", // Personaliza el texto del campo de búsqueda
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
 		});
 	});
 </script>
 
 <style>
-	table th,
-	table td {
-		text-align: center;
-	}
+    .table th, 
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table th {
+        text-align: center !important; /* Usar !important para forzar el centrado */
+    }
 
 	table td:last-child {
 		white-space: nowrap;
+	}
+
+	.dataTables_filter {
+		margin-bottom: 20px;
+	}
+
+	table.dataTable {
+		border-top: 1px solid #dee2e6;
+		margin-top: 10px;
+	}
+
+	    /* Centrar específicamente los encabezados */
+		.table th {
+        text-align: center !important; /* Usar !important para forzar el centrado */
+    }
+
+	/* Ajustes específicos para pantallas pequeñas */
+	@media (max-width: 768px) {
+		.card {
+			padding: 10px;
+		}
+		h3 {
+			font-size: 1.4rem;
+		}
+		.table-responsive {
+			overflow-x: auto;
+		}
+		.table td,
+		.table th {
+			font-size: 0.85rem;
+			padding: 8px;
+		}
 	}
 </style>
 
 <body class="form-background">
 	<div class="container-fluid mt-5">
 		<div class="row mb-4 justify-content-center">
-			<div class="col-12 col-md-4 col-lg-7">
-				<div class="card p-5 text-left">
-					<h3 class="text-center">Consulta de Personas</h3>
-					<table class="table table-bordered mt-3">
-						<thead>
-							<tr>
-								<th>Titular</th>
-								<th>DNI</th>
-								<th>Sexo</th>
-								<th>Email</th>
-								<th>Dirección</th>
-								<th>País</th>
-								<th>Acciones</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach ($dataTable[2] as $key => $value) : ?>
+			<div class="col-12 col-md-8 col-lg-6">
+				<div class="card p-4">
+					<h3 class="text-center">Listado de Personas</h3>
+					<!-- Ajuste de la tabla para pantallas pequeñas -->
+					<div class="table-responsive">
+						<table class="table table-bordered mt-3">
+							<thead>
 								<tr>
-									<td><?php echo $value['people'] ?></td>
-									<td><?php echo $value['dni'] ?></td>
-									<td><?php echo $value['gender'] ?></td>
-									<td><?php echo $value['email'] ?></td>
-									<td><?php echo $value['addresses'] ?></td>
-									<td><?php echo $value['country'] ?></td>
-									<td>
-										<a href="../get/verPersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-info btn-sm">Ver</a>
-										<a href="../edit/editarPersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
-										<a href="../delete/deletePersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Borrar</a>
-									</td>
+									<th>Titular</th>
+									<th>DNI</th>
+									<th>Género</th>
+									<th>Email</th>
+									<th>Dirección</th>
+									<th>Acciones</th>
 								</tr>
-							<?php endforeach ?>
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								<?php foreach ($dataTable[2] as $key => $value) : ?>
+									<tr>
+										<td><?php echo $value['people'] ?></td>
+										<td><?php echo $value['dni'] ?></td>
+										<td><?php echo $value['gender'] ?></td>
+										<td><?php echo $value['email'] ?></td>
+										<td><?php echo $value['addresses'] ?></td>
+										<td>
+											<a href="../get/verPersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-info btn-sm">Ver</a>
+											<a href="../edit/editarPersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-warning btn-sm">Editar</a>
+											<a href="../delete/deletePersonas.php?id=<?php echo $value['id'] ?>" class="btn btn-danger btn-sm">Borrar</a>
+										</td>
+									</tr>
+								<?php endforeach ?>
+							</tbody>
+						</table>
+					</div>
 					<?php include_once '../links/linkPantallas.php' ?>
 				</div>
 			</div>

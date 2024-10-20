@@ -5,11 +5,12 @@ session_start();
 $imei = $_GET['imei'] ?? null;
 
 // Datos de autenticación
-$username = 'admin';
-$password = 'password';
+$username = getenv('USERNAME_TOKEN') ?: $_ENV['USERNAME_TOKEN'];
+$password = getenv('PASSWORD_TOKEN') ?: $_ENV['PASSWORD_TOKEN'];
+$gps_api_url = getenv('GPS_API_URL') ?: $_ENV['GPS_API_URL'];
 
 // URL del servicio para obtener el historial de ubicaciones
-$url = "http://149.50.133.15:5000/gpsbyall/$imei";
+$url = "$gps_api_url/gpsbyall/$imei";
 
 // Inicializar cURL
 $ch = curl_init();
@@ -54,17 +55,28 @@ curl_close($ch);
     <script type="text/javascript">
         const gpsDataList = <?php echo json_encode($gps_data_list); ?>;
 
-        const map = L.map('map').setView([gpsDataList[0].latitude, gpsDataList[0].longitude], 17);
+        // Asegúrate de que gpsDataList no esté vacío
+        if (gpsDataList.length > 0) {
+            // Usa el último registro para centrar el mapa
+            const lastData = gpsDataList[gpsDataList.length - 1];
+            const map = L.map('map').setView([lastData.latitude, lastData.longitude], 17);
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
-        // Iterar sobre cada registro GPS y añadir un marcador para cada uno
-        gpsDataList.forEach(function(gpsData) {
-            L.marker([gpsData.latitude, gpsData.longitude]).addTo(map)
-                .bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b>`);
-        });
+            // Añadir un marcador para la última ubicación
+            L.marker([lastData.latitude, lastData.longitude]).addTo(map)
+                .bindPopup(`<b>Última ubicación registrada en: ${lastData.timestamp}</b>`).openPopup();
+
+            // Iterar sobre cada registro GPS y añadir un marcador para cada uno
+            gpsDataList.forEach(function(gpsData) {
+                L.marker([gpsData.latitude, gpsData.longitude]).addTo(map)
+                    .bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b>`);
+            });
+        } else {
+            alert("No hay datos GPS disponibles para mostrar.");
+        }
     </script>
 </body>
 </html>

@@ -13,6 +13,7 @@ if (isset($_POST['insertPersona'])) {
     $personas->setName($_POST['nombre']);
     $personas->setLastName($_POST['apellido']);
     $personas->setDni($_POST['dni']);
+    $personas->setPhoneNumber($_POST['telefono']);
     $personas->setGender($_POST['sex']);
     $personas->setEmail($_POST['email']);
     $personas->setAddresses($_POST['direccion']);
@@ -28,6 +29,7 @@ if (isset($_POST['updatePersonas'])) {
     $personas->setName($_POST['nombre']);
     $personas->setLastName($_POST['apellido']);
     $personas->setDni($_POST['dni']);
+    $personas->setPhoneNumber($_POST['telefono']);
     $personas->setGender($_POST['sex']);
     $personas->setEmail($_POST['email']);
     $personas->setAddresses($_POST['direccion']);

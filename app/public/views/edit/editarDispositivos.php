@@ -7,7 +7,10 @@ use Clases\Dispositivos;
 if ($_SESSION['rol_id'] == 1) :
 
 	$dispositivos = new Dispositivos;
-	$dispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
+	$selectDispositivos = $dispositivos->selectOneDispositivo($_GET['id']);
+	$selectMarcas = $dispositivos->selectBrand();
+	$selectModelos = $dispositivos->selectModels();
+
 ?>
 	<!DOCTYPE html>
 	<html lang="es">
@@ -21,25 +24,39 @@ if ($_SESSION['rol_id'] == 1) :
 	</head>
 
 	<body class="form-background">
-	<div class="container-fluid mt-5">
-            <div class="row mb-4 justify-content-center">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card p-4 text-left">
+		<div class="container-fluid mt-5">
+			<div class="row mb-4 justify-content-center">
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="card p-4 text-left">
 						<h3 class="text-center">Editar Dispositivo</h3>
 						<form action="../../controllers/scriptDispositivos.php" method="post">
-							<div class="mb-3">
-								<label for="marca" class="form-label">Marca:</label>
-								<input type="text" name="marca" class="form-control" value="<?php echo $dispositivos[2]['marca']; ?>" readonly>
-								<input type="hidden" name="id_brand" value="<?php echo $dispositivos[2]['id_brand']; ?>">
+							<div class="mb-4">
+								<tr>
+									<td><label for="marca">Marca:</label></td>
+									<td>
+										<select name="id_brand" id="marca" class="form-select">
+											<?php foreach ($selectMarcas[2] as $key => $value) : ?>
+												<option value="<?php echo $value['id'] ?>"><?php echo $value['descripcion'] ?></option>
+											<?php endforeach ?>
+										</select>
+									</td>
+								</tr>
 							</div>
-							<div class="mb-3">
-								<label for="modelo" class="form-label">Modelo:</label>
-								<input type="text" name="modelo" class="form-control" value="<?php echo $dispositivos[2]['modelo']; ?>" readonly>
-								<input type="hidden" name="id_model" value="<?php echo $dispositivos[2]['id_model']; ?>">
+							<div class="mb-4">
+								<tr>
+									<td><label for="modelo">Modelo:</label></td>
+									<td>
+										<select name="id_model" id="modelo" class="form-select">
+											<?php foreach ($selectModelos[2] as $key => $value) : ?>
+												<option value="<?php echo $value['id'] ?>"><?php echo $value['descripcion'] ?></option>
+											<?php endforeach ?>
+										</select>
+									</td>
+								</tr>
 							</div>
-							<div class="mb-3">
+							<div class="mb-4">
 								<label for="imei" class="form-label">IMEI:</label>
-								<input type="text" name="imei" class="form-control" value="<?php echo $dispositivos[2]['imei']; ?>" required>
+								<input type="text" name="imei" class="form-control" placeholder="Ingresar el N° IMEI" value="<?php echo $selectDispositivos[2]['imei'] ?>" required>
 							</div>
 							<div class="text-center">
 								<input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
@@ -52,7 +69,7 @@ if ($_SESSION['rol_id'] == 1) :
 				</div>
 			</div>
 		</div>
-		<?php include_once '../../views/footer/footer.php'?>
+		<?php include_once '../../views/footer/footer.php' ?>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>
 

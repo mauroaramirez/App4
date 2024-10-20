@@ -7,7 +7,6 @@ use Clases\Vincular;
 $vinculados = new Vincular;
 
 $dataTable = $vinculados->selectAll();
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -28,60 +27,94 @@ $dataTable = $vinculados->selectAll();
         $('table').DataTable({
             "pageLength": 5,
             "lengthMenu": [5, 10],
-            "autoWidth": true,
+            "autoWidth": false, 
             "scrollX": true,
-            "fixedHeader": true
+            "fixedHeader": true,
+            "language": {
+                "search": "Buscar:",
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente"
+                }
+            }
         });
     });
 </script>
 
 <style>
-    table th,
-    table td {
+    
+    .table th, 
+    .table td {
         text-align: center;
+        vertical-align: middle;
+    }
+
+    .table th {
+        text-align: center !important; /* Usar !important para forzar el centrado */
     }
 
     table td:last-child {
         white-space: nowrap;
     }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    table.dataTable {
+        border-top: 1px solid #dee2e6;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .btn-sm {
+            padding: 0.2rem 0.4rem;
+            font-size: 0.7rem;
+        }
+    }
 </style>
 
 <body class="form-background">
-<div class="container-fluid mt-5">
-		<div class="row mb-4 justify-content-center">
-			<div class="col-12 col-md-4 col-lg-5">
-				<div class="card p-4 text-left">
+    <div class="container-fluid mt-5">
+        <div class="row mb-4 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card p-4 text-left">
                     <h3 class="text-center">Dispositivos Vinculados</h3>
-                    <table class="table table-bordered mt-3">
-                        <thead>
-                            <tr>
-                                <th>Titular</th>
-                                <th>Email</th>
-                                <th>Fecha Alta</th>
-                                <th>Marca</th>
-                                <th>Modelo</th>
-                                <th>IMEI</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($dataTable[2] as $key => $value) : ?>
+                    <div class="table-responsive"> 
+                        <table class="table table-bordered mt-2">
+                            <thead>
                                 <tr>
-                                    <td><?php echo $value['titular'] ?></td>
-                                    <td><?php echo $value['email'] ?></td>
-                                    <td><?php echo $value['created_at'] ?></td>
-                                    <td><?php echo $value['marca'] ?></td>
-                                    <td><?php echo $value['modelo'] ?></td>
-                                    <td><?php echo $value['imei'] ?></td>
+                                    <th>Titular</th>
+                                    <th>Email</th>
+                                    <th>Fecha Alta</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>IMEI</th>
                                 </tr>
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($dataTable[2] as $key => $value) : ?>
+                                    <tr>
+                                        <td><?php echo $value['titular'] ?></td>
+                                        <td><?php echo $value['email'] ?></td>
+                                        <td><?php echo $value['created_at'] ?></td>
+                                        <td><?php echo $value['marca'] ?></td>
+                                        <td><?php echo $value['modelo'] ?></td>
+                                        <td><?php echo $value['imei'] ?></td>
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
                     <?php include_once '../links/linkPantallas.php' ?>
                 </div>
             </div>
         </div>
     </div>
-    <?php include_once '../../views/footer/footer.php'?>
+    <?php include_once '../../views/footer/footer.php' ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

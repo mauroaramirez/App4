@@ -25,9 +25,9 @@ if ($_SESSION['rol_id'] == 1) :
 	<body class="form-background">
 	<div class="container-fluid mt-5">
             <div class="row mb-4 justify-content-center">
-                <div class="col-12 col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-4">
                     <div class="card p-4 text-left">
-						<h3 class="text-center">Editar Personas</h3>
+						<h3 class="text-center">Editar Persona</h3>
 						<form action="../../controllers/scriptPersonas.php" method="post">
 							<div class="mb-3">
 								<label for="nombre" class="form-label">Nombre:</label>
@@ -38,20 +38,24 @@ if ($_SESSION['rol_id'] == 1) :
 								<input type="text" name="apellido" class="form-control" value="<?php echo trim($nombre_completo[1]) ?>" required>
 							</div>
 							<div class="mb-3">
-								<label for="email" class="form-label">Email:</label>
+								<label for="email" class="form-label">Correo electrónico:</label>
 								<input type="email" name="email" class="form-control" value="<?php echo $personas[2]['email'] ?>" required>
 							</div>
 							<div class="mb-3">
-								<label for="dni" class="form-label">DNI:</label>
+								<label for="dni" class="form-label">Número de DNI:</label>
 								<input type="number" name="dni" class="form-control" value="<?php echo $personas[2]['dni'] ?>" required>
 							</div>
 							<div class="mb-3">
-								<label>Sexo:</label>
+								<label for="telefono" class="form-label">Teléfono:</label>
+								<input type="text" name="telefono" class="form-control"  value="<?php echo $personas[2]['phone'] ?>" required>
+							</div>
+							<div class="mb-3">
+								<label>Género:</label>
 								<div>
-									<label for="sex" class="form-check-label">M</label>
-									<input type="radio" name="sex" value="M" class="form-check-input" <?php echo ($personas[2]['gender'] == "M") ? "checked" : ""; ?>>
-									<label for="sex" class="form-check-label">F</label>
-									<input type="radio" name="sex" value="F" class="form-check-input" <?php echo ($personas[2]['gender'] == "F") ? "checked" : ""; ?>>
+									<label for="sex" class="form-check-label">Masculino</label>
+									<input type="radio" name="sex" value="M" class="form-check-input" required style="margin-right: 20px;" <?php echo ($personas[2]['gender'] == "M") ? "checked" : ""; ?>>
+									<label for="sex" class="form-check-label">Femenino</label>
+									<input type="radio" name="sex" value="F" class="form-check-input" required style="margin-right: 20px;" <?php echo ($personas[2]['gender'] == "F") ? "checked" : ""; ?>>
 									<label for="sex" class="form-check-label">X</label>
 									<input type="radio" name="sex" value="X" class="form-check-input" <?php echo ($personas[2]['gender'] == "X") ? "checked" : ""; ?>>
 								</div>

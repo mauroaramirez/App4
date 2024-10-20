@@ -47,14 +47,14 @@ if (!isset($_SESSION['rol'])) :
 			<div class="row justify-content-center">
 				<div class="col-md-5">
 					<div class="card p-5">
-						<h3 class="text-center mb-4">Ingreso al sistema</h3>
+						<h3 class="text-center mb-4">Iniciar sesión</h3>
 						<form action="../../controllers/scriptSession.php" method="post">
 							<div class="mb-3">
 								<label for="dni" class="form-label">DNI:</label>
 								<input type="text" name="dni" id="dni" class="form-control" required>
 							</div>
 							<div class="mb-3">
-								<label for="pass" class="form-label">PASS:</label>
+								<label for="pass" class="form-label">Contraseña:</label>
 								<input type="password" name="pass" id="pass" class="form-control" required>
 							</div>
 							<div class="d-grid">

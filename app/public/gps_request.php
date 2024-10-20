@@ -2,8 +2,9 @@
 session_start();
 
 // Datos de autenticación
-$username = 'admin';
-$password = 'password';
+$username = getenv('USERNAME_TOKEN') ?: $_ENV['USERNAME_TOKEN'];
+$password = getenv('PASSWORD_TOKEN') ?: $_ENV['PASSWORD_TOKEN'];
+$gps_api_url = getenv('GPS_API_URL') ?: $_ENV['GPS_API_URL'];
 
 // Obtener el IMEI del formulario
 $imei = $_GET['imei'] ?? null;
@@ -13,7 +14,7 @@ if (isset($_GET['action'])) {
 
     // URL del servicio según la acción
     if ($action === 'gpsnow2') {
-        $url = "http://149.50.133.15:5000/gpsnow/$imei";
+        $url = "$gps_api_url/gpsnow/$imei";
     } elseif ($action === 'gpsbyall2') {
         // Redirigir a map_multiple.php
         header("Location: map_multiple.php?imei=$imei");
@@ -41,13 +42,12 @@ if (isset($_GET['action'])) {
 
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($httpCode == 200) {
-        $gps_data = json_decode($response, true)[0]; // Tomar el primer registro
+        $gps_data = json_decode($response, true)[0];
         // Almacenar los datos en variables
         $latitude = $gps_data['latitude'];
         $longitude = $gps_data['longitude'];
         $timestamp = $gps_data['timestamp'];
 
-        // Redirigir a la página del mapa para gpsnow
         header("Location: map.php?lat=$latitude&lon=$longitude&desc=$timestamp");
         exit();
     } elseif ($httpCode == 404) {
