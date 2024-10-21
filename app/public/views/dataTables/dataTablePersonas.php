@@ -50,7 +50,7 @@ $dataTable = $personas->selectAll();
     }
 
     .table th {
-        text-align: center !important; /* Usar !important para forzar el centrado */
+        text-align: center !important;
     }
 
 	table td:last-child {

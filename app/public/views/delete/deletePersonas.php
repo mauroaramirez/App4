@@ -2,7 +2,7 @@
 session_start();
 include_once '../get/verPersonas.php';
 
-if ($_SESSION['rol_id'] == 1) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
 
 ?>
     <center>

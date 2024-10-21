@@ -51,7 +51,7 @@ if (isset($_GET['action'])) {
         header("Location: map.php?lat=$latitude&lon=$longitude&desc=$timestamp");
         exit();
     } elseif ($httpCode == 404) {
-        echo "Error: IMEI not found.";
+        include_once '../public/views/error.php';
     } elseif ($httpCode == 401) {
         echo "Error: Unauthorized access.";
     } else {

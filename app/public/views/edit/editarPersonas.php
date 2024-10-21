@@ -4,7 +4,7 @@ require_once '../../models/Personas.php';
 
 use Clases\Personas;
 
-if ($_SESSION['rol_id'] == 1) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
 
 	$personas = new Personas;
 
@@ -100,7 +100,6 @@ if ($_SESSION['rol_id'] == 1) :
 		<div class="container mt-5 text-center">
 			<div class="card p-4">
 				<nav><?php include_once '../links/linkSinPermisos.php'; ?></nav>
-				<a href="../dataTables/dataTablePersonas.php">Ir a Consulta de Personas</a>
 			</div>
 		</div>
 	</body>

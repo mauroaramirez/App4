@@ -8,8 +8,7 @@ require_once '../../models/Dispositivos.php';
 use Clases\Personas;
 use Clases\Dispositivos;
 
-// rol_id = 1 es perfil root
-if ($_SESSION['rol_id'] == 1) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
 
     $dispositivos = new Dispositivos;
     $personas = new Personas;

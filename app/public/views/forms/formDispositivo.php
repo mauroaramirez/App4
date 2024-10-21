@@ -5,7 +5,7 @@ require_once '../../models/Dispositivos.php';
 
 use Clases\Dispositivos;
 
-if ($_SESSION['rol_id'] == 1) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
 
 	$dispositivos = new Dispositivos;
 

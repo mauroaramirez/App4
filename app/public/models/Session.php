@@ -14,9 +14,6 @@ $conectar = $conectar->conectar();
 
 class Session
 {
-
-
-
 	private $dni;
 	private $pass;
 
