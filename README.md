@@ -108,7 +108,6 @@ PHP_PORT=4060
 GPS_API_URL=http://149.50.133.15:5000
 USERNAME_TOKEN=admin
 PASSWORD_TOKEN=password
-GEO_API_BASE_URL=http://127.0.0.1:5000
 ```
 ## Levantar los contenedores
 
@@ -126,9 +125,19 @@ http://localhost:7071 -> PhpMyAdmin
 
 http://localhost:7070/ -> servidor apache
 
-## Datos de usuario ROOT
+## Datos de usuarios
 
+- ROOT
 - DNI: 00000000
 - PASS: 111 
 
-Alumno: Mauro, Adrian Ramirez
+- Usuario Avanzado
+- DNI: 34037147
+- PASS: 111 
+
+- Usuario Básico
+- DNI: 56123123
+- PASS: 111 
+
+
+Alumno: Ramirez, Mauro Adrian 

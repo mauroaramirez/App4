@@ -30,28 +30,28 @@ $dataTable = $personas->selectAll();
 			"autoWidth": true,
 			"fixedHeader": true,
 			"language": {
-                "search": "Buscar:", // Personaliza el texto del campo de búsqueda
-                "lengthMenu": "Mostrar _MENU_ registros por página",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "paginate": {
-                    "previous": "Anterior",
-                    "next": "Siguiente"
-                }
-            }
+				"search": "Buscar:", // Personaliza el texto del campo de búsqueda
+				"lengthMenu": "Mostrar _MENU_ registros por página",
+				"info": "Mostrando página _PAGE_ de _PAGES_",
+				"paginate": {
+					"previous": "Anterior",
+					"next": "Siguiente"
+				}
+			}
 		});
 	});
 </script>
 
 <style>
-    .table th, 
-    .table td {
-        text-align: center;
-        vertical-align: middle;
-    }
+	.table th,
+	.table td {
+		text-align: center;
+		vertical-align: middle;
+	}
 
-    .table th {
-        text-align: center !important;
-    }
+	.table th {
+		text-align: center !important;
+	}
 
 	table td:last-child {
 		white-space: nowrap;
@@ -66,22 +66,26 @@ $dataTable = $personas->selectAll();
 		margin-top: 10px;
 	}
 
-	    /* Centrar específicamente los encabezados */
-		.table th {
-        text-align: center !important; /* Usar !important para forzar el centrado */
-    }
+	/* Centrar específicamente los encabezados */
+	.table th {
+		text-align: center !important;
+		/* !important para forzar el centrado */
+	}
 
 	/* Ajustes específicos para pantallas pequeñas */
 	@media (max-width: 768px) {
 		.card {
 			padding: 10px;
 		}
+
 		h3 {
 			font-size: 1.4rem;
 		}
+
 		.table-responsive {
 			overflow-x: auto;
 		}
+
 		.table td,
 		.table th {
 			font-size: 0.85rem;

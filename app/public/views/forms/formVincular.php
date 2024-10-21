@@ -8,7 +8,7 @@ require_once '../../models/Dispositivos.php';
 use Clases\Personas;
 use Clases\Dispositivos;
 
-if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 || $_SESSION['rol_id'] == null) :
 
     $dispositivos = new Dispositivos;
     $personas = new Personas;
@@ -29,10 +29,10 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
     </head>
 
     <body class="form-background">
-    <div class="container-fluid mt-5">
-			<div class="row mb-4 justify-content-center">
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="card p-4 text-left">
+        <div class="container-fluid mt-5">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card p-4 text-left">
                         <h3 class="text-center">Vincular Dispositivo</h3>
                         <form action="../../controllers/scriptVincular.php" method="post">
                             <table class="table">
@@ -51,7 +51,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
                                     <td>
                                         <select name="dispositivo" id="dispositivo" class="form-select">
                                             <?php foreach ($selectDispositivos[2] as $key => $value) : ?>
-                                                <option value="<?php echo $value['id'] ?>"><?php echo $value['imei'] ?></option>
+                                                <option value="<?php echo $value['id'] ?>"><?php echo $value['imei'] . " - " . $value['marca'] . "- " . $value['modelo'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </td>
@@ -68,7 +68,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
                 </div>
             </div>
         </div>
-        <?php include_once '../../views/footer/footer.php'?>
+        <?php include_once '../../views/footer/footer.php' ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 

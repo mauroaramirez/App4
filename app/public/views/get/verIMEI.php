@@ -75,7 +75,7 @@ $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
         // Obtener la URL de la API desde PHP
         const geoApiBaseUrl = "<?= $GEO_API_BASE_URL ?>";
 
-        // PRUEBA Botón para consultar gpsnow
+        // Botón para consultar gpsnow
         document.getElementById('gpsNowBtn2').addEventListener('click', function() {
             const imei = imeiSelect.value;
             if (imei) {
@@ -86,7 +86,7 @@ $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
             }
         });
 
-        // PRUEBA Botón para consultar gpsbyall
+        // Botón para consultar gpsbyall
         document.getElementById('gpsByAllBtn2').addEventListener('click', function() {
             const imei = imeiSelect.value;
             if (imei) {

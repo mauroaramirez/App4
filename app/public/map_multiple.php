@@ -42,6 +42,7 @@ curl_close($ch);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,15 +50,15 @@ curl_close($ch);
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
+
 <body>
     <div id="map" style="height: 1000px; width: 100%;"></div>
 
     <script type="text/javascript">
         const gpsDataList = <?php echo json_encode($gps_data_list); ?>;
 
-        // Asegúrate de que gpsDataList no esté vacío
         if (gpsDataList.length > 0) {
-            // Usa el último registro para centrar el mapa
+            // Último registro para centrar el mapa
             const lastData = gpsDataList[gpsDataList.length - 1];
             const map = L.map('map').setView([lastData.latitude, lastData.longitude], 17);
 
@@ -79,4 +80,5 @@ curl_close($ch);
         }
     </script>
 </body>
+
 </html>

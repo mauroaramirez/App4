@@ -8,6 +8,8 @@ function validarResonseQuery($result)
 {
     if ($result == "00000") {
         return "Se dio de alta el nuevo registro correctamente.";
+    } elseif ($result == "23000") {
+        return "Error: El IMEI ingresado ya existe. Por favor, ingrese un IMEI único.";
     } else {
         return "Hubo un error al insertar el nuevo registro: <br><br>";
         foreach ($result as $key => $value) {
@@ -23,6 +25,7 @@ function validarResonseQuery($result)
         return "<br>Intente nuevamente.";
     }
 }
+
 
 function validarResonseQueryDelete($result)
 {

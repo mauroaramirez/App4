@@ -35,7 +35,8 @@
 	}
 
 	/* Para garantizar que el contenido ocupe toda la pantalla antes del footer */
-	html, body {
+	html,
+	body {
 		height: 100%;
 	}
 
@@ -46,7 +47,8 @@
 	}
 
 	.container-fluid {
-		flex: 1; /* Ocupa el espacio restante antes del footer */
+		flex: 1;
+		/* Ocupa el espacio restante antes del footer */
 	}
 </style>
 
