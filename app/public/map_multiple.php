@@ -32,7 +32,7 @@ $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 if ($httpCode == 200) {
     $gps_data_list = json_decode($response, true);
 } else {
-    echo "Error: IMEI not found or server error.";
+    include_once '../public/views/error.php';
     exit();
 }
 
