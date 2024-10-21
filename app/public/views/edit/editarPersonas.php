@@ -4,7 +4,7 @@ require_once '../../models/Personas.php';
 
 use Clases\Personas;
 
-if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 || $_SESSION['rol_id'] == null) :
 
 	$personas = new Personas;
 
@@ -23,10 +23,10 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
 	</head>
 
 	<body class="form-background">
-	<div class="container-fluid mt-5">
-            <div class="row mb-4 justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card p-4 text-left">
+		<div class="container-fluid mt-5">
+			<div class="row mb-4 justify-content-center">
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="card p-4 text-left">
 						<h3 class="text-center">Editar Persona</h3>
 						<form action="../../controllers/scriptPersonas.php" method="post">
 							<div class="mb-3">
@@ -47,7 +47,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
 							</div>
 							<div class="mb-3">
 								<label for="telefono" class="form-label">Teléfono:</label>
-								<input type="text" name="telefono" class="form-control"  value="<?php echo $personas[2]['phone'] ?>" required>
+								<input type="text" name="telefono" class="form-control" value="<?php echo $personas[2]['phone'] ?>" required>
 							</div>
 							<div class="mb-3">
 								<label>Género:</label>
@@ -79,7 +79,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
 				</div>
 			</div>
 		</div>
-		<?php include_once '../../views/footer/footer.php'?>
+		<?php include_once '../../views/footer/footer.php' ?>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>
 

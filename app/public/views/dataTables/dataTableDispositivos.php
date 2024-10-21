@@ -27,8 +27,8 @@ $dataTable = $dispositivos->selectDispositivos();
         $('table').DataTable({
             "pageLength": 5,
             "lengthMenu": [5, 10],
-            "autoWidth": false, 
-            "scrollX": true,     
+            "autoWidth": false,
+            "scrollX": true,
             "fixedHeader": true,
             "language": {
                 "search": "Buscar:", // Personaliza el texto del campo de búsqueda
@@ -44,15 +44,15 @@ $dataTable = $dispositivos->selectDispositivos();
 </script>
 
 <style>
-
-    .table th, 
+    .table th,
     .table td {
         text-align: center;
         vertical-align: middle;
     }
 
     .table th {
-        text-align: center !important; /* !important para forzar el centrado */
+        text-align: center !important;
+        /* !important para forzar el centrado */
     }
 
     table td:last-child {
@@ -65,10 +65,10 @@ $dataTable = $dispositivos->selectDispositivos();
     }
 
     table.dataTable {
-		border-top: 1px solid #dee2e6;
-		margin-top: 10px;
-	}
-    
+        border-top: 1px solid #dee2e6;
+        margin-top: 10px;
+    }
+
 
     @media (max-width: 768px) {
         .btn-sm {
@@ -82,10 +82,10 @@ $dataTable = $dispositivos->selectDispositivos();
     <div class="container-fluid mt-5">
         <div class="row mb-4 justify-content-center">
             <div class="col-12 col-md-8 col-lg-5">
-                <div class="card p-4 text-left">
+                <div class="card p-4">
                     <h3 class="text-center">Listado de Dispositivos</h3>
-                    <div class="table-responsive"> 
-                        <table class="table table-bordered mt-2">
+                    <div class="table-responsive">
+                        <table class="table table-bordered mt-3">
                             <thead>
                                 <tr>
                                     <th>ID</th>

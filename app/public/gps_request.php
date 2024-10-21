@@ -13,15 +13,19 @@ if (isset($_GET['action'])) {
     $action = $_GET['action'];
 
     // URL del servicio según la acción
-    if ($action === 'gpsnow2') {
-        $url = "$gps_api_url/gpsnow/$imei";
-    } elseif ($action === 'gpsbyall2') {
-        // Redirigir a map_multiple.php
-        header("Location: map_multiple.php?imei=$imei");
-        exit();
-    } else {
-        echo "Acción no válida.";
-        exit();
+    switch ($action) {
+        case 'gpsnow2':
+            $url = "$gps_api_url/gpsnow/$imei";
+            break;
+
+        case 'gpsbyall2':
+            // Redirigir a map_multiple.php
+            header("Location: map_multiple.php?imei=$imei");
+            exit();
+
+        default:
+            echo "Acción no válida.";
+            exit();
     }
 
     // Inicializar cURL
@@ -63,4 +67,3 @@ if (isset($_GET['action'])) {
 } else {
     echo "No se ha especificado una acción.";
 }
-?>

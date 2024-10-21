@@ -34,7 +34,6 @@ if (isset($_POST['updatePersonas'])) {
     $personas->setEmail($_POST['email']);
     $personas->setAddresses($_POST['direccion']);
     $personas->setCountry($_POST['pais']);
-    //$personas->setPass($_POST['pass']);
 
     $result = $personas->update($_POST['id']);
 

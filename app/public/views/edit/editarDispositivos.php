@@ -4,7 +4,7 @@ require_once '../../models/Dispositivos.php';
 
 use Clases\Dispositivos;
 
-if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 || $_SESSION['rol_id'] == null) :
 
 	$dispositivos = new Dispositivos;
 	$selectDispositivos = $dispositivos->selectOneDispositivo($_GET['id']);

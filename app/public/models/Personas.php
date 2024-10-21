@@ -211,7 +211,7 @@ class Personas
 	public function delete($id)
 	{
 		$delete = "UPDATE `people` SET `id_status` = '2' WHERE `people`.`id` = ?";
-				   
+
 		$stmt = Database::conectar()->prepare($delete);
 		$stmt->bindParam(1, $id);
 

@@ -2,8 +2,8 @@
 session_start();
 include_once '../get/verDispositivos.php';
 
-if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
-	
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 || $_SESSION['rol_id'] == null) :
+
 ?>
 	<center>
 		<body class="form-background">

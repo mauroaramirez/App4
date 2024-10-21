@@ -5,7 +5,7 @@ require_once '../../models/Dispositivos.php';
 
 use Clases\Dispositivos;
 
-if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 || $_SESSION['rol_id'] == null) :
 
 	$dispositivos = new Dispositivos;
 
@@ -27,7 +27,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
 	</head>
 
 	<body class="form-background">
-	<div class="container-fluid mt-5">
+		<div class="container-fluid mt-5">
 			<div class="row mb-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="card p-4 text-left">
@@ -59,8 +59,24 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
 							</div>
 							<div class="mb-4">
 								<label for="imei" class="form-label">IMEI:</label>
-								<input type="text" name="imei" class="form-control" required placeholder="Ingresar el N° IMEI">
+								<input type="text" name="imei" id="imei" class="form-control" required placeholder="Ingresar el N° IMEI" maxlength="10">
+								<small id="imeiError" class="text-danger"></small>
 							</div>
+
+							<script>
+								document.querySelector('form').addEventListener('submit', function(event) {
+									const imei = document.getElementById('imei').value;
+									const imeiError = document.getElementById('imeiError');
+
+									if (imei.length !== 10) {
+										event.preventDefault();
+										imeiError.textContent = 'El IMEI debe tener exactamente 10 caracteres.';
+									} else {
+										imeiError.textContent = ''; // Limpiar el mensaje de error si la longitud es correcta
+									}
+								});
+							</script>
+
 							<div class="text-center">
 								<input type="submit" name="newDispositivo" value="Registrar" class="btn btn-primary">
 							</div>
@@ -70,7 +86,7 @@ if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] =
 				</div>
 			</div>
 		</div>
-		<?php include_once '../../views/footer/footer.php'?>
+		<?php include_once '../../views/footer/footer.php' ?>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 	</body>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 ||$_SESSION['rol_id'] == null) :
+if ($_SESSION['rol_id'] == 1 || $_SESSION['rol_id'] == 2 || $_SESSION['rol_id'] == null) :
 ?>
 	<!DOCTYPE html>
 	<html lang="es">

@@ -27,7 +27,7 @@ $dataTable = $vinculados->selectAll();
         $('table').DataTable({
             "pageLength": 5,
             "lengthMenu": [5, 10],
-            "autoWidth": false, 
+            "autoWidth": false,
             "scrollX": true,
             "fixedHeader": true,
             "language": {
@@ -44,8 +44,7 @@ $dataTable = $vinculados->selectAll();
 </script>
 
 <style>
-    
-    .table th, 
+    .table th,
     .table td {
         text-align: center;
         vertical-align: middle;
@@ -83,7 +82,7 @@ $dataTable = $vinculados->selectAll();
             <div class="col-12 col-md-8 col-lg-6">
                 <div class="card p-4 text-left">
                     <h3 class="text-center">Dispositivos Vinculados</h3>
-                    <div class="table-responsive"> 
+                    <div class="table-responsive">
                         <table class="table table-bordered mt-2">
                             <thead>
                                 <tr>

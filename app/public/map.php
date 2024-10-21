@@ -5,15 +5,17 @@ $longitude = $_GET['lon'];
 $timestamp = $_GET['desc'];
 
 // Función para calcular la diferencia en días entre la fecha actual y el timestamp
-function getDaysDifference($timestamp) {
+function getDaysDifference($timestamp)
+{
     $currentDate = new DateTime();
     $gpsDate = new DateTime($timestamp);
     $interval = $currentDate->diff($gpsDate);
-    return $interval->days; // Devolvemos la diferencia en días
+    return $interval->days; // Devulve la diferencia en días
 }
 
 // Determinar el color del marcador según la diferencia en días
-function getMarkerColor($timestamp) {
+function getMarkerColor($timestamp)
+{
     $daysDifference = getDaysDifference($timestamp);
 
     if ($daysDifference <= 1) {
@@ -33,6 +35,7 @@ $markerColor = getMarkerColor($timestamp);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,19 +47,24 @@ $markerColor = getMarkerColor($timestamp);
             height: 1000px;
             width: 100%;
         }
+
         /* Estilo del marcador con el color dinámico */
         .marker-green {
             background-color: green;
         }
+
         .marker-yellow {
             background-color: yellow;
         }
+
         .marker-orange {
             background-color: orange;
         }
+
         .marker-red {
             background-color: red;
         }
+
         .marker-icon {
             width: 32px;
             height: 32px;
@@ -65,6 +73,7 @@ $markerColor = getMarkerColor($timestamp);
         }
     </style>
 </head>
+
 <body>
     <div id="map"></div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
@@ -82,7 +91,7 @@ $markerColor = getMarkerColor($timestamp);
             icon: L.divIcon({
                 className: 'marker-icon marker-<?php echo $markerColor; ?>',
                 iconSize: [32, 32],
-                html: '<div class="marker-icon"></div>' // Representación del marcador
+                //html: '<div class="marker-icon"></div>' // Representación del marcador
             })
         }).addTo(map);
 
@@ -107,4 +116,5 @@ $markerColor = getMarkerColor($timestamp);
         marker.bindPopup(popupMessage).openPopup();
     </script>
 </body>
+
 </html>
