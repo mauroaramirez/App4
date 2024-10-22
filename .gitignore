@@ -1,0 +1,13 @@
+.env.prod
+.env.local
+docker-compose-local.yaml
+!.gitkeep
+files/*.*
+!files/.gitkeep
+mysql/*.*
+mysql/ib*
+mysql/*/
+!mysql/.gitkeep
+__pycache__
+.envbu
+backup

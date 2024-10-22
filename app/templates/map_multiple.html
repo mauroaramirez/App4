@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa GPS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <div id="map" style="height: 1000px; width: 100%;"></div>
+
+    <script type="text/javascript">
+
+        const gpsDataList = JSON.parse('{{ gps_data_list | tojson | safe }}');
+
+        const map = L.map('map').setView([gpsDataList[0].latitude, gpsDataList[0].longitude], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Iterar sobre cada registro GPS y añadir un marcador para cada uno
+        gpsDataList.forEach(function(gpsData) {
+            L.marker([gpsData.latitude, gpsData.longitude]).addTo(map)
+                .bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b>`)
+                .openPopup();
+        });
+    </script>
+</body>
+</html>
