@@ -3,11 +3,13 @@ session_start();
 
 // Datos de autenticación
 $username = getenv('USERNAME_TOKEN') ?: $_ENV['USERNAME_TOKEN'];
-$password = getenv('PASSWORD_TOKEN') ?: $_ENV['PASSWORD_TOKEN'];
+$password = getenv('PASSWORD_TOKEN') ?: $_ENV['USERNAME_TOKEN'];
 $gps_api_url = getenv('GPS_API_URL') ?: $_ENV['GPS_API_URL'];
 
-// Obtener el IMEI del formulario
+// Obtener datos del formulario
 $imei = $_GET['imei'] ?? null;
+$start_date = $_GET['start_date'] ?? null;
+$end_date = $_GET['end_date'] ?? null;
 
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -22,6 +24,15 @@ if (isset($_GET['action'])) {
             // Redirigir a map_multiple.php
             header("Location: map_multiple.php?imei=$imei");
             exit();
+
+        case 'gpsbydate':
+            if ($start_date && $end_date) {
+                $url = "$gps_api_url/gpsbydate/$imei?start_date=$start_date&end_date=$end_date";
+            } else {
+                echo "Error: Falta especificar las fechas.";
+                exit();
+            }
+            break;
 
         default:
             echo "Acción no válida.";
@@ -46,14 +57,23 @@ if (isset($_GET['action'])) {
 
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     if ($httpCode == 200) {
-        $gps_data = json_decode($response, true)[0];
-        // Almacenar los datos en variables
-        $latitude = $gps_data['latitude'];
-        $longitude = $gps_data['longitude'];
-        $timestamp = $gps_data['timestamp'];
+        if ($action === 'gpsbydate') {
+            $gps_data = json_decode($response, true);
+        
+            // Redirigir al mapa con el historial
+            $_SESSION['gps_data'] = $gps_data;
+            header("Location: map_multiple_bydate.php?imei=$imei");
+            exit();
+        }
+         else {
+            $gps_data = json_decode($response, true)[0];
+            $latitude = $gps_data['latitude'];
+            $longitude = $gps_data['longitude'];
+            $timestamp = $gps_data['timestamp'];
 
-        header("Location: map.php?lat=$latitude&lon=$longitude&desc=$timestamp");
-        exit();
+            header("Location: map.php?lat=$latitude&lon=$longitude&desc=$timestamp");
+            exit();
+        }
     } elseif ($httpCode == 404) {
         include_once '../public/views/error.php';
     } elseif ($httpCode == 401) {

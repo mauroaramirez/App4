@@ -62,7 +62,8 @@ if (isset($_SESSION['id'])) {
                             <a href="./dataTables/dataTableDispositivos.php" class="list-group-item list-group-item-action fs-6">Consultar Dispositivos</a>
                             <a href="./forms/formVincular.php" class="list-group-item list-group-item-action fs-6">Vincular Dispositivos</a>
                             <a href="./dataTables/dataTableVinculados.php" class="list-group-item list-group-item-action fs-6">Consultar Dispositivos Vinculados</a>
-                            <a href="./get/verIMEI.php" class="list-group-item list-group-item-action fs-6">Consultar Ubicación</a>
+                            <a href="./get/verIMEI.php" class="list-group-item list-group-item-action fs-6">Consultar Ubicación - Histórico</a>
+                            <a href="./get/verIMEIporFecha.php" class="list-group-item list-group-item-action fs-6">Consultar Ubicación - Por fecha</a>
                         </div>
                     </div>
                 </div>

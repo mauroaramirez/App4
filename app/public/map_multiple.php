@@ -68,12 +68,16 @@ curl_close($ch);
 
             // Añadir un marcador para la última ubicación
             L.marker([lastData.latitude, lastData.longitude]).addTo(map)
-                .bindPopup(`<b>Última ubicación registrada en: ${lastData.timestamp}</b>`).openPopup();
+            .bindPopup(`<b>IMEI:</b> ${lastData.imei}<br>
+                        <b>Última ubicación registrada:</b><br>
+                        <b>Fecha:</b> ${lastData.timestamp}`).openPopup();
 
             // Iterar sobre cada registro GPS y añadir un marcador para cada uno
             gpsDataList.forEach(function(gpsData) {
                 L.marker([gpsData.latitude, gpsData.longitude]).addTo(map)
-                    .bindPopup(`<b>Ubicación registrada en: ${gpsData.timestamp}</b>`);
+                .bindPopup(`<b>IMEI:</b> ${gpsData.imei}<br>
+                            <b>Ubicación registrada:</b><br>   
+                            <b>Fecha:</b> ${gpsData.timestamp}`);
             });
         } else {
             alert("No hay datos GPS disponibles para mostrar.");
