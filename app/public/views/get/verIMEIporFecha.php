@@ -58,11 +58,11 @@ $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
                         </div>
                         <div class="mb-3">
                             <label for="startDate" class="form-label">Fecha Desde:</label>
-                            <input type="date" id="startDate" name="start_date" class="form-control" required>
+                            <input type="date" id="startDate" name="start_date" class="form-control" value="<?= date('Y-m-d'); ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="endDate" class="form-label">Fecha Hasta:</label>
-                            <input type="date" id="endDate" name="end_date" class="form-control" required>
+                            <input type="date" id="endDate" name="end_date" class="form-control" value="<?= date('Y-m-d'); ?>" required>
                         </div>
                         <div class="d-grid gap-2">
                             <button type="button" id="gpsByDateBtn" class="btn btn-info">Consultar por Fechas</button>

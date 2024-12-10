@@ -74,14 +74,30 @@ if (isset($_GET['action'])) {
             header("Location: map.php?lat=$latitude&lon=$longitude&desc=$timestamp");
             exit();
         }
-    } elseif ($httpCode == 404) {
-        include_once '../public/views/error.php';
+    }
+    // Manejo de errores
+    if ($httpCode == 404) {
+        // Decodificar la respuesta JSON del servicio
+        $response_data = json_decode($response, true);
+
+        // Validar el mensaje dentro del campo `msg`
+        if (isset($response_data['msg']) && $response_data['msg'] === "No se encontraron datos en el rango de fechas especificado") {
+            $_SESSION['error_message'] = 'No se encontraron registros en el rango de fechas ingresado.';
+            include_once '../public/views/no_records.php';
+            exit();
+        } else {
+            // Manejo genérico de error 404
+            $_SESSION['error_message'] = 'Error: Recurso no encontrado.';
+            include_once '../public/views/error.php';
+            exit();
+        }
     } elseif ($httpCode == 401) {
         echo "Error: Unauthorized access.";
+        exit();
     } else {
         echo "Error: Server error.";
+        exit();
     }
-
     // Cerrar cURL
     curl_close($ch);
 } else {

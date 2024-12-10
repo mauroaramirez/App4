@@ -91,7 +91,6 @@ $markerColor = getMarkerColor($timestamp);
             icon: L.divIcon({
                 className: 'marker-icon marker-<?php echo $markerColor; ?>',
                 iconSize: [32, 32],
-                //html: '<div class="marker-icon"></div>' // Representación del marcador
             })
         }).addTo(map);
 
