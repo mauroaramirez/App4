@@ -27,6 +27,11 @@ if (isset($_GET['action'])) {
 
         case 'gpsbydate':
             if ($start_date && $end_date) {
+                // Validar que la fecha hasta no sea menor que la fecha desde
+                if (strtotime($end_date) < strtotime($start_date)) {
+                    include_once '../public/views/error_date.php';
+                    exit();
+                }
                 $url = "$gps_api_url/gpsbydate/$imei?start_date=$start_date&end_date=$end_date";
             } else {
                 echo "Error: Falta especificar las fechas.";
@@ -59,13 +64,12 @@ if (isset($_GET['action'])) {
     if ($httpCode == 200) {
         if ($action === 'gpsbydate') {
             $gps_data = json_decode($response, true);
-        
+
             // Redirigir al mapa con el historial
             $_SESSION['gps_data'] = $gps_data;
             header("Location: map_multiple_bydate.php?imei=$imei");
             exit();
-        }
-         else {
+        } else {
             $gps_data = json_decode($response, true)[0];
             $latitude = $gps_data['latitude'];
             $longitude = $gps_data['longitude'];
