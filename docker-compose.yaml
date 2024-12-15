@@ -12,18 +12,6 @@ services:
      - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
     networks:
       - sql_default
-  flask-app4-r:
-    build: ./app
-#    context: .
-    volumes:
-      - ./app:/app
-#    dockerfile: Dockerfile.python
-    container_name: flask-app4-r
-    restart: always
-    ports:
-      - "5001:5000"
-    networks:
-      - sql_default
 networks:
   sql_default:
     external: true
