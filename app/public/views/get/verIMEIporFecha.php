@@ -14,7 +14,9 @@ $vinculados = new Vincular;
 $sectVinculados = $vinculados->selectAll();
 
 $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +40,25 @@ $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
     }
 </style>
 
+<script>
+    document.getElementById("formFechas").addEventListener("submit", function(event) {
+        const fechaDesde = new Date(document.getElementById("start_date").value);
+        const fechaHasta = new Date(document.getElementById("end_date").value);
+
+        if (fechaHasta < fechaDesde) {
+            event.preventDefault(); // Evitar el envío del formulario
+            alert("La fecha 'Hasta' no puede ser menor que la fecha 'Desde'.");
+        }
+    });
+</script>
+
+
 <body class="form-background">
     <div class="container-fluid mt-5">
         <div class="row mb-4 justify-content-center">
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="card p-4 text-left">
-                    <h1 class="text-center mb-4">Consultar Ubicación</h1>
+                    <h2 class="text-center mb-4">Consultar Ubicación</h2>
                     <form id="imeiForm">
                         <div class="mb-3">
                             <label for="imei" class="form-label">Seleccionar el Dispositivo:</label>

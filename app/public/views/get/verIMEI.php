@@ -14,7 +14,6 @@ $vinculados = new Vincular;
 $sectVinculados = $vinculados->selectAll();
 
 $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
-
 ?>
 
 <!DOCTYPE html>
@@ -37,63 +36,70 @@ $GEO_API_BASE_URL = getenv('GEO_API_BASE_URL') ?: $_ENV['GEO_API_BASE_URL'];
         height: 100vh;
         margin: 0;
     }
+
+    .centered-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card-container {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .checkbox-container {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    .text-center-custom {
+        text-align: center;
+    }
 </style>
 
 <body class="form-background">
-    <div class="container-fluid mt-5">
-        <div class="row mb-4 justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card p-4 text-left">
-                    <h1 class="text-center mb-4">Consultar Ubicación</h1>
-                    <form id="imeiForm">
-                        <div class="mb-3">
-                            <label for="imei" class="form-label">Seleccionar el Dispositivo:</label>
-                            <select id="imei" name="imei" class="form-select text-center" required>
-                                <option value="">-- Seleccionar un Dispositivo --</option>
-                                <?php foreach ($sectVinculados[2] as $dispositivo) : ?>
-                                    <option value="<?= $dispositivo['imei']; ?>">
-                                        <?= $dispositivo['titular'] . ' - IMEI: ' . $dispositivo['imei']; ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <div class="d-grid gap-2">
-                            <button type="button" id="gpsNowBtn2" class="btn btn-info">Consultar última ubicación</button><br>
-                            <button type="button" id="gpsByAllBtn2" class="btn btn-info">Historial de ubicaciones</button>
-                            <?php include_once '../links/linkPantallas.php' ?>
-                        </div>
-                    </form>
+    <div class="container-fluid mt-5 centered-form">
+        <div class="card card-container p-4 text-left">
+            <h2 class="text-center-custom mb-4">Consultar Ubicación</h2>
+            <form id="imeiForm">
+                <div class="mb-3">
+                    <label class="form-label text-center-custom">Seleccione uno o más dispositivos:</label>
+                    <div class="border rounded p-3 checkbox-container">
+                        <?php foreach ($sectVinculados[2] as $dispositivo) : ?>
+                            <div class="form-check">
+                                <input
+                                    type="checkbox"
+                                    class="form-check-input"
+                                    name="imei[]"
+                                    value="<?= $dispositivo['imei']; ?>"
+                                    id="imei_<?= $dispositivo['imei']; ?>">
+                                <label class="form-check-label" for="imei_<?= $dispositivo['imei']; ?>">
+                                    <?= $dispositivo['titular'] . ' - IMEI: ' . $dispositivo['imei']; ?>
+                                </label>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
+                <div class="d-grid gap-2">
+                    <button type="button" id="gpsNowBtn2" class="btn btn-info">Consultar última ubicación</button>
+                    <?php include_once '../links/linkPantallas.php' ?>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
-        // Capturar IMEI
-        const imeiSelect = document.getElementById('imei');
-
-        // Obtener la URL de la API desde PHP
-        const geoApiBaseUrl = "<?= $GEO_API_BASE_URL ?>";
-
-        // Botón para consultar gpsnow
         document.getElementById('gpsNowBtn2').addEventListener('click', function() {
-            const imei = imeiSelect.value;
-            if (imei) {
-                // Redirigir a gps_request.php con IMEI y acción
-                window.location.href = `../../gps_request.php?imei=${imei}&action=gpsnow2`;
-            } else {
-                alert('Por favor, selecciona un IMEI.');
-            }
-        });
+            const imeis = Array.from(document.querySelectorAll('input[name="imei[]"]:checked')).map(input => input.value);
 
-        // Botón para consultar gpsbyall
-        document.getElementById('gpsByAllBtn2').addEventListener('click', function() {
-            const imei = imeiSelect.value;
-            if (imei) {
-                // Redirigir a gps_request.php con IMEI y acción
-                window.location.href = `../../gps_request.php?imei=${imei}&action=gpsbyall2`;
+            if (imeis.length > 0) {
+                // Redirigir a gps_multiple_request.php con IMEIs seleccionados
+                const url = `../../gps_multiple_request.php?imei=${encodeURIComponent(imeis.join(','))}`;
+                window.location.href = url;
             } else {
-                alert('Por favor, selecciona un IMEI.');
+                alert('Por favor, selecciona al menos un dispositivo.');
             }
         });
     </script>

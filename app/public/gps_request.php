@@ -25,20 +25,20 @@ if (isset($_GET['action'])) {
             header("Location: map_multiple.php?imei=$imei");
             exit();
 
-        case 'gpsbydate':
-            if ($start_date && $end_date) {
-                // Validar que la fecha hasta no sea menor que la fecha desde
-                if (strtotime($end_date) < strtotime($start_date)) {
-                    include_once '../public/views/error_date.php';
+            case 'gpsbydate':
+                if ($start_date && $end_date) {
+                    // Validar que la fecha hasta no sea menor que la fecha desde
+                    if (strtotime($end_date) < strtotime($start_date)) {
+                        include_once '../public/views/error_date.php';
+                        exit();
+                    }
+                    $url = "$gps_api_url/gpsbydate/$imei?start_date=$start_date&end_date=$end_date";
+                } else {
+                    echo "Error: Falta especificar las fechas.";
                     exit();
                 }
-                $url = "$gps_api_url/gpsbydate/$imei?start_date=$start_date&end_date=$end_date";
-            } else {
-                echo "Error: Falta especificar las fechas.";
-                exit();
-            }
-            break;
-
+                break;
+            
         default:
             echo "Acción no válida.";
             exit();
@@ -64,12 +64,13 @@ if (isset($_GET['action'])) {
     if ($httpCode == 200) {
         if ($action === 'gpsbydate') {
             $gps_data = json_decode($response, true);
-
+        
             // Redirigir al mapa con el historial
             $_SESSION['gps_data'] = $gps_data;
             header("Location: map_multiple_bydate.php?imei=$imei");
             exit();
-        } else {
+        }
+         else {
             $gps_data = json_decode($response, true)[0];
             $latitude = $gps_data['latitude'];
             $longitude = $gps_data['longitude'];
@@ -84,7 +85,7 @@ if (isset($_GET['action'])) {
         // Decodificar la respuesta JSON del servicio
         $response_data = json_decode($response, true);
 
-        // Validar el mensaje dentro del campo `msg`
+        // Validar el mensaje dentro del campo msg
         if (isset($response_data['msg']) && $response_data['msg'] === "No se encontraron datos en el rango de fechas especificado") {
             $_SESSION['error_message'] = 'No se encontraron registros en el rango de fechas ingresado.';
             include_once '../public/views/no_records.php';
@@ -106,4 +107,4 @@ if (isset($_GET['action'])) {
     curl_close($ch);
 } else {
     echo "No se ha especificado una acción.";
-}
+}   

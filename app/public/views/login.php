@@ -13,35 +13,6 @@ if (!isset($_SESSION['rol'])) :
 		<title>Login</title>
 	</head>
 
-	<!-- Prueba video de fondo 
-	<video autoplay muted loop id="bg-video">
-  		<source src="../video/video-1.mp4"video/mp4">
-	</video>
-	
-	<style>
-
-	#bg-video {
-		position: fixed;
-		right: 0;
-		bottom: 0;
-		min-width: 100%;
-		min-height: 100%;
-		z-index: -1;
-	}
-
-	body {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-family: Arial, sans-serif;
-	}
-
-	</style>
-	-->
-
 	<body>
 		<div class="container mt-5">
 			<div class="row justify-content-center">
@@ -74,9 +45,9 @@ if (!isset($_SESSION['rol'])) :
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/style.css">
 	<div class="container-fluid mt-5">
-            <div class="row mb-4 justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card p-4 text-left">
+		<div class="row mb-4 justify-content-center">
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card p-4 text-left">
 					<h1>Ya estás logeado, no se puede acceder al Login.</h1>
 					<a href="../views/home.php" class="btn btn-info mt-3">Home</a>
 					<a href="./logout.php" class="btn btn-danger mt-3">Cerrar Sesión</a>
